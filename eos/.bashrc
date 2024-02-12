@@ -26,7 +26,8 @@ shopt -s checkwinsize
 
 # one command to update dotfiles
 gitupdate () {
-    git add -u
+    cd ~/.dotfiles
+    git add --all
     git status
     git commit -m "Updates from $(date '+%F')"
     git push
