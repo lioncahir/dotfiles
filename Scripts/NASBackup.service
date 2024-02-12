@@ -1,0 +1,12 @@
+[Unit]
+Description=Rsync backup upon NAS mount
+After=media-NAS-Media.mount
+Requires=media-NAS-Media.mount
+
+[Service]
+ExecStart=/usr/bin/bash /home/mirko/.local/bin/NASBackup.sh
+StandardOutput=append:/home/mirko/NASBackup.log
+StandardError=inherit
+
+[Install]
+WantedBy=media-NAS-Media.mount

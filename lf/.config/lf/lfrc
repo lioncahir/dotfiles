@@ -1,0 +1,100 @@
+set previewer ~/.config/lf/preview
+
+# Basic Settings
+set hidden false
+set ignorecase true
+set icons true
+set drawbox true
+set sortby ext
+set cursorpreviewfmt
+set incsearch true
+
+# Custom functions
+cmd trash %trash-put "$fx"
+
+cmd view $bat --paging=always -f "$f"
+
+cmd mediainfo !mediainfo "$f"
+
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json)
+            $EDITOR "$f" ;;
+        *) 
+            xdg-open "$f" 2>/dev/null
+            lf -remote "send $id redraw" ;;
+    esac
+}}
+
+cmd mkdir %{{
+  printf "Directory Name: "
+  read ans
+  mkdir "$ans"
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+cmd fzf_jump ${{
+  res="$(find . ! -path '*/.cache/*' ! -path '*/.git/*' ! -path '*/.mozilla/*' | fzf --cycle --info=inline --header='Select directory or file: ')"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd multirename ${{
+  /bin/sh -c "vimv $(echo -e "$fx" | xargs -i echo "\\'{}\\'" | xargs echo)"
+}}
+
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+cmd dirsize %{{
+    size="$(du -hsx $f | cut -f1)"
+    echo Directory size: $size
+}}
+
+#cmd on-select &{{
+#    lf -remote "send $id set statfmt \"$(eza -ldg --color=always $(basename "$f"))\""
+#}}
+
+# Bindings
+# Remove some defaults
+map m
+map e
+map E
+map i
+map f
+map t
+map C
+
+# Basic Functions
+map . set hidden!
+map / fzf_jump
+map <enter> open
+map <delete> trash
+map e $$EDITOR "$f"
+map E $sudo $EDITOR "$f"
+map i view
+map C edit-config
+map md mkdir
+map mf mkfile
+map mr multirename
+map mi mediainfo
+map ms dirsize
+map tl !trash-list
+map tr !trash-restore
+map te $trash-empty
+
+# Movement
+map gd cd ~/Downloads
+map gm cd /media/NAS/Media
+map gf cd /run/user/1000/gvfs
