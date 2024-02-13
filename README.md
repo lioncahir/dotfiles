@@ -7,7 +7,7 @@
    cd .dotfiles
    ```
 
-1. Use GNU stow to create symlinks for selected application (use -v option fo verbose output)
+1. Use GNU stow to create symlinks for selected application (use -v option for verbose output)
 
    ```shell
    stow -v mpv
