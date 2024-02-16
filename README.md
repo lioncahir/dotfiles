@@ -17,4 +17,4 @@
 ## Special considerations
 
 - do not stow **Scripts**
-- do not stow **firefox**, it contains file *user.js* which should be symlinked to *~/.mozilla/firefox/<profileXXX>/*
+- do not stow **firefox**, it contains file *user.js* which should be symlinked to *~/.mozilla/firefox/profileXXX/*
