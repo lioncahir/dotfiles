@@ -7,10 +7,10 @@ options=(\
 "Decrease swappiness" \
 "Perform software changes" \
 "Install flatpaks" \
-"Install Micro text editor" \
+"Install fzf" \
 "Install Borg backup" \
-"Install nnn file manager" \
-"Install Hack Nerd font" \
+"Install lf file manager" \
+"Install JetBrains Mono Nerd font" \
 "Install Starship prompt"
 "Configure Cinnamon apps (Nemo, xed, xview)" \
 "Perform Cinnamon theming" \
@@ -27,7 +27,7 @@ add_nas () {
 }
 
 add_ppas () {
-    sudo add-apt-repository ppa:libreoffice/ppa
+#    sudo add-apt-repository ppa:libreoffice/ppa
     sudo add-apt-repository ppa:flatpak/stable
     sudo add-apt-repository ppa:papirus/papirus
     sudo apt update
@@ -44,29 +44,13 @@ decrease_swappiness () {
 
 software_changes () {
     sudo apt remove hexchat onboard
-    sudo apt install grub2-theme-mint git fonts-crosextra-carlito fonts-crosextra-caladea exa gthumb papirus-folders papirus-icon-theme mpv mediainfo
+    sudo apt install grub2-theme-mint git fonts-crosextra-carlito fonts-crosextra-caladea exa gthumb papirus-folders papirus-icon-theme mpv mediainfo trash-cli
 }
 
 install_flatpaks () {
     flatpak install org.gtk.Gtk3theme.Mint-Y-Dark
     flatpak install com.github.johnfactotum.Foliate
-}
-
-install_micro () {
-    cd $(xdg-user-dir DOWNLOAD)
-    asset=""
-    asset=$(curl -s https://api.github.com/repos/zyedidia/micro/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \")
-    if [ -n "$asset" ]
-    then
-        asset_file=$(basename $asset)
-        echo "Downloading $asset"
-        wget -q $asset
-        sudo apt deb ./$asset_file
-        rm $asset_file
-        echo "Micro editor installed"
-    else
-        echo "Could not download Micro from GitHub"
-    fi
+    flatpak install org.libreoffice.LibreOffice
 }
 
 install_borg () {
@@ -89,44 +73,60 @@ install_borg () {
     fi
 }
 
-install_nnn () {
+install_lf () {
     asset=""
-    asset=$(curl -s https://api.github.com/repos/jarun/nnn/releases/latest | grep "browser_download_url.*nnn-nerd-static" | cut -d : -f 2,3 | tr -d \")
+    asset=$(curl -s https://api.github.com/repos/gokcehan/lf/releases/latest | grep "browser_download_url.*lf-linux-amd64.tar.gz\"" | cut -d : -f 2,3 | tr -d \")
     if [ -n "$asset" ]
     then
         cd $(xdg-user-dir DOWNLOAD)
         asset_file=$(basename $asset)
         echo "Downloading $asset"
         wget -q $asset
-        tar -xf $asset_file
-        sudo cp nnn-nerd-static /usr/local/bin/nnn
-        sudo chown root:root /usr/local/bin/nnn
-        sudo chmod 755 /usr/local/bin/nnn
-        rm nnn-nerd-static
+        tar -xvzf $asset_file
+        sudo cp $asset_file /usr/local/bin/lf
+        sudo chown root:root /usr/local/bin/lf
         rm $asset_file
-        echo "nnn installed"
+        echo "LF installed"
     else
-        echo "Could not download nnn from GitHub"
+        echo "Could not download LF from GitHub"
     fi
 }
 
-install_hack () {
+install_fzf () {
     asset=""
-    asset=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | grep "browser_download_url.*Hack.zip" | cut -d : -f 2,3 | tr -d \")
+    asset=$(curl -s https://api.github.com/repos/junegunn/fzf/releases/latest | grep "browser_download_url.*linux_amd64.tar.gz\"" | cut -d : -f 2,3 | tr -d \")
     if [ -n "$asset" ]
     then
-    	mkdir -pv ~/.local/share/fonts
-        cd ~/.local/share/fonts
+        cd $(xdg-user-dir DOWNLOAD)
+        asset_file=$(basename $asset)
+        echo "Downloading $asset"
+        wget -q $asset
+        tar -xvzf $asset_file
+        sudo cp $asset_file /usr/local/bin/fzf
+        sudo chown root:root /usr/local/bin/fzf
+        rm $asset_file
+        echo "fzf installed"
+    else
+        echo "Could not download fzf from GitHub"
+    fi
+}
+
+install_font () {
+    asset=""
+    asset=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | grep "browser_download_url.*JetBrainsMono.zip" | cut -d : -f 2,3 | tr -d \")
+    if [ -n "$asset" ]
+    then
+    	mkdir -pv ~/.local/share/fonts/JetBrainsMono
+        cd ~/.local/share/fonts/JetBrainsMono
         asset_file=$(basename $asset)
         echo "Downloading $asset"
         wget -q $asset
 	    unzip -o $asset_file
 	    rm $asset_file
 	    fc-cache -fv
-        dconf write /org/gnome/terminal/legacy/profiles:/:$(gsettings get org.gnome.Terminal.ProfilesList default)/font "'Hack Nerd Font 13'"
-        echo "Hack font installed in $HOME/.local/share/fonts and set in Terminal"
+        echo "JetBrains Mono font installed in $HOME/.local/share/fonts and set in Terminal"
     else
-        echo "Could not download Hack font from GitHub"
+        echo "Could not download JetBrains Mono font from GitHub"
     fi
 }
 
@@ -211,10 +211,10 @@ select opt in "${options[@]}"; do
         4) decrease_swappiness ;;
         5) software_changes ;;
         6) install_flatpaks ;;
-        7) install_micro ;;
+        7) install_fzf ;;
         8) install_borg ;;
-        9) install_nnn ;;
-        10) install_hack ;;
+        9) install_lf ;;
+        10) install_font ;;
         11) install_starship ;;
         12) cinnamon_apps ;;
         13) cinnamon_theming ;;
