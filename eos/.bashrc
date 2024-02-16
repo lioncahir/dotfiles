@@ -31,6 +31,7 @@ gitupdate () {
     git status
     git commit -m "Updates from $(date '+%F')"
     git push
+    cd -
 }
 
 # function to recursively uninstall orphaned packages while keeping optional dependencies
