@@ -83,9 +83,9 @@ install_lf () {
         echo "Downloading $asset"
         wget -q $asset
         tar -xvzf $asset_file
-        sudo cp $asset_file /usr/local/bin/lf
+        sudo mv lf /usr/local/bin/
         sudo chown root:root /usr/local/bin/lf
-        rm $asset_file
+        rm $asset_file lf
         echo "LF installed"
     else
         echo "Could not download LF from GitHub"
