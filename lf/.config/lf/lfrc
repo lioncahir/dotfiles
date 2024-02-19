@@ -10,7 +10,7 @@ set cursorpreviewfmt
 set incsearch true
 
 # Custom functions
-cmd trash %trash-put "$fx"
+cmd trash %trash-put $fx
 
 cmd view $bat --paging=always -f "$f"
 
