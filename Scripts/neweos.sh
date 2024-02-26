@@ -10,8 +10,6 @@ options=(\
 "Install printer & scanner (Samsung M2070)" \
 "Enable Bluetooth" \
 "Set systemd timers (paccache, reflector)" \
-"Install LF" \
-"Install Timeshift" \
 "Quit" \
 )
 
@@ -35,11 +33,11 @@ decrease_swappiness () {
 
 software_changes () {
     sudo pacman -Syu
-    sudo pacman -S --needed borg python-llfuse eza starship mediainfo vim ttf-jetbrains-mono-nerd alacritty bat gdu fzf
+    sudo pacman -S --needed borg python-llfuse eza starship mediainfo vim ttf-jetbrains-mono-nerd alacritty bat gdu fzf lf trash-cli
     sudo pacman -S --needed libreoffice-fresh foliate gnome-disk-utility
     sudo pacman -S --needed gvfs-google gvfs-goa gnome-keyring gnome-calendar gnome-online-accounts
     sudo pacman -R gnome-calculator
-    yay -S nemo-mediainfo-tab gnome-calculator-gtk3 baobab-gtk3 hunspell-sk 
+    yay -S nemo-mediainfo-tab gnome-calculator-gtk3 baobab-gtk3 hunspell-sk vimv-git
 }
 
 cinnamon_apps () {
@@ -84,7 +82,7 @@ cinnamon_theming () {
     gsettings set org.nemo.desktop font 'Ubuntu 10'
     gsettings set org.gnome.desktop.interface document-font-name 'Sans 10'
     gsettings set org.gnome.desktop.interface monospace-font-name 'Monospace 10'
-    gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.1
+    gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.2
     papirus-folders -C violet --theme Papirus-Dark
 }
 
@@ -99,20 +97,9 @@ bluetooth () {
 }
 
 timers () {
-    sudo systemctl enable paccache.timer
     sudo sed -i "/^--sort/c\--sort rate" /etc/xdg/reflector/reflector.conf
     sudo sed -i "/^# --country/c\--country Slovakia,Czechia,Austria,Germany" /etc/xdg/reflector/reflector.conf
     sudo systemctl enable reflector.timer
-}
-
-lf () {
-    sudo pacman -S --needed lf trash-cli 
-    yay -S vimv-git 
-}
-
-timeshift () {
-    yay -S timeshift timeshift-autosnap
-    sudo sed -i "/^maxSnapshots/c\maxSnapshots=4" /etc/timeshift-autosnap.conf
 }
 
 clear
@@ -137,9 +124,7 @@ echo
         7) scanner ;;
         8) bluetooth ;;
         9) timers ;;
-        10) lf ;;
-        11) timeshift ;;
-        12) break 2 ;;
+        10) break 2 ;;
         *) echo "Invalid option" >&2
     esac
     REPLY=
