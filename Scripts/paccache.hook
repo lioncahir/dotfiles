@@ -7,4 +7,4 @@ Target = *
 [Action]
 Description = Cleaning pacman cache...
 When = PostTransaction
-Exec = /usr/bin/paccache -rk2 -ruk0
+Exec = /bin/sh -c 'paccache -rk2; paccache -ruk0'
