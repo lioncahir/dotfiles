@@ -39,7 +39,7 @@ cmd mkfile ${{
 }}
 
 cmd fzf_jump ${{
-  res="$(find . ! -path '*/.cache/*' ! -path '*/.git/*' ! -path '*/.mozilla/*' | fzf --cycle --info=inline --header='Select directory or file: ')"
+  res="$(find . -mount ! -path '*/.cache/*' ! -path '*/.git/*' ! -path '*/.mozilla/*' 2>/dev/null | fzf --cycle --info=inline --header='Select directory or file: ')"
   if [ -f "$res" ]; then
     cmd="select"
   elif [ -d "$res" ]; then

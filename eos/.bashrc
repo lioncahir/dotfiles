@@ -67,8 +67,8 @@ fi
 # set fzf options
 if command -v fzf &> /dev/null
 then
-	export FZF_DEFAULT_COMMAND='find . ! -path '*/.cache/*' ! -path '*/.git/*' ! -path '*/.mozilla/*''
-	export FZF_CTRL_T_COMMAND='find . ! -path '*/.cache/*' ! -path '*/.git/*' ! -path '*/.mozilla/*''
+	export FZF_DEFAULT_COMMAND='find . -mount ! -path '*/.cache/*' ! -path '*/.git/*' ! -path '*/.mozilla/*' 2>/dev/null'
+	export FZF_CTRL_T_COMMAND='find . -mount ! -path '*/.cache/*' ! -path '*/.git/*' ! -path '*/.mozilla/*' 2>/dev/null'
 	source /usr/share/fzf/key-bindings.bash
     source /usr/share/fzf/completion.bash
     alias fzf='fzf --cycle --info=inline'
