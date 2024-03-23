@@ -9,7 +9,7 @@ options=(\
 "Perform Cinnamon theming" \
 "Install printer & scanner (Samsung M2070)" \
 "Enable Bluetooth" \
-"Set systemd timers (paccache, reflector)" \
+"Set systemd timers (reflector)" \
 "Quit" \
 )
 
