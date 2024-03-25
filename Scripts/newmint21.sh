@@ -124,7 +124,7 @@ install_font () {
 	    unzip -o $asset_file
 	    rm $asset_file
 	    fc-cache -fv
-        echo "JetBrains Mono font installed in $HOME/.local/share/fonts and set in Terminal"
+        echo "JetBrains Mono font installed in $HOME/.local/share/fonts"
     else
         echo "Could not download JetBrains Mono font from GitHub"
     fi
