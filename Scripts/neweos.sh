@@ -37,7 +37,7 @@ software_changes () {
     sudo pacman -S --needed libreoffice-fresh foliate gnome-disk-utility
     sudo pacman -S --needed gvfs-google gvfs-goa gnome-keyring gnome-calendar gnome-online-accounts
     sudo pacman -R gnome-calculator
-    yay -S nemo-mediainfo-tab gnome-calculator-gtk3 baobab-gtk3 hunspell-sk vimv-git
+    yay -S nemo-mediainfo-tab gnome-calculator-gtk3 baobab-gtk3 hunspell-sk vimv-git gnome-online-accounts-gtk
 }
 
 cinnamon_apps () {
