@@ -102,7 +102,7 @@ install_fzf () {
         echo "Downloading $asset"
         wget -q $asset
         tar -xvzf $asset_file
-        sudo cp $asset_file /usr/local/bin/fzf
+        sudo mv fzf /usr/local/bin/
         sudo chown root:root /usr/local/bin/fzf
         rm $asset_file
         echo "fzf installed"
