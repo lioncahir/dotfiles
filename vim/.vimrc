@@ -19,6 +19,12 @@ vnoremap p "_dP
 set wrap linebreak
 set textwidth=100
 
+"Use arrows to move between wrapped lines
+nmap <up> gk
+nmap <down> gj
+nmap <silent> <home> g0
+nmap <silent> <end> g$
+
 "Autoclose brackets
 inoremap " ""<left>
 inoremap ' ''<left>
@@ -42,10 +48,13 @@ Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 call plug#end()
 
 "Plugin settings
 let g:goyo_width=100
+let g:gruvbox_italic=1
+"let g:gruvbox_contrast_dark='hard'
 
 "LightLine
 set laststatus=2
@@ -56,9 +65,7 @@ set ttimeout ttimeoutlen=50
 set background=dark
 let g:codedark_italics=1
 let g:codedark_modern=1
-colorscheme codedark
+colorscheme gruvbox
 
-let g:lightline = {'colorscheme' : 'codedark'}
+let g:lightline = {'colorscheme' : 'gruvbox'}
 
-"gVim settings
-set guifont=Hack\ Nerd\ Font\ Mono\ 13
