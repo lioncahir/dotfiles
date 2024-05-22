@@ -33,10 +33,10 @@ decrease_swappiness () {
 
 software_changes () {
     sudo pacman -Syu
-    sudo pacman -S --needed borg python-llfuse eza starship mediainfo vim ttf-jetbrains-mono-nerd alacritty bat gdu fzf lf trash-cli xarchiver
-    sudo pacman -S --needed libreoffice-fresh foliate gnome-disk-utility
+    sudo pacman -S --needed borg python-llfuse eza starship mediainfo vim ttf-jetbrains-mono-nerd alacritty bat gdu fzf lf trash-cli fastfetch btop
+    sudo pacman -S --needed libreoffice-fresh foliate gnome-disk-utility xarchiver
     sudo pacman -S --needed gvfs-google gvfs-goa gnome-keyring gnome-calendar gnome-online-accounts
-    sudo pacman -R gnome-calculator nemo-fileroller file-roller
+    sudo pacman -R gnome-calculator nemo-fileroller file-roller gnome-system-monitor
     yay -S nemo-mediainfo-tab gnome-calculator-gtk3 baobab-gtk3 hunspell-sk vimv-git gnome-online-accounts-gtk
 }
 

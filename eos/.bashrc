@@ -102,6 +102,12 @@ then
     alias ls='eza -lg --group-directories-first --sort=ext --icons'
 fi
 
+# fastfetch
+if command -v fastfetch &> /dev/null
+then
+    fastfetch -c neofetch
+fi
+
 # start starship prompt
 if command -v starship &> /dev/null
 then
