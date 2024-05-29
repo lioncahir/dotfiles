@@ -1,0 +1,22 @@
+configuration {
+	modes: "window,drun,run";
+	font: "JetBrainsMono Nerd Font 13";
+	show-icons: true;
+	icon-theme: "Papirus-Dark";
+	drun-display-format: "{name}";
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+
+@theme "gruvbox-dark"
+
+listview {
+	lines: 10;
+    columns: 2;
+}
