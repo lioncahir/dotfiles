@@ -74,6 +74,7 @@ if command -v vim &> /dev/null
 then
 	export EDITOR="/usr/bin/vim"
 	export VISUAL="/usr/bin/vim"
+    alias i3conf="vim ~/.config/i3/config"
 fi
 
 # set man pager to BAT
@@ -103,10 +104,10 @@ then
 fi
 
 # fastfetch
-if command -v fastfetch &> /dev/null
-then
-    fastfetch -c neofetch
-fi
+#if command -v fastfetch &> /dev/null
+#then
+#    fastfetch -c neofetch
+#fi
 
 # start starship prompt
 if command -v starship &> /dev/null
