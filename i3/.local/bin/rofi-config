@@ -1,0 +1,30 @@
+#!/bin/bash
+
+menu(){
+	printf "1. .bashrc\n"
+	printf "2. i3\n"
+	printf "3. .vimrc\n"
+	printf "4. polybar\n"
+}
+
+main(){
+    choice=$(menu | rofi -dmenu -p "Edit config" -no-fixed-num-lines | cut -d. -f1)
+
+	case $choice in
+		1)
+			WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.bashrc'
+            ;;
+		2)
+			WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/i3/config'
+            ;;
+		3)
+			WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.vimrc'
+            ;;
+		4)
+			WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.confif/polybar/config.ini'
+            ;;
+        esac
+}
+
+main
+
