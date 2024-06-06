@@ -34,7 +34,7 @@ bindsym $mod+l exec "i3lock -c 000000 -i /usr/share/endeavouros/backgrounds/ende
 bindsym $mod+q kill
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+Return exec "rofi -show drun"
-bindsym $mod+Shift+q exec "rofi -show power-menu -modi 'power-menu:rofi-power-menu --choices=logout/reboot/shutdown' -no-fixed-num-lines"
+bindsym $mod+Shift+q exec rofi-power
 
 # Window manipulation
 bindsym $mod+Left focus left

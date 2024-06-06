@@ -48,7 +48,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'ap/vim-css-color'
 call plug#end()
 
 "Plugin settings
