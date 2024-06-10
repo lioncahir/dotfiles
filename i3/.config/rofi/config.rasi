@@ -21,12 +21,9 @@ element-text {
     vertical-align: 0.5;
 }
 
-element-selected {
-    background-color: red;
-}
-
 listview {
 	lines: 10;
+    scrollbar: false;
 }
 
 entry {

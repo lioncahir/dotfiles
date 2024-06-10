@@ -1,6 +1,6 @@
 #!/bin/bash
 
-choice=$(echo "󰍃 Log out|󰜉 Reboot|󰐥 Shut down" | rofi -sep '|' -dmenu -p "Power menu" -no-fixed-num-lines)
+choice=$(echo -n "󰍃 Log out|󰜉 Reboot|󰐥 Shut down" | rofi -sep '|' -dmenu -p "Power menu" -no-fixed-num-lines)
 
 case $choice in
     "󰍃 Log out")    loginctl terminate-session ${XDG_SESSION_ID-} ;; 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-choice=$(echo -n "bashrc|i3|vimrc|polybar|rofi" | rofi -sep '|' -dmenu -p "Edit config" -no-fixed-num-lines)
+choice=$(echo -n "bashrc|i3|vimrc|polybar|rofi|picom" | rofi -sep '|' -dmenu -p "Edit config" -no-fixed-num-lines)
 
 case $choice in
     bashrc)     WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.bashrc' ;;
@@ -8,4 +8,5 @@ case $choice in
     vimrc)      WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.vimrc' ;;
     polybar)    WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/polybar/config.ini' ;;
     rofi)       WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/rofi/config.rasi' ;;
+    picom)      WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/picom/picom.conf' ;;
 esac

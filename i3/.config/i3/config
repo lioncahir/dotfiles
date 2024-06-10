@@ -8,9 +8,10 @@ exec --no-startup-id ~/.local/bin/check_backup.sh
 exec --no-startup-id "setxkbmap -layout us,sk -variant qwerty -option 'grp:alt_shift_toggle'"
 exec --no-startup-id i3-auto-layout autolayout
 exec --no-startup-id dunst
+exec --no-startup-id picom -b
 
-#exec_always --no-startup-id feh --bg-scale ~/Pictures/coffee-cup.jpg
 exec_always --no-startup-id wal -R
+exec_always --no-startup-id feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
