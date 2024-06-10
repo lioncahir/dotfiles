@@ -1,6 +1,6 @@
 #!/bin/bash
 
-choice=$(echo "bashrc|i3|vimrc|polybar|rofi" | rofi -sep '|' -dmenu -p "Edit config" -no-fixed-num-lines)
+choice=$(echo -n "bashrc|i3|vimrc|polybar|rofi" | rofi -sep '|' -dmenu -p "Edit config" -no-fixed-num-lines)
 
 case $choice in
     bashrc)     WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.bashrc' ;;

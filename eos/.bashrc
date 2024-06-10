@@ -80,7 +80,6 @@ fi
 # set man pager to BAT
 if command -v bat &> /dev/null
 then
-#    export BAT_THEME="gruvbox-dark"
     export BAT_THEME="Visual Studio Dark+"
     export BAT_PAGER="less -r"
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
