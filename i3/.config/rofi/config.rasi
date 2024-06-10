@@ -1,22 +1,38 @@
 configuration {
-	modes: "window,drun,run";
-	font: "JetBrainsMono Nerd Font 13";
-	show-icons: true;
-	icon-theme: "Papirus-Dark";
-	drun-display-format: "{name}";
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
-  }
+  display-drun: "Applications";
+  drun-display-format: "{name}";
+  font: "JetBrainsMono Nerd Font 13";
+  modi: "drun";
+  show-icons: true;
+  icon-theme: "Papirus-Dark";
 }
 
-@theme "gruvbox-dark"
+@import "~/.cache/wal/colors-rofi-dark"
+
+element {
+    spacing: 10px;
+}
+
+element-icon {
+  size: 4ch;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+element-selected {
+    background-color: red;
+}
 
 listview {
 	lines: 10;
-    columns: 2;
+}
+
+entry {
+    placeholder: "";
+}
+
+element.selected.normal {
+    text-color: black;
 }

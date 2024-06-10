@@ -103,6 +103,12 @@ then
     alias ls='eza -lg --group-directories-first --sort=ext --icons'
 fi
 
+# use PyWal to set terminal colors
+if command -v wal &> /dev/null
+then
+    (cat ~/.cache/wal/sequences &)
+fi
+
 # fastfetch
 #if command -v fastfetch &> /dev/null
 #then

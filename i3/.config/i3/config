@@ -9,7 +9,8 @@ exec --no-startup-id "setxkbmap -layout us,sk -variant qwerty -option 'grp:alt_s
 exec --no-startup-id i3-auto-layout autolayout
 exec --no-startup-id dunst
 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/coffee-cup.jpg
+#exec_always --no-startup-id feh --bg-scale ~/Pictures/coffee-cup.jpg
+exec_always --no-startup-id wal -R
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
@@ -110,23 +111,14 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev 
 
 # Color scheme
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
-set $lightgray #bdae93
-set $orange #fe8019
+set_from_resource $fg i3wm.color2 #f0f0f0
+set_from_resource $bg i3wm.color0 #f0f0f0
 
-# class                 border|backgr|text|indicator|child_border
-client.focused          $yellow $yellow $darkgray $yellow $yellow
-client.focused_inactive $darkgray $darkgray $yellow $yellow $darkgray
-client.unfocused        $darkgray $darkgray $yellow $yellow $darkgray
-client.urgent           $red $red $white $red $red
+# class                 border  backgr. text indicator child_border
+client.focused          $fg     $fg     $bg  $fg       $fg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
 
 # Application keybindings
 bindsym $mod+Ctrl+f workspace $ws2; exec firefox
