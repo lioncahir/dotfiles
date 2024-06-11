@@ -4,11 +4,11 @@ set $mod Mod4
 # exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id ~/.local/bin/check_backup.sh
 exec --no-startup-id "setxkbmap -layout us,sk -variant qwerty -option 'grp:alt_shift_toggle'"
 exec --no-startup-id i3-auto-layout autolayout
 exec --no-startup-id dunst
 exec --no-startup-id picom -b
+exec --no-startup-id ~/.local/bin/check_backup.sh
 
 exec_always --no-startup-id wal -R
 exec_always --no-startup-id feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
