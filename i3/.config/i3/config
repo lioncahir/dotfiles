@@ -123,7 +123,7 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 
 # Application keybindings
 bindsym $mod+Ctrl+f workspace $ws2; exec firefox
-bindsym $mod+Ctrl+e exec "WINIT_X11_SCALE_FACTOR=1 alacritty --class lf -e bash -ic 'lf'"
+bindsym $mod+Ctrl+e exec "WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'lf'"
 bindsym Ctrl+Shift+Escape exec "WINIT_X11_SCALE_FACTOR=1 alacritty --class btop -e bash -ic 'btop'"
 bindsym $mod+Ctrl+c exec rofi-config
 
