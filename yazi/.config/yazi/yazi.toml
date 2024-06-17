@@ -26,16 +26,19 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = '${EDITOR:=vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+	{ run = '${EDITOR:=vi} "$@"', desc = "Edit", block = true, for = "unix" },
 ]
 open = [
-	{ run = 'xdg-open "$@"',                desc = "Open", for = "linux" },
+	{ run = 'xdg-open "$@"', desc = "Open in application", for = "linux" },
 ]
 reveal = [
-	{ run = 'xdg-open "$(dirname "$0")"',            desc = "Reveal", for = "linux" },
+	{ run = 'xdg-open "$(dirname "$0")"', desc = "Show in File Manager", for = "linux" },
 ]
 info = [
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+]
+wallpaper = [
+	{ run = '''echo "$1" > ~/.cache/wal/wal; feh --bg-scale "$1"''', desc = "Set as wallpaper", for = "unix" },
 ]
 extract = [
 	{ run = 'unar "$1"', desc = "Extract here", for = "unix" },
@@ -48,8 +51,9 @@ play = [
 rules = [
 	{ name = "*/", use = [ "open", "edit", "reveal" ] },
 
+	{ mime = "text/html",       use = [ "edit", "open", "reveal" ] },
 	{ mime = "text/*",          use = [ "edit", "reveal" ] },
-	{ mime = "image/*",         use = [ "open", "info", "reveal" ] },
+	{ mime = "image/*",         use = [ "open", "wallpaper", "info", "reveal" ] },
 	{ mime = "{audio,video}/*", use = [ "play", "info", "reveal" ] },
 	{ mime = "inode/x-empty",   use = [ "edit", "reveal" ] },
 

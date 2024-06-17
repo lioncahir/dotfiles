@@ -123,7 +123,7 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 
 # Application keybindings
 bindsym $mod+Ctrl+f workspace $ws2; exec firefox
-bindsym $mod+Ctrl+e exec "kitty yazi"
+bindsym $mod+Ctrl+e exec "kitty --name yazi bash -ic 'yazi'"
 bindsym Ctrl+Shift+Escape exec "kitty --app-id btop btop"
 bindsym $mod+Ctrl+c exec rofi-config
 
