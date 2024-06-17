@@ -2,11 +2,20 @@
 
 choice=$(echo -n "bashrc|i3|vimrc|polybar|rofi|picom" | rofi -sep '|' -dmenu -p "Edit config" -no-fixed-num-lines)
 
+#case $choice in
+#    bashrc)     WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.bashrc' ;;
+#    i3)         WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/i3/config' ;;
+#    vimrc)      WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.vimrc' ;;
+#    polybar)    WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/polybar/config.ini' ;;
+#    rofi)       WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/rofi/config.rasi' ;;
+#    picom)      WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/picom/picom.conf' ;;
+#esac
+
 case $choice in
-    bashrc)     WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.bashrc' ;;
-    i3)         WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/i3/config' ;;
-    vimrc)      WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.vimrc' ;;
-    polybar)    WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/polybar/config.ini' ;;
-    rofi)       WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/rofi/config.rasi' ;;
-    picom)      WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'vim ~/.config/picom/picom.conf' ;;
+    bashrc)     kitty vim ~/.bashrc ;;
+    i3)         kitty vim ~/.config/i3/config ;;
+    vimrc)      kitty vim ~/.vimrc ;;
+    polybar)    kitty vim ~/.config/polybar/config.ini ;;
+    rofi)       kitty vim ~/.config/rofi/config.rasi ;;
+    picom)      kitty vim ~/.config/picom/picom.conf ;;
 esac

@@ -31,7 +31,7 @@ gaps inner 5
 gaps top 40
 
 # i3 Keybindings
-bindsym $mod+Return exec "WINIT_X11_SCALE_FACTOR=1 alacritty"
+bindsym $mod+Return exec "kitty"
 bindsym $mod+l exec "i3lock -c 000000 -i /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png"
 bindsym $mod+q kill
 bindsym $mod+Shift+r restart
@@ -123,8 +123,8 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 
 # Application keybindings
 bindsym $mod+Ctrl+f workspace $ws2; exec firefox
-bindsym $mod+Ctrl+e exec "WINIT_X11_SCALE_FACTOR=1 alacritty -e bash -ic 'lf'"
-bindsym Ctrl+Shift+Escape exec "WINIT_X11_SCALE_FACTOR=1 alacritty --class btop -e bash -ic 'btop'"
+bindsym $mod+Ctrl+e exec "kitty yazi"
+bindsym Ctrl+Shift+Escape exec "kitty --app-id btop btop"
 bindsym $mod+Ctrl+c exec rofi-config
 
 for_window [class="btop"] floating enable, resize set 1200 800, move position center
