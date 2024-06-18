@@ -25,13 +25,15 @@ ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
-edit = [
+text = [
 	{ run = '${EDITOR:=vi} "$@"', desc = "Edit", block = true, for = "unix" },
+	{ run = 'bat "$1"', desc = "View", block = true, for = "unix" },
 ]
 open = [
-	{ run = 'xdg-open "$@"', desc = "Open in application", for = "linux" },
+	{ run = 'xdg-open "$@"', desc = "Open in GUI application", for = "linux" },
 ]
 reveal = [
+	{ run = '''clear; eza -lg "$1"; echo; stat $1; echo; echo "Press enter to exit"; read _''', block = true, desc = "Show file information", for = "unix" },
 	{ run = 'xdg-open "$(dirname "$0")"', desc = "Show in File Manager", for = "linux" },
 ]
 info = [
@@ -49,13 +51,13 @@ play = [
 
 [open]
 rules = [
-	{ name = "*/", use = [ "open", "edit", "reveal" ] },
+	{ name = "*/", use = [ "reveal" ] },
 
-	{ mime = "text/html",       use = [ "edit", "open", "reveal" ] },
-	{ mime = "text/*",          use = [ "edit", "reveal" ] },
+	{ mime = "text/html",       use = [ "text", "open", "reveal" ] },
+	{ mime = "text/*",          use = [ "text", "reveal" ] },
 	{ mime = "image/*",         use = [ "open", "wallpaper", "info", "reveal" ] },
 	{ mime = "{audio,video}/*", use = [ "play", "info", "reveal" ] },
-	{ mime = "inode/x-empty",   use = [ "edit", "reveal" ] },
+	{ mime = "inode/x-empty",   use = [ "text", "reveal" ] },
 
 	{ mime = "application/*zip", use = [ "extract", "reveal" ] },
 	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", use = [ "extract", "reveal" ] },
