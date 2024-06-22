@@ -33,7 +33,7 @@ decrease_swappiness () {
 
 software_changes () {
     sudo pacman -Syu
-    sudo pacman -S --needed borg python-llfuse eza starship mediainfo vim ttf-jetbrains-mono-nerd alacritty bat gdu fzf lf trash-cli fastfetch btop
+    sudo pacman -S --needed borg python-llfuse eza starship mediainfo vim ttf-jetbrains-mono-nerd kitty bat gdu fzf yazi fastfetch btop unarchiver
     sudo pacman -S --needed libreoffice-fresh foliate gnome-disk-utility xarchiver
     sudo pacman -S --needed gvfs-google gvfs-goa gnome-keyring gnome-calendar gnome-online-accounts
     sudo pacman -R gnome-calculator nemo-fileroller file-roller gnome-system-monitor

@@ -2,6 +2,7 @@ set $mod Mod4
 
 # Startup
 # exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id "setxkbmap -layout us,sk -variant qwerty -option 'grp:alt_shift_toggle'"
@@ -123,8 +124,9 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 
 # Application keybindings
 bindsym $mod+Ctrl+f workspace $ws2; exec firefox
-bindsym $mod+Ctrl+e exec "kitty --name yazi bash -ic 'yazi'"
+bindsym $mod+slash exec "kitty --name yazi bash -ic 'yazi'"
 bindsym Ctrl+Shift+Escape exec "kitty --app-id btop btop"
-bindsym $mod+Ctrl+c exec rofi-config
+bindsym $mod+period exec rofi-config
 
 for_window [class="btop"] floating enable, resize set 1200 800, move position center
+for_window [class="Gnome-calculator"] floating enable
