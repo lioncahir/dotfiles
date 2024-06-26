@@ -129,4 +129,4 @@ bindsym Ctrl+Shift+Escape exec "kitty --app-id btop btop"
 bindsym $mod+period exec rofi-config
 
 for_window [class="btop"] floating enable, resize set 1200 800, move position center
-for_window [class="Gnome-calculator"] floating enable
+for_window [class=".*alculator"] floating enable
