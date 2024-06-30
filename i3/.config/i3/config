@@ -2,7 +2,7 @@ set $mod Mod4
 
 # Startup
 # exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000 -i /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id "setxkbmap -layout us,sk -variant ,qwerty -option 'grp:alt_shift_toggle'"

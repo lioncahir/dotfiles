@@ -1,0 +1,9 @@
+feh -P \
+--image-bg black \
+--draw-tinted \
+--hide-pointer \
+--sort filename \
+--version-sort \
+--info ";echo -e '%N, %u of %l \n%w x %h |%SB | %z'" \
+--font "/usr/share/fonts/TTF/JetBrainsMonoNerdFont-Regular/13" \
+--scale-down
