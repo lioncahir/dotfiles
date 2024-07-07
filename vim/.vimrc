@@ -38,9 +38,22 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-"Fix problem with undercurl in Alacritty terminal
+" Styled and colored underline support
+let &t_AU = "\e[58:5:%dm"
+let &t_8u = "\e[58:2:%lu:%lu:%lum"
+let &t_Us = "\e[4:2m"
 let &t_Cs = "\e[4:3m"
+let &t_ds = "\e[4:4m"
+let &t_Ds = "\e[4:5m"
 let &t_Ce = "\e[4:0m"
+" Strikethrough
+let &t_Ts = "\e[9m"
+let &t_Te = "\e[29m"
+" Truecolor support
+let &t_8f = "\e[38:2:%lu:%lu:%lum"
+let &t_8b = "\e[48:2:%lu:%lu:%lum"
+let &t_RF = "\e]10;?\e\\"
+let &t_RB = "\e]11;?\e\\"
 
 "Plugins
 call plug#begin('~/.vim/plugged')
@@ -48,6 +61,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'ap/vim-css-color'
 call plug#end()
 
@@ -65,7 +79,9 @@ set ttimeout ttimeoutlen=50
 set background=dark
 let g:codedark_italics=1
 let g:codedark_modern=1
-colorscheme gruvbox
+colorscheme catppuccin_mocha
 
-let g:lightline = {'colorscheme' : 'gruvbox'}
+let g:lightline = {'colorscheme' : 'catppuccin_mocha'}
 
+"Red undercurl color for spell check
+hi SpellBad ctermfg=Red

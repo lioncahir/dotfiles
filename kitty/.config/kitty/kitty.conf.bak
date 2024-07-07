@@ -1,6 +1,6 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
-#include ~/.cache/wal/colors-kitty.conf
+include ~/.cache/wal/colors-kitty.conf
 
 #: Fonts {{{
 
@@ -2514,9 +2514,3 @@ font_size 13.0
 #: }}}
 
 #: }}}
-
-
-# BEGIN_KITTY_THEME
-# Catppuccin-Mocha
-include current-theme.conf
-# END_KITTY_THEME

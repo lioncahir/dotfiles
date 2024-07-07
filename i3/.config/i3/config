@@ -11,8 +11,9 @@ exec --no-startup-id dunst
 exec --no-startup-id picom -b
 exec --no-startup-id ~/.local/bin/check_backup.sh
 
-exec_always --no-startup-id wal -R
-exec_always --no-startup-id feh --bg-fill "$(< "${HOME}/.cache/wal/wal")"
+#exec_always --no-startup-id wal -R
+#exec_always --no-startup-id feh --bg-fill "$(< "${HOME}/.cache/wal/wal")"
+exec_always --no-startup-id $HOME/.fehbg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
@@ -113,8 +114,11 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev 
 
 # Color scheme
-set_from_resource $fg i3wm.color3 #f0f0f0
-set_from_resource $bg i3wm.color0 #f0f0f0
+#set_from_resource $fg i3wm.color3 #f0f0f0
+#set_from_resource $bg i3wm.color0 #f0f0f0
+
+set $fg #f9e2af
+set $bg #1e1e2e
 
 # class                 border  backgr. text indicator child_border
 client.focused          $fg     $fg     $bg  $fg       $fg

@@ -89,7 +89,7 @@ fi
 # set man pager to BAT
 if command -v bat &> /dev/null
 then
-    export BAT_THEME="Visual Studio Dark+"
+    export BAT_THEME="Catppuccin Mocha"
     export BAT_PAGER="less -r"
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
     export MANROFFOPT="-c"
@@ -112,10 +112,10 @@ then
 fi
 
 # use PyWal to set terminal colors
-if command -v wal &> /dev/null
-then
-    (cat ~/.cache/wal/sequences &)
-fi
+#if command -v wal &> /dev/null
+#then
+#    (cat ~/.cache/wal/sequences &)
+#fi
 
 # fastfetch
 #if command -v fastfetch &> /dev/null
