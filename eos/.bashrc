@@ -98,11 +98,10 @@ fi
 # set fzf options
 if command -v fzf &> /dev/null
 then
-	export FZF_DEFAULT_COMMAND='find . -mount ! -path '*/.cache/*' ! -path '*/.git/*' ! -path '*/.mozilla/*' 2>/dev/null'
-	export FZF_CTRL_T_COMMAND='find . -mount ! -path '*/.cache/*' ! -path '*/.git/*' ! -path '*/.mozilla/*' 2>/dev/null'
-	source /usr/share/fzf/key-bindings.bash
-    source /usr/share/fzf/completion.bash
-    alias fzf='fzf --cycle --info=inline'
+    eval "$(fzf --bash)"
+    export FZF_DEFAULT_OPTS="--cycle --info=inline --walker=file,dir,follow,hidden"
+    export FZF_ALT_C_OPTS="--walker=dir,follow,hidden"
+    export FZF_CTRL_T_OPTS="--walker=file,follow,hidden --walker-skip=.git,.cache,.mozilla --preview 'bat -n --color=always {}'"
 fi
 
 # replace ls with eza of installed
