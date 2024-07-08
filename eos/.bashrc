@@ -64,11 +64,7 @@ orph() {
     echo "No more orphaned packages found."
 }
 
-# change working directory after quitting LF
-lf () {
-    cd "$(command lf -print-last-dir "$@")"
-}
-
+# change working directory to where Yazi exited
 yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
@@ -83,7 +79,6 @@ if command -v vim &> /dev/null
 then
 	export EDITOR="/usr/bin/vim"
 	export VISUAL="/usr/bin/vim"
-    alias i3conf="vim ~/.config/i3/config"
 fi
 
 # set man pager to BAT
@@ -109,18 +104,6 @@ if command -v eza &> /dev/null
 then
     alias ls='eza -lg --group-directories-first --sort=ext --icons'
 fi
-
-# use PyWal to set terminal colors
-#if command -v wal &> /dev/null
-#then
-#    (cat ~/.cache/wal/sequences &)
-#fi
-
-# fastfetch
-#if command -v fastfetch &> /dev/null
-#then
-#    fastfetch -c neofetch
-#fi
 
 # start starship prompt
 if command -v starship &> /dev/null
