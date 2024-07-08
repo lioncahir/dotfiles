@@ -4,9 +4,9 @@ format = """
 $username\
 [](bg:lavender fg:blue)\
 $hostname\
-[](fg:lavender bg:flamingo)\
+[](fg:lavender bg:peach)\
 $directory\
-[ ](fg:flamingo)\
+[ ](fg:peach)\
 $character"""
 
 [palettes.catppuccin_mocha]
@@ -49,7 +49,7 @@ format = '[$ssh_symbol](bold blue)[ $hostname](fg:base bg:lavender)'
 disabled = false
 
 [directory]
-style = "bg:flamingo fg:base"
+style = "bg:peach fg:base"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"

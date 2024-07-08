@@ -40,7 +40,7 @@ info = [
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 wallpaper = [
-	{ run = '''echo "$1" > ~/.cache/wal/wal; feh --bg-scale "$1"''', desc = "Set as wallpaper", for = "unix" },
+	{ run = '''feh --bg-scale "$1"''', desc = "Set as wallpaper", for = "unix" },
 ]
 extract = [
 	{ run = 'unar "$1"', desc = "Extract here", for = "unix" },

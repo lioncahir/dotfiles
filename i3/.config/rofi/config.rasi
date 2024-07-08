@@ -7,7 +7,7 @@ configuration {
   icon-theme: "Papirus-Dark";
 }
 
-@import "~/.cache/wal/colors-rofi-dark.rasi"
+@import "colors-rofi-dark.rasi"
 
 window {
     border: 2px;
