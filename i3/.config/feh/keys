@@ -1,1 +1,9 @@
 zoom_default period
+scroll_left Left
+scroll_right Right
+scroll_up Up
+scroll_down Down
+prev_img p BackSpace Prior
+next_img n space Next
+zoom_in plus
+zoom_out minus
