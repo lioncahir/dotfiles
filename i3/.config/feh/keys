@@ -5,5 +5,5 @@ scroll_up Up
 scroll_down Down
 prev_img p BackSpace Prior
 next_img n space Next
-zoom_in plus
-zoom_out minus
+zoom_in plus C-Up
+zoom_out minus C-Down

@@ -1,0 +1,16 @@
+set database "sqlite"
+set adjust-open "best-fit"
+set statusbar-bg "#1e1e2e"
+set statusbar-fg "#b4befe"
+set statusbar-home-tilde true
+set font "JetBrainsMono Nerd Font 13"
+
+unmap f
+unmap i
+map f toggle_fullscreen
+map l follow
+map i toggle_statusbar
+map <C-p> print
+map [fullscreen] f toggle_fullscreen
+map [fullscreen] i toggle_statusbar
+map [fullscreen] l follow

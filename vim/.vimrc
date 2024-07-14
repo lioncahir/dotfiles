@@ -32,6 +32,14 @@ inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 
+"Split settigs
+set splitright
+set splitbelow
+nnoremap <C-left> <C-w><left>
+nnoremap <C-right> <C-w><right>
+nnoremap <C-up> <C-w><up>
+nnoremap <C-down> <C-w><down>
+
 "Tab settings
 set expandtab
 set smarttab
