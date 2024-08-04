@@ -1,5 +1,6 @@
 syntax on
 filetype plugin indent on
+set nocompatible
 set number relativenumber
 set backspace=indent,eol,start
 set incsearch
@@ -8,6 +9,7 @@ set hlsearch
 set mouse=a
 set termguicolors
 set spellcapcheck=
+set display+=lastline
 
 "Use system clipboard
 set clipboard=unnamedplus
@@ -17,7 +19,7 @@ vnoremap p "_dP
 
 "Wrapping
 set wrap linebreak
-set textwidth=100
+set textwidth=0
 
 "Use arrows to move between wrapped lines
 nmap <up> gk
@@ -67,16 +69,12 @@ let &t_RB = "\e]11;?\e\\"
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'morhetz/gruvbox'
-Plug 'tomasiser/vim-code-dark'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'ap/vim-css-color'
 call plug#end()
 
 "Plugin settings
-let g:goyo_width=100
-let g:gruvbox_italic=1
-"let g:gruvbox_contrast_dark='hard'
+let g:goyo_width=70
 
 "LightLine
 set laststatus=2
@@ -84,12 +82,7 @@ set noshowmode
 set ttimeout ttimeoutlen=50
 
 "Color scheme settings
-set background=dark
-let g:codedark_italics=1
-let g:codedark_modern=1
 colorscheme catppuccin_mocha
-
 let g:lightline = {'colorscheme' : 'catppuccin_mocha'}
-
-"Red undercurl color for spell check
-hi SpellBad ctermfg=Red
+hi SpellBad ctermbg=NONE cterm=undercurl ctermul=red guisp=red
+hi Comment cterm=italic
