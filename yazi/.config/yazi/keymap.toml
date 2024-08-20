@@ -76,8 +76,8 @@ keymap = [
 	{ on = [ "D" ],         run = "remove --permanently",       desc = "Permanently delete the files" },
 	{ on = [ "a" ],         run = "create",                     desc = "Create a file or directory (ends with / for directories)" },
 	{ on = [ "r" ],         run = "rename --cursor=before_ext", desc = "Rename a file or directory" },
-	{ on = [ ";" ],         run = "shell",                      desc = "Run a shell command" },
-	{ on = [ ":" ],         run = "shell --block",              desc = "Run a shell command (block the UI until the command finishes)" },
+	{ on = [ ";" ],         run = "shell --interactive",        desc = "Run a shell command" },
+	{ on = [ ":" ],         run = "shell --block --interactive", desc = "Run a shell command (block the UI until the command finishes)" },
 	{ on = [ "." ],         run = "hidden toggle",              desc = "Toggle the visibility of hidden files" },
 	{ on = [ "s" ],         run = "search fd",                  desc = "Search files by name using fd" },
 	{ on = [ "S" ],         run = "search rg",                  desc = "Search files by content using ripgrep" },
@@ -86,8 +86,10 @@ keymap = [
 	{ on = [ "i" ],         run = "shell --confirm --block 'bat \"$1\"'",       desc = "View content of file" },
 
 	# Mounts
-	{ on = [ "m", "m" ], run = "shell --confirm 'mount /media/NAS/Media'",         desc = "Mount NAS/Media" },
-	{ on = [ "m", "M" ], run = "shell --confirm 'umount /media/NAS/Media'",        desc = "Unmount NAS/Media" },
+	{ on = [ "m", "m" ], run = "shell --confirm 'mount /media/NAS/Media'",                          desc = "Mount NAS/Media" },
+	{ on = [ "m", "M" ], run = "shell --confirm 'umount /media/NAS/Media'",                         desc = "Unmount NAS/Media" },
+	{ on = [ "m", "g" ], run = "shell --confirm 'rclone mount --daemon remote: ~/GDrive'",          desc = "Mount Google Drive" },
+	{ on = [ "m", "G" ], run = "shell --confirm 'fusermount -u ~/GDrive'",                          desc = "Unmount Google Drive" },
 
 	# Copy
 	{ on = [ "c", "c" ], run = "copy path",             desc = "Copy the absolute path" },
