@@ -85,12 +85,6 @@ keymap = [
 	{ on = [ "/" ],         run = "plugin fzf",                 desc = "Jump to a directory, or reveal a file using fzf" },
 	{ on = [ "i" ],         run = "shell --confirm --block 'bat \"$1\"'",       desc = "View content of file" },
 
-	# Mounts
-	{ on = [ "m", "m" ], run = "shell --confirm 'mount /media/NAS/Media'",                          desc = "Mount NAS/Media" },
-	{ on = [ "m", "M" ], run = "shell --confirm 'umount /media/NAS/Media'",                         desc = "Unmount NAS/Media" },
-	{ on = [ "m", "g" ], run = "shell --confirm 'rclone mount --daemon remote: ~/GDrive'",          desc = "Mount Google Drive" },
-	{ on = [ "m", "G" ], run = "shell --confirm 'fusermount -u ~/GDrive'",                          desc = "Unmount Google Drive" },
-
 	# Copy
 	{ on = [ "c", "c" ], run = "copy path",             desc = "Copy the absolute path" },
 	{ on = [ "c", "d" ], run = "copy dirname",          desc = "Copy the path of the parent directory" },

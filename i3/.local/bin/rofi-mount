@@ -1,0 +1,15 @@
+#!/bin/bash
+
+options=""
+
+(mount | grep /media/NAS/Media &> /dev/null) && options="Unmount NAS/Media" || options="Mount NAS/Media"
+(mount | grep remote: &> /dev/null) && options="${options}|Unmount GDrive" || options="${options}|Mount GDrive"
+
+choice=$(echo -n "${options}" | rofi -sep '|' -dmenu -p "Mounter" -no-fixed-num-lines)
+
+case $choice in
+    "Mount NAS/Media")    mount /media/NAS/Media ;; 
+    "Unmount NAS/Media")  umount /media/NAS/Media ;; 
+    "Mount GDrive")       rclone mount --daemon remote: ~/GDrive ;; 
+    "Unmount GDrive")     fusermount -u ~/GDrive ;; 
+esac
