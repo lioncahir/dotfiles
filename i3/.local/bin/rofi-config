@@ -1,6 +1,6 @@
 #!/bin/bash
 
-choice=$(echo -n "bashrc|dunst|i3|picom|polybar|rofi|vimrc|yazi" | rofi -sep '|' -dmenu -p "Edit config" -no-fixed-num-lines)
+choice=$(echo -n "bashrc|dunst|i3|picom|polybar|rofi|vimrc|yazi|yazi-keys" | rofi -sep '|' -dmenu -p "Edit config" -no-fixed-num-lines)
 
 case $choice in
     bashrc)     kitty vim ~/.bashrc ;;
@@ -10,5 +10,6 @@ case $choice in
     rofi)       kitty vim ~/.config/rofi/config.rasi ;;
     picom)      kitty vim ~/.config/picom/picom.conf ;;
     yazi)       kitty vim ~/.config/yazi/yazi.toml ;;
+    yazi-keys)  kitty vim ~/.config/yazi/keymap.toml ;;
     dunst)      kitty vim ~/.config/dunst/dunstrc ;;
 esac

@@ -130,6 +130,7 @@ bindsym $mod+Ctrl+f workspace $ws2; exec firefox
 bindsym $mod+slash exec "kitty --name yazi bash -ic 'yazi'"
 bindsym Ctrl+Shift+Escape exec "kitty --app-id btop btop"
 bindsym $mod+period exec rofi-config
+bindsym $mod+m exec rofi-mount
 
 for_window [class="btop"] floating enable, resize set 1200 800, move position center
 for_window [class=".*alculator"] floating enable
