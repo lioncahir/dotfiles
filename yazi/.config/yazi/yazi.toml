@@ -26,7 +26,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 text = [
-	{ run = '${EDITOR:=vi} "$@"', desc = "Edit", block = true, for = "unix" },
+	{ run = 'kitty ${EDITOR:=vim} "$@"', desc = "Edit", block = false, for = "unix" },
 	{ run = 'bat "$1"', desc = "View", block = true, for = "unix" },
 ]
 open = [
