@@ -10,7 +10,6 @@ exec --no-startup-id i3-auto-layout autolayout
 exec --no-startup-id dunst
 exec --no-startup-id picom -b
 exec --no-startup-id ~/.local/bin/check_backup.sh
-exec --no-startup-id "kitty --app-id yazi bash -ic 'yazi'"
 
 exec_always --no-startup-id $HOME/.fehbg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -128,11 +127,14 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 
 # Application keybindings
 bindsym $mod+Ctrl+f workspace $ws2; exec firefox
-bindsym $mod+slash [class="yazi"] scratchpad show; move position center
 bindsym Ctrl+Shift+Escape exec "kitty --app-id btop btop"
 bindsym $mod+period exec rofi-config
 bindsym $mod+m exec rofi-mount
 
-for_window [class="yazi"] floating enable, resize set 1200 800, move scratchpad
 for_window [class="btop"] floating enable, resize set 1200 800, move position center
 for_window [class=".*alculator"] floating enable
+
+# Start Yazi in scratchpad
+for_window [class="yazi"] floating enable, resize set 1500 800, move scratchpad
+bindsym $mod+slash [class="yazi"] scratchpad show; move position center
+exec --no-startup-id "kitty --app-id yazi bash -ic 'yazi'"
