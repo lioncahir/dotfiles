@@ -33,6 +33,7 @@ inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
+inoremap * **<left>
 
 "Split settigs
 set splitright
