@@ -1,0 +1,13 @@
+[Unit]
+Description=Refresh Pacman mirrorlist weekly with Reflector.
+
+[Timer]
+#OnCalendar=weekly
+#Persistent=true
+#AccuracySec=1us
+#RandomizedDelaySec=12h
+OnBootSec=10min
+OnUnitActiveSec=1w
+
+[Install]
+WantedBy=timers.target
