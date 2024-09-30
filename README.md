@@ -57,7 +57,7 @@ This has been tested on EndeavourOS.
    stow -v eos i3 kitty vim yazi bat borg mpv starship yazi zathura
    ```
 
-**Note**: If testing this in VM (QEMU/KVM), comment out *picom* execution in .config/i3/config
+   **Note**: If testing this in VM (QEMU/KVM), comment out *picom* execution in .config/i3/config
 
 1. Add pacman hook for cleaning up cache after each update and removal
 
