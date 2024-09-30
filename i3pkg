@@ -12,6 +12,7 @@ feh
 fzf
 galculator
 gdu
+git
 gvfs
 gvfs-afc
 gvfs-gphoto2
@@ -36,6 +37,7 @@ polybar
 python-llfuse
 rofi
 starship
+stow
 ttf-jetbrains-mono-nerd
 ttf-ubuntu-font-family
 unarchiver

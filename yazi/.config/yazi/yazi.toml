@@ -46,7 +46,7 @@ extract = [
 	{ run = 'unar "$1"', desc = "Extract here", for = "unix" },
 ]
 ebook = [
-	{ run = 'kitty epy "$1"', desc = "Read e-book", orphan = true, for = "unix" },
+	{ run = 'kitty -o font_size=16 epy "$1"', desc = "Read e-book", orphan = true, for = "unix" },
 ]
 play = [
 	{ run = 'mpv "$@"', orphan = true, for = "unix" },
