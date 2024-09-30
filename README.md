@@ -58,3 +58,9 @@ This has been tested on EndeavourOS.
    ```
 
 **Note**: If testing this in VM (QEMU/KVM), comment out *picom* execution in .config/i3/config
+
+1. Add pacman hook for cleaning up cache after each update and removal
+
+   ```shell
+   sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
+   ```
