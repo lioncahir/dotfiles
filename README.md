@@ -29,6 +29,15 @@ This has been tested on EndeavourOS.
 
 1. Install minimal (base) EndeavourOs. Do NOT select i3wm in the installer
 
+1. Install git: `sudo pacman -S git`
+
+1. Clone repository
+   
+   ```shell
+   git clone https://github.com/lioncahir/dotfiles.git .dotfiles
+   cd .dotfiles
+   ```
+
 1. Install packages from Arch repo and AUR
 
    ```shell
@@ -39,14 +48,7 @@ This has been tested on EndeavourOS.
 1. Remove .bashrc (will be stowed) and .bash_profile (we will use .profile instead, which is shell independent)
 
    ```shell
-   rm .bashrc .bash_profile
-   ```
-
-1. Clone repository
-   
-   ```shell
-   git clone https://github.com/lioncahir/dotfiles.git .dotfiles
-   cd .dotfiles
+   rm ~/.bashrc ~/.bash_profile
    ```
 
 1. Use GNU stow to create symlinks (use -v option for verbose output)
