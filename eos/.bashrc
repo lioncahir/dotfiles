@@ -79,6 +79,7 @@ if command -v vim &> /dev/null
 then
 	export EDITOR="/usr/bin/vim"
 	export VISUAL="/usr/bin/vim"
+    alias svim='sudo -E vim'
     [ -f ~/.vim/write.vimrc ] && alias vimw='vim -u ~/.vim/write.vimrc'
 fi
 

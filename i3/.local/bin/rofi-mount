@@ -10,6 +10,6 @@ choice=$(echo -n "${options}" | rofi -sep '|' -dmenu -p "Mounter" -no-fixed-num-
 case $choice in
     "Mount NAS/Media")    mount /media/NAS/Media &>> ~/mount.log ;; 
     "Unmount NAS/Media")  umount /media/NAS/Media &>> ~/mount.log ;; 
-    "Mount GDrive")       rclone mount --daemon remote: ~/GDrive &>> ~/mount.log ;; 
+    "Mount GDrive")       rclone mount --daemon remote: ~/GDrive --exclude "/Fotky/**" --vfs-cache-mode writes &>> ~/mount.log ;; 
     "Unmount GDrive")     fusermount -u ~/GDrive &>> ~/mount.log ;; 
 esac
