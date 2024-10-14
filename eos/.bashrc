@@ -1,8 +1,9 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
+# If not running interactively, or running as root, don't do anything
 [[ $- != *i* ]] && return
+[[ "$(whoami)" = "root" ]] && return
 
 # Basic aliases
 alias ls='ls -lh --color=auto --group-directories-first'
@@ -10,8 +11,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-
-[[ "$(whoami)" = "root" ]] && return
 
 ## Use the up and down arrow keys for finding a command in history
 ## (you can write some initial letters of the command first).
