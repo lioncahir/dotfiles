@@ -18,7 +18,7 @@ add_nas () {
     sudo groupadd -g 1500 nasmedia
     sudo usermod -a -G nasmedia $USER
     sudo cp /etc/fstab /etc/fstab.old
-    echo "//192.168.0.5/Media   /media/NAS/Media   cifs   guest,user,noauto,nofail,uid=$UID,gid=1500,file_mode=0770,dir_mode=0770,_netdev,iocharset=utf8   0   0" | sudo tee -a /etc/fstab
+    echo "//192.168.0.5/Media   /media/NAS/Media   cifs   guest,user,noauto,nofail,uid=$UID,gid=1500,file_mode=0770,dir_mode=0770,_netdev,iocharset=utf8,comment=x-gvfs-show   0   0" | sudo tee -a /etc/fstab
     sudo mount -a
 }
 

@@ -36,8 +36,8 @@ bindsym $mod+Return exec "kitty"
 bindsym $mod+l exec "i3lock -c 000000 -i /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png"
 bindsym $mod+q kill
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+Return exec "rofi -show drun"
-bindsym $mod+Shift+q exec rofi-power
+bindsym $mod+Shift+Return exec --no-startup-id "rofi -show drun"
+bindsym $mod+Shift+q exec --no-startup-id rofi-power
 
 # Window manipulation
 bindsym $mod+Left focus left
@@ -128,8 +128,8 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 # Application keybindings
 bindsym $mod+Ctrl+f workspace $ws2; exec firefox
 bindsym Ctrl+Shift+Escape exec "kitty --app-id btop btop"
-bindsym $mod+period exec rofi-config
-bindsym $mod+m exec rofi-mount
+bindsym $mod+period exec --no-startup-id rofi-config
+bindsym $mod+m exec --no-startup-id rofi-mount
 
 for_window [class="btop"] floating enable, resize set 1200 800, move position center
 for_window [class=".*alculator"] floating enable
