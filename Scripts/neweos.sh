@@ -30,8 +30,11 @@ i3wm () {
     rm ~/.bashrc ~/.bash_profile
     stow -v eos i3 kitty vim yazi bat borg mpv starship yazi zathura
     ya pack -u
+    bat cache --build
     sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
     sudo cp Scripts/reflector.timer /etc/systemd/system/
+    sudo systemctl enable reflector.timer
+    sudo systemctl enable lightdm.service
 }
 
 decrease_swappiness () {
