@@ -8,5 +8,6 @@ prepend_keymap = [
 
 	# Goto
 	{ on = [ "g", "m" ],       run = "cd /media/NAS/Media", desc = "Go to the NAS mount" },
+	{ on = [ "g", "u" ],       run = "cd /run/media/$USER", desc = "Go to the USB mounts" },
 ]
 

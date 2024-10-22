@@ -2,9 +2,9 @@
 
 options=(\
 "Add NAS to /etc/fstab" \
-"Disable automatic printer discovery" \
+"Install and configure i3wm" \
 "Decrease swappiness" \
-"Perform software changes" \
+"Install software for Cinnamon desktop" \
 "Configure Cinnamon apps (Nemo, xed)" \
 "Perform Cinnamon theming" \
 "Install printer & scanner (Samsung M2070)" \
@@ -23,8 +23,15 @@ add_nas () {
 }
 
 
-disable_printer_discovery () {
-    sudo systemctl disable --now cups-browsed
+i3wm () {
+    cd ~/.dotfiles
+    sudo pacman -S --needed - < ~/.dotfiles/i3pkg
+    yay -S --needed - < ~/.dotfiles/i3aur
+    rm ~/.bashrc ~/.bash_profile
+    stow -v eos i3 kitty vim yazi bat borg mpv starship yazi zathura
+    ya pack -u
+    sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
+    sudo cp Scripts/reflector.timer /etc/systemd/system/
 }
 
 decrease_swappiness () {
@@ -116,7 +123,7 @@ select opt in "${options[@]}"; do
 echo
     case $REPLY in
         1) add_nas ;;
-        2) disable_printer_discovery ;;
+        2) i3wm ;;
         3) decrease_swappiness ;;
         4) software_changes ;;
         5) cinnamon_apps ;;
