@@ -28,7 +28,7 @@ i3wm () {
     sudo pacman -S --needed - < ~/.dotfiles/i3pkg
     yay -S --needed - < ~/.dotfiles/i3aur
     rm ~/.bashrc ~/.bash_profile
-    stow -v eos i3 kitty vim yazi bat borg mpv starship yazi zathura
+    stow -v eos i3 kitty vim yazi bat btop borg mpv starship yazi zathura
     ya pack -u
     bat cache --build
     sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
