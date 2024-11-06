@@ -31,6 +31,7 @@ i3wm () {
     stow -v eos i3 kitty vim yazi bat btop borg mpv starship yazi zathura
     ya pack -u
     bat cache --build
+    feh --bg-scale ~/Pictures/endeavour-black-4k.png
     sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
     sudo cp Scripts/reflector.timer /etc/systemd/system/
     sudo systemctl enable reflector.timer
