@@ -25,6 +25,7 @@ libreoffice-fresh
 lightdm
 lightdm-slick-greeter
 lxappearance-gtk3
+maim
 mediainfo
 mpv
 network-manager-applet
@@ -44,6 +45,7 @@ unarchiver
 unzip
 vim
 xarchiver
+xclip
 xdg-user-dirs-gtk
 xed
 xss-lock
