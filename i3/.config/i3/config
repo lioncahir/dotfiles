@@ -33,7 +33,7 @@ focus_on_window_activation focus
 gaps inner 5
 gaps top 40
 
-# i3 Keybindings
+# Basic i3 Keybindings
 bindsym $mod+Return exec "kitty"
 bindsym $mod+l exec "i3lock -c 000000 -i /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png"
 bindsym $mod+q kill
@@ -115,13 +115,8 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+Tab workspace back_and_forth
-#bindsym $mod+Ctrl+Right workspace next
-#bindsym $mod+Ctrl+Left workspace prev 
 
 # Color scheme
-#set_from_resource $fg i3wm.color3 #f0f0f0
-#set_from_resource $bg i3wm.color0 #f0f0f0
-
 set $fg #b4befe
 set $bg #1e1e2e
 
