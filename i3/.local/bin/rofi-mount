@@ -8,8 +8,15 @@ options=""
 choice=$(echo -n "${options}" | rofi -sep '|' -dmenu -p "Mounter" -no-fixed-num-lines)
 
 case $choice in
-    "Mount NAS/Media")    mount /media/NAS/Media &>> ~/mount.log ;; 
-    "Unmount NAS/Media")  umount /media/NAS/Media &>> ~/mount.log ;; 
-    "Mount GDrive")       rclone mount --daemon remote: ~/GDrive --exclude "/Fotky/**" --vfs-cache-mode writes &>> ~/mount.log ;; 
-    "Unmount GDrive")     fusermount -u ~/GDrive &>> ~/mount.log ;; 
-esac
+    "Mount NAS/Media")    mount /media/NAS/Media &>> ~/mount.log
+                          notify-send "NAS/Media mounted" ;; 
+
+    "Unmount NAS/Media")  umount /media/NAS/Media &>> ~/mount.log
+                          notify-send "NAS/Media unmounted" ;; 
+
+    "Mount GDrive")       rclone mount --daemon remote: ~/GDrive --exclude "/Fotky/**" --vfs-cache-mode writes &>> ~/mount.log
+                          notify-send "Google Drive mounted" ;; 
+
+    "Unmount GDrive")     fusermount -u ~/GDrive &>> ~/mount.log
+                          notify-send "Google Drive unmounted" ;; 
+esac 

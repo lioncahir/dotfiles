@@ -68,6 +68,7 @@ borg create                                     \
     --exclude 'home/*/.cinnamon/spices.cache'   \
     --exclude 'home/*/.local/share/Trash'       \
     --exclude 'home/*/.local/share/lutris'      \
+    --exclude 'home/*/.local/share/Steam'       \
     --exclude 'home/*/.local/share/ice/firefox' \
     --exclude 'home/*/.local/share/webkitgtk'   \
     --exclude 'home/*/.var/app/*/cache'         \
