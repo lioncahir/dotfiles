@@ -95,9 +95,20 @@ fi
 if command -v fzf &> /dev/null
 then
     eval "$(fzf --bash)"
-    export FZF_DEFAULT_OPTS="--cycle --info=inline --walker=file,dir,follow,hidden --walker-skip=.git,.cache,.mozilla,Steam,.steam"
-    export FZF_ALT_C_OPTS="--walker=dir,follow,hidden"
-    export FZF_CTRL_T_OPTS="--walker=file,follow,hidden --walker-skip=.git,.cache,.mozilla,Steam,.steam --preview 'bat -n --color=always {}'"
+    export FZF_DEFAULT_OPTS="
+        --cycle 
+        --info=inline 
+        --walker=file,dir,follow,hidden 
+        --walker-skip=.git,.cache,.mozilla,Steam,.steam"
+
+    export FZF_ALT_C_OPTS="
+        --walker=dir,follow,hidden"
+
+    export FZF_CTRL_T_OPTS="
+        --walker=file,follow,hidden 
+        --walker-skip=.git,.cache,.mozilla,Steam,.steam 
+        --height=~80%
+        --preview 'bat -n --color=always {}'"
 fi
 
 # replace ls with eza of installed
