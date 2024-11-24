@@ -17,6 +17,9 @@ set clipboard=unnamedplus
 "Do not update buffer with replaced text
 vnoremap p "_dP
 
+"Make Y behave like C and D
+nnoremap Y y$
+
 "Wrapping
 set wrap linebreak
 set textwidth=0
