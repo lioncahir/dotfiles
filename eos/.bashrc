@@ -12,9 +12,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 
-## Use the up and down arrow keys for finding a command in history
-## (you can write some initial letters of the command first).
-## Plus other shell options related to history
+# Use the up and down arrow keys for finding a command in history
+# (you can write some initial letters of the command first).
+# Plus other shell options related to history
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 HISTCONTROL=ignoreboth
