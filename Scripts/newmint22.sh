@@ -5,7 +5,7 @@ options=(\
 "Disable automatic printer discovery" \
 "Decrease swappiness" \
 "Perform software changes" \
-"Install flatpaks" \
+"Replace LibreOffice with flatpak" \
 "Install fzf" \
 "Install Borg backup" \
 "Install lf file manager" \
@@ -45,9 +45,9 @@ software_changes () {
     stow -v bat btop kitty mint22 vim mpv
 }
 
-install_flatpaks () {
-    flatpak install org.gtk.Gtk3theme.Mint-Y-Dark
-    flatpak install com.github.johnfactotum.Foliate
+replace_libreoffice () {
+    sudo apt purge libreoffice*
+    sudo apt autoremove
     flatpak install org.libreoffice.LibreOffice
 }
 
@@ -65,6 +65,8 @@ install_borg () {
         sudo chmod 755 /usr/local/bin/borg
         sudo ln -sf /usr/local/bin/borg /usr/local/bin/borgfs
         rm $asset_file
+        cd ~/.dotfiles
+        stow -v borg
         echo "Borg installed"
     else
         echo "Could not download Borg from GitHub"
@@ -207,7 +209,7 @@ select opt in "${options[@]}"; do
         2) disable_printer_discovery ;;
         3) decrease_swappiness ;;
         4) software_changes ;;
-        5) install_flatpaks ;;
+        5) replace_libreoffice ;;
         6) install_fzf ;;
         7) install_borg ;;
         8) install_lf ;;
