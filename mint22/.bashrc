@@ -110,9 +110,14 @@ gitupdate () {
     cd $OLDPWD
 }
 
-# change working directory after quitting LF
-lf () {
-    cd "$(command lf -print-last-dir "$@")"
+# change working directory to where Yazi exited
+y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
 
 # set editor
