@@ -120,16 +120,28 @@ if command -v vim &> /dev/null
 then
 	export EDITOR="/usr/bin/vim"
 	export VISUAL="/usr/bin/vim"
+    alias svim='sudo -E vim'
+    [ -f ~/.vim/write.vimrc ] && alias vimw='vim -u ~/.vim/write.vimrc'
 fi
 
 # set fzf options
 if command -v fzf &> /dev/null
 then
-	export FZF_DEFAULT_COMMAND='find . -mount ! -path '*/.cache/*' ! -path '*/.git/*' ! -path '*/.mozilla/*' 2>/dev/null'
-	export FZF_CTRL_T_COMMAND='find . -mount ! -path '*/.cache/*' ! -path '*/.git/*' ! -path '*/.mozilla/*' 2>/dev/null'
-	source /usr/share/fzf/key-bindings.bash
-    source /usr/share/fzf/completion.bash
-    alias fzf='fzf --cycle --info=inline'
+    eval "$(fzf --bash)"
+    export FZF_DEFAULT_OPTS="
+        --cycle 
+        --info=inline 
+        --walker=file,dir,follow,hidden 
+        --walker-skip=.git,.cache,.mozilla,Steam,.steam"
+
+    export FZF_ALT_C_OPTS="
+        --walker=dir,follow,hidden"
+
+    export FZF_CTRL_T_OPTS="
+        --walker=file,follow,hidden 
+        --walker-skip=.git,.cache,.mozilla,Steam,.steam 
+        --height=~80%
+        --preview 'bat -n --color=always {}'"
 fi
 
 # enable programmable completion features (you don't need to enable

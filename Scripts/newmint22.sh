@@ -43,6 +43,7 @@ software_changes () {
     rm ~/.bashrc
     cd ~/.dotfiles
     stow -v bat btop kitty mint22 vim mpv
+    batcat cache --build
 }
 
 replace_libreoffice () {
