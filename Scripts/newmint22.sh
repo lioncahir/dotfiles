@@ -8,7 +8,7 @@ options=(\
 "Replace LibreOffice with flatpak" \
 "Install fzf" \
 "Install Borg backup" \
-"Install lf file manager" \
+"Install Yazi file manager" \
 "Install JetBrains Mono Nerd font" \
 "Install Starship prompt"
 "Configure Cinnamon apps (Nemo, xed, xview)" \
@@ -74,22 +74,27 @@ install_borg () {
     fi
 }
 
-install_lf () {
+install_yazi () {
     asset=""
-    asset=$(curl -s https://api.github.com/repos/gokcehan/lf/releases/latest | grep "browser_download_url.*lf-linux-amd64.tar.gz\"" | cut -d : -f 2,3 | tr -d \")
+    asset=$(curl -s https://api.github.com/repos/sxyazi/yazi/releases/latest | grep "browser_download_url.*yazi-x86_64-unknown-linux-gnu.zip\"" | cut -d : -f 2,3 | tr -d \")
     if [ -n "$asset" ]
     then
         cd $(xdg-user-dir DOWNLOAD)
         asset_file=$(basename $asset)
         echo "Downloading $asset"
         wget -q $asset
-        tar -xvzf $asset_file
-        sudo mv lf /usr/local/bin/
-        sudo chown root:root /usr/local/bin/lf
+        unzip -o $asset_file
+        cd yazi-x86_64-unknown-linux-gnu
+        sudo mv yazi /usr/local/bin/
+        sudo mv ya /usr/local/bin/
+        sudo chown root:root /usr/local/bin/yazi
+        sudo chown root:root /usr/local/bin/ya
         rm $asset_file 
-        echo "LF installed"
+        cd ~/.dotfiles
+        stow -v yazi
+        echo "Yazi installed"
     else
-        echo "Could not download LF from GitHub"
+        echo "Could not download Yazi from GitHub"
     fi
 }
 
@@ -199,7 +204,7 @@ clear
 
 echo -e "\033[1;32m"
 echo -e "*****************************************"
-echo -e "* Post-install script for Linux Mint 21 *"
+echo -e "* Post-install script for Linux Mint 22 *"
 echo -e "*****************************************"
 echo -e "\033[0m"
 
@@ -215,7 +220,7 @@ select opt in "${options[@]}"; do
         5) replace_libreoffice ;;
         6) install_fzf ;;
         7) install_borg ;;
-        8) install_lf ;;
+        8) install_yazi ;;
         9) install_font ;;
         10) install_starship ;;
         11) cinnamon_apps ;;
