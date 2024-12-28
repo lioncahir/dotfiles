@@ -11,8 +11,6 @@ options=(\
 "Install Yazi file manager" \
 "Install JetBrains Mono Nerd font" \
 "Install Starship prompt"
-"Configure Cinnamon apps (Nemo, xed, xview)" \
-"Perform Cinnamon theming" \
 "Quit" \
 )
 
@@ -39,7 +37,7 @@ software_changes () {
     sudo add-apt-repository ppa:papirus/papirus
     sudo apt update
     sudo apt remove yaru-theme-icon onboard
-    sudo apt install vim stow grub2-theme-mint git fonts-crosextra-carlito fonts-crosextra-caladea eza gthumb mpv bat btop kitty
+    sudo apt install vim stow grub2-theme-mint fonts-crosextra-carlito fonts-crosextra-caladea eza gthumb mpv bat btop kitty
     rm ~/.bashrc
     cd ~/.dotfiles
     stow -v bat btop kitty mint22 vim mpv
@@ -224,9 +222,7 @@ select opt in "${options[@]}"; do
         8) install_yazi ;;
         9) install_font ;;
         10) install_starship ;;
-        11) cinnamon_apps ;;
-        12) cinnamon_theming ;;
-        13) break 2 ;;
+        11) break 2 ;;
         *) echo "Invalid option" >&2
     esac
     REPLY=
