@@ -132,6 +132,8 @@ install_font () {
 
 install_starship () {
     curl -sS https://starship.rs/install.sh | sh
+    cd ~/.dotfiles
+    stow -v starship
 }
 
 cinnamon_apps () {
