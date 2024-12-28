@@ -87,17 +87,17 @@ alias flatlist='flatpak list --columns=name,application,version,branch,size'
 # set man pager to BAT
 if command -v batcat &> /dev/null
 then
-    export BAT_THEME="Visual Studio Dark+"
+    export BAT_THEME="Catppuccin Mocha"
     export BAT_PAGER="less -r"
     export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
     export MANROFFOPT="-c"
     alias bat='batcat'
 fi
 
-# replace ls with exa of installed
-if command -v exa &> /dev/null
+# replace ls with eza of installed
+if command -v eza &> /dev/null
 then
-    alias ls='exa -lg --group-directories-first --sort=ext --icons'
+    alias ls='eza -lg --group-directories-first --sort=ext --icons'
 fi
 
 # one command to update dotfiles
