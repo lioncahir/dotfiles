@@ -75,6 +75,7 @@ install_borg () {
 }
 
 install_yazi () {
+    sudo apt install ffmpeg
     asset=""
     asset=$(curl -s https://api.github.com/repos/sxyazi/yazi/releases/latest | grep "browser_download_url.*yazi-x86_64-unknown-linux-gnu.zip\"" | cut -d : -f 2,3 | tr -d \")
     if [ -n "$asset" ]
@@ -89,9 +90,9 @@ install_yazi () {
         sudo mv ya /usr/local/bin/
         sudo chown root:root /usr/local/bin/yazi
         sudo chown root:root /usr/local/bin/ya
-        rm $asset_file 
         cd ~/.dotfiles
         stow -v yazi
+        ya pack -u
         echo "Yazi installed"
     else
         echo "Could not download Yazi from GitHub"
