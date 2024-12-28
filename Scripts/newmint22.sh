@@ -7,7 +7,6 @@ options=(\
 "Perform software changes" \
 "Replace LibreOffice with flatpak" \
 "Install fzf" \
-"Install Borg backup" \
 "Install Yazi file manager" \
 "Install JetBrains Mono Nerd font" \
 "Install Starship prompt"
@@ -37,10 +36,10 @@ software_changes () {
     sudo add-apt-repository ppa:papirus/papirus
     sudo apt update
     sudo apt remove yaru-theme-icon onboard
-    sudo apt install vim stow grub2-theme-mint fonts-crosextra-carlito fonts-crosextra-caladea eza gthumb mpv bat btop kitty
+    sudo apt install vim stow grub2-theme-mint fonts-crosextra-carlito fonts-crosextra-caladea eza gthumb mpv bat btop kitty borgbackup
     rm ~/.bashrc
     cd ~/.dotfiles
-    stow -v bat btop kitty mint22 vim mpv
+    stow -v bat btop kitty mint22 vim mpv borg
     batcat cache --build
 }
 
@@ -48,28 +47,6 @@ replace_libreoffice () {
     sudo apt purge libreoffice*
     sudo apt autoremove
     flatpak install org.libreoffice.LibreOffice
-}
-
-install_borg () {
-    asset=""
-    asset=$(curl -s https://api.github.com/repos/borgbackup/borg/releases/latest | grep "browser_download_url.*borg-linux64\"" | cut -d : -f 2,3 | tr -d \")
-    if [ -n "$asset" ]
-    then
-        cd $(xdg-user-dir DOWNLOAD)
-        asset_file=$(basename $asset)
-        echo "Downloading $asset"
-        wget -q $asset
-        sudo cp $asset_file /usr/local/bin/borg
-        sudo chown root:root /usr/local/bin/borg
-        sudo chmod 755 /usr/local/bin/borg
-        sudo ln -sf /usr/local/bin/borg /usr/local/bin/borgfs
-        rm $asset_file
-        cd ~/.dotfiles
-        stow -v borg
-        echo "Borg installed"
-    else
-        echo "Could not download Borg from GitHub"
-    fi
 }
 
 install_yazi () {
@@ -218,11 +195,10 @@ select opt in "${options[@]}"; do
         4) software_changes ;;
         5) replace_libreoffice ;;
         6) install_fzf ;;
-        7) install_borg ;;
-        8) install_yazi ;;
-        9) install_font ;;
-        10) install_starship ;;
-        11) break 2 ;;
+        7) install_yazi ;;
+        8) install_font ;;
+        9) install_starship ;;
+        10) break 2 ;;
         *) echo "Invalid option" >&2
     esac
     REPLY=
