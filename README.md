@@ -38,31 +38,9 @@ This has been tested on EndeavourOS.
    cd .dotfiles
    ```
 
-1. Install packages from Arch repo and AUR
+1. Run `neweos.sh` from **Scripts** directory and select option *Install and configure i3wm*
 
    ```shell
-   sudo pacman -S - < i3pkg
-   sudo yay -S - < i3aur
+   cd Scripts
+   ./neweos.sh
    ``` 
-
-1. Remove .bashrc (will be stowed) and .bash_profile (we will use .profile instead, which is shell independent)
-
-   ```shell
-   rm ~/.bashrc ~/.bash_profile
-   ```
-
-1. Use GNU stow to create symlinks (use -v option for verbose output)
-
-   ```shell
-   stow -v eos i3 kitty vim yazi bat borg mpv starship yazi zathura
-   ```
-
-   **Note**: If testing this in VM (QEMU/KVM), comment out *picom* execution in .config/i3/config
-
-1. Install *yazi* packages by running `ya pack -u`
-
-1. Add pacman hook for cleaning up cache after each update and removal
-
-   ```shell
-   sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
-   ```
