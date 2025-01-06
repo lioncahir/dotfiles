@@ -36,10 +36,9 @@ prepend_rules = [
 	{ mime = "image/*",         use = [ "open", "wallpaper", "info", "reveal" ] },
 	{ mime = "{audio,video}/*", use = [ "play", "info", "reveal" ] },
 	{ name = "*.epub",          use = [ "ebook", "open", "extract", "reveal" ] },
-    { name = "*.{zip,gzip,tar,bzip,7z,xz,rar}", use = [ "extract", "reveal" ] },
 ]
 
 [plugin]
-prepend_previewers = [
-    { name = "*.zip", run = "archive" },
+prepend_fetchers = [
+	{ id = "mime", name = "*", run = "mime-ext", if = "!(mime|dummy)", prio = "high" },
 ]
