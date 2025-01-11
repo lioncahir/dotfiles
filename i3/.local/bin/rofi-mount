@@ -14,9 +14,11 @@ case $choice in
     "Unmount NAS/Media")  umount /media/NAS/Media &>> ~/mount.log
                           notify-send "NAS/Media unmounted" ;; 
 
-    "Mount GDrive")       rclone mount --daemon remote: ~/GDrive --exclude "/Fotky/**" --vfs-cache-mode writes &>> ~/mount.log
-                          notify-send "Google Drive mounted" ;; 
+    "Mount GDrive")       [ rclone mount --daemon remote: ~/GDrive --exclude "/Fotky/**" --vfs-cache-mode writes &>> ~/mount.log ] \
+                          && notify-send "Google Drive mounted" \
+                          || notify-send "Could not mount Google Drive" ;; 
 
-    "Unmount GDrive")     fusermount -u ~/GDrive &>> ~/mount.log
-                          notify-send "Google Drive unmounted" ;; 
+    "Unmount GDrive")     [ fusermount -u ~/GDrive &>> ~/mount.log ] \
+                          && notify-send "Google Drive unmounted" \
+                          || notify-send "Could not unmount Google Drive" ;; 
 esac 
