@@ -49,7 +49,6 @@ extract () {
 gitupdate () {
     default_msg="Updates from $(date '+%F')"
     commit_msg=${1:-"$default_msg"}
-    echo $commit_msg
     cd ~/.dotfiles
     git add --all
     git status
