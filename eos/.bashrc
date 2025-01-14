@@ -47,10 +47,13 @@ extract () {
 
 # one command to update dotfiles
 gitupdate () {
+    default_msg="Updates from $(date '+%F')"
+    commit_msg=${1:-"$default_msg"}
+    echo $commit_msg
     cd ~/.dotfiles
     git add --all
     git status
-    git commit -m "Updates from $(date '+%F')"
+    git commit -m "$commit_msg"
     git push
     cd $OLDPWD
 }
