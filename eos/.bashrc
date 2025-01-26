@@ -65,6 +65,12 @@ orph() {
     echo "No more orphaned packages found."
 }
 
+# start service and network for virt-manager
+startvm() {
+    sudo systemctl start libvirtd.service
+    sudo virsh net-start default
+}
+
 # change working directory to where Yazi exited
 y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
