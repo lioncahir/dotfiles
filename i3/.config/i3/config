@@ -113,7 +113,6 @@ client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
 
 # Application keybindings
-bindsym $mod+Ctrl+f workspace $ws2; exec firefox
 bindsym $mod+Ctrl+b workspace $ws2; exec brave
 bindsym $mod+Ctrl+e workspace $ws3; exec pcmanfm
 bindsym Ctrl+Shift+Escape exec "kitty --app-id btop btop"
