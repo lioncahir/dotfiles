@@ -71,6 +71,7 @@ borg create                                     \
     --exclude 'home/*/.local/share/Steam'       \
     --exclude 'home/*/.local/share/ice/firefox' \
     --exclude 'home/*/.local/share/webkitgtk'   \
+    --exclude 'home/*/.config/BraveSoftware'    \
     --exclude 'home/*/.var/app/*/cache'         \
                                                 \
     ::'{now}'                                   \
