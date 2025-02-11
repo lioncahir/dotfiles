@@ -1,9 +1,12 @@
 autotiling
 brightnessctl
+fnott
 foot
+nwg-look
+otf-font-awesome
 polkit
 sway
 swaybg
 sway-contrib
-xdg-dekstop-portal-gtk
-xdg-dekstop-portal-wlr
+xdg-desktop-portal-gtk
+xdg-desktop-portal-wlr

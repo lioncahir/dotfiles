@@ -1,5 +1,0 @@
-#!/bin/bash
-
-choice=$(find ~/Documents -type f -name "*.md" | rofi -dmenu -p "Edit markdown" -no-fixed-num-lines)
-
-[ -n "$choice" ] && kitty -o font_size=16 vim -u ~/.vim/write.vimrc "$choice"
