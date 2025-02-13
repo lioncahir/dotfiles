@@ -1,14 +1,15 @@
 #!/bin/bash
 
-choice=$(echo -e "bashrc\nsway\nfnott\nfuzzel\nvimrc\nwaybar\nyazi\nyazi-keys" | fuzzel --dmenu -p "Edit config") 
+choice=$(echo -e "bashrc\nsway\nfnott\nfuzzel\nvimrc\nwaybar\nwaybar-styling\nyazi\nyazi-keys" | fuzzel --dmenu -p "Edit config") 
 
 case $choice in
-    bashrc)     foot vim ~/.bashrc ;;
-    sway)       foot vim ~/.config/sway/config ;;
-    vimrc)      foot vim ~/.vim/vimrc ;;
-    fuzzel)     foot vim ~/.config/fuzzel/fuzzel.ini ;;
-    fnott)      foot vim ~/.config/fnott/fnott.ini ;;
-    waybar)     foot vim ~/.config/waybar/config.jsonc ;;
-    yazi)       foot vim ~/.config/yazi/yazi.toml ;;
-    yazi-keys)  foot vim ~/.config/yazi/keymap.toml ;;
+    bashrc)             foot vim ~/.bashrc ;;
+    sway)               foot vim ~/.config/sway/config ;;
+    vimrc)              foot vim ~/.vim/vimrc ;;
+    fuzzel)             foot vim ~/.config/fuzzel/fuzzel.ini ;;
+    fnott)              foot vim ~/.config/fnott/fnott.ini ;;
+    waybar)             foot vim ~/.config/waybar/config.jsonc ;;
+    waybar-styling)     foot vim ~/.config/waybar/style.css;;
+    yazi)               foot vim ~/.config/yazi/yazi.toml ;;
+    yazi-keys)          foot vim ~/.config/yazi/keymap.toml ;;
 esac

@@ -10,31 +10,34 @@ cache_dir       = "~/.cache/yazi/"
 
 [opener]
 edit = [
-	{ run = 'kitty ${EDITOR:=vim} "$@"', desc = "Edit", orphan = true, for = "unix" },
-	{ run = 'bat "$1"', desc = "View", block = true, for = "unix" },
+	{ run = '$TERM vim "$1"', desc = "Edit", orphan = true },
+	{ run = 'bat "$1"', desc = "View", block = true },
 ]
 open = [
-	{ run = 'xdg-open "$1"', desc = "Open in GUI application", for = "linux" },
+	{ run = 'xdg-open "$1"', desc = "Open in GUI application" },
+]
+image = [
+	{ run = 'view_image.sh "$1"', desc = "View image" },
 ]
 reveal = [
-	{ run = 'xdg-open "$(dirname "$1")"', desc = "Show in File Manager", for = "linux" },
-	{ run = '''clear; eza -lg "$1"; echo; stat $1; echo; echo "Press enter to exit"; read _''', block = true, desc = "Show file information", for = "unix" },
+	{ run = 'xdg-open "$(dirname "$1")"', desc = "Show in File Manager" },
+	{ run = '''clear; eza -lg "$1"; echo; stat $1; echo; echo "Press enter to exit"; read _''', block = true, desc = "Show file information" },
 ]
 info = [
-	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info" },
 ]
 wallpaper = [
-	{ run = '''feh --bg-scale "$1"''', desc = "Set as wallpaper", for = "unix" },
+	{ run = 'set_wallpaper.sh "$1"', desc = "Set as wallpaper" },
 ]
 ebook = [
-	{ run = 'kitty -o font_size=16 epy "$1"', desc = "Read e-book", orphan = true, for = "unix" },
+	{ run = '$TERM epy "$1"', desc = "Read e-book", orphan = true },
 ]
 
 [open]
 prepend_rules = [
 	{ name = "*/", use = [ "open" ] },
 	{ mime = "text/html",       use = [ "edit", "open", "reveal" ] },
-	{ mime = "image/*",         use = [ "open", "wallpaper", "info", "reveal" ] },
+	{ mime = "image/*",         use = [ "image", "wallpaper", "info", "reveal" ] },
 	{ mime = "{audio,video}/*", use = [ "play", "info", "reveal" ] },
 	{ name = "*.epub",          use = [ "ebook", "open", "extract", "reveal" ] },
 ]

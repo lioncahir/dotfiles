@@ -1,15 +1,19 @@
 @import "mocha.css";
 
+@define-color primary @lavender;
+@define-color background @base;
+
 * {
     border: none;
-    border-radius: 1px;
-    font-family: JetBrainsMono Nerd Font;
-    font-size: 15px;
-    min-height: 0;
+    border-radius: 0px;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-size: 17px;
+    font-weight: normal;
 }
 
 window#waybar {
-    background-color: @mantle;
+    background-color: @base;
+    background: transparent;
     color: @text;
 }
 
@@ -62,35 +66,71 @@ button:hover {
     background-image: linear-gradient(0deg, @surface1, @mantle);
 }
 
-#mode {
-    background-color: @base;
-    box-shadow: inset 0 -2px @text;
+/* Standalone modules */
+#tray,
+#diskdd,
+#custom-power,
+#clock {
+    background-color: @background;
+    color: @primary;
+    border-radius: 15px;
+    padding: 1px 15px 1px 15px;
+    margin: 3px 5px 3px 5px;
+    opacity:0.9;
+    border:1px solid @primary;
 }
 
-#mpris,
-#custom-weather,
-#clock,
-#language,
+/* Lefthand modules in block */
 #pulseaudio,
-#bluetooth,
-#network,
+#disk {
+    background-color: @background;
+    color: @primary;
+    border-radius: 15px 0px 0px 15px;
+    padding: 1px 10px 1px 15px;
+    margin: 3px 0px 3px 5px;
+    opacity:0.9;
+    border-style: solid;
+    border-color: @primary;
+    border-width: 1px 0px 1px 1px;
+}
+
+/* Inner modules in block */
 #memory,
-#cpu,
-#temperature,
-#disk,
-#custom-kernel,
-#idle_inhibitor,
-#scratchpad,
-#mode,
-#tray {
-    padding: 0 10px;
-    margin: 5px 1px;
-    color: @text;
+#cpu {
+    background-color: @background;
+    color: @primary;
+    border-radius: 0px;
+    padding: 1px 10px 1px 10px;
+    margin: 3px 0px 3px 0px;
+    opacity:0.9;
+    border-style: solid;
+    border-color: @primary;
+    border-width: 1px 0px 1px 0px;
+}
+
+/* Righthand modules in block */
+#language,
+#battery {
+    background-color: @background;
+    color: @primary;
+    border-radius: 0px 15px 15px 0px;
+    padding: 1px 15px 1px 10px;
+    margin: 3px 3px 3px 0px;
+    opacity:0.9;
+    border-style: solid;
+    border-color: @primary;
+    border-width: 1px 1px 1px 0px;
+}
+
+#pulseaudio.muted {
+    background-color: @red;
+    color: @mantle;
 }
 
 #window,
 #workspaces {
     margin: 0 4px;
+    font-weight: bold;
 }
 
 .modules-left > widget:first-child > #workspaces {
@@ -112,11 +152,6 @@ button:hover {
     color: @mantle;
 }
 
-#clock {
-    background-color: @green;
-    color: @mantle;
-}
-
 @keyframes blink {
     to {
         background-color: @mantle;
@@ -126,22 +161,6 @@ button:hover {
 
 label:focus {
     background-color: @mantle;
-}
-
-#cpu {
-    background-color: @mauve;
-    color: @mantle;
-    min-width: 45px;
-}
-
-#memory {
-    background-color: @red;
-    color: @mantle;
-}
-
-#disk {
-    background-color: @flamingo;
-    color: @mantle;
 }
 
 #network {
@@ -160,16 +179,6 @@ label:focus {
     min-width: 40px;
 }
 
-#pulseaudio {
-    background-color: @yellow;
-    color: @mantle;
-}
-
-#pulseaudio.muted {
-    background-color: red;
-    color: @mantle;
-}
-
 #temperature {
     background-color: @pink;
     color: @mantle;
@@ -185,20 +194,6 @@ label:focus {
 #mpris {
     background-color: @base;
     color: @text;
-}
-
-#tray {
-    background-color: @overlay0;
-    color: @text;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @mantle;
 }
 
 #idle_inhibitor {

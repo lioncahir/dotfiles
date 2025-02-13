@@ -18,8 +18,8 @@ alias egrep='egrep --color=auto'
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 HISTCONTROL=ignoreboth
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=20000
+HISTFILESIZE=20000
 shopt -s histappend
 shopt -s checkwinsize
 

@@ -40,12 +40,12 @@ if [ $? -eq 0 ]
 then 
     info "$mountpoint mounted" 
 else 
-    notify-send "Cannot mount NAS, backup is due"
+    notify-send --app-name="Borg Backup" --urgency=critical "Cannot mount NAS, backup is due"
     info "Cannot mount $mountpoint, run backup manually as soon as possible"
     exit 1
 fi
 
-notify-send "Starting backup, do not unmount NAS"
+notify-send --app-name="Borg Backup" "Starting backup, do not unmount NAS"
 info "Starting backup"
 
 cp /etc/fstab ~/.config/
@@ -97,4 +97,4 @@ else
 fi
 
 info "Backup completed\n"
-notify-send "Backup completed"
+notify-send --app-name="Borg Backup" "Backup completed"
