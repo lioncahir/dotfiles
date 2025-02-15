@@ -5,14 +5,16 @@
     "spacing": 0, // Gaps between modules (4px)
     "margin": 3,
 
-    // Modules
+// Modules
     "modules-left": [
         "sway/workspaces",
         "sway/window"
     ],
+
     "modules-center": [
         "clock"
     ],
+
     "modules-right": [
         "disk",
         "cpu",
@@ -23,51 +25,57 @@
         "custom/power"
     ],
 
-    // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+// Modules configuration
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "󰎤",
+            "2": "󰎧",
+            "3": "󰎪",
+            "4": "󰎭",
+            "5": "󰎱",
+            "6": "󰎳",
+            "7": "󰎶",
+            "8": "󰎹",
+            "9": "󰎼",
+            "10": "󰽽"
+        }
+    },
+
     "sway/window": {
         "format": "{app_id}"
     },
+    
     "tray": {
         // "icon-size": 21,
         "spacing": 10
     },
+    
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": " {:%e.%b    %H:%M}"
     },
+    
     "cpu": {
         "interval": 2,
         "format": " {usage}%",
         "tooltip": false
     },
+    
     "disk": {
         "interval": 30,
         "format": " {specific_free:0.0f} GB",
         "unit": "GiB",
         "path": "/"
     },
-    "memory": {
-        "format": " {}%"
-    },
+    
     "sway/language": {
         "format": "  {}"
     },
+    
     "battery": {
         "states": {
             // "good": 95,
@@ -79,10 +87,9 @@
         "format-charging": " {capacity}%",
         "format-plugged": "{capacity}%",
         "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": [" ", " ", " ", " ", " "]
     },
+    
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon}  {volume}%",
@@ -103,6 +110,7 @@
         "on-click-right": "pavucontrol",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
+    
     "custom/power": {
         "format" : "⏻",
 		"tooltip": false,

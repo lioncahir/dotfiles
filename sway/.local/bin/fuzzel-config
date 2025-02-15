@@ -8,7 +8,7 @@ case $choice in
     vimrc)              foot vim ~/.vim/vimrc ;;
     fuzzel)             foot vim ~/.config/fuzzel/fuzzel.ini ;;
     fnott)              foot vim ~/.config/fnott/fnott.ini ;;
-    waybar)             foot vim ~/.config/waybar/config.jsonc ;;
+    waybar)             foot vim ~/.config/waybar/config ;;
     waybar-styling)     foot vim ~/.config/waybar/style.css;;
     yazi)               foot vim ~/.config/yazi/yazi.toml ;;
     yazi-keys)          foot vim ~/.config/yazi/keymap.toml ;;
