@@ -7,7 +7,9 @@ otf-font-awesome
 polkit
 sway
 swaybg
+swayidle
 swayimg
+swaylock
 sway-contrib
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr

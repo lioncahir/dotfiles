@@ -1,6 +1,5 @@
 set $mod Mod4
 set $term foot
-#set $menu wofi --show=drun
 set $menu fuzzel
 
 # Input & Output configuration
@@ -27,17 +26,10 @@ exec fnott
 exec ~/.local/bin/check_backup.sh
 
 ### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+          before-sleep 'swaylock -f -c 000000'
 
 # Sway options
 default_border pixel 3
@@ -49,6 +41,7 @@ floating_modifier $mod inverse
 # Basic key bindings
 bindsym $mod+Return exec $term
 bindsym $mod+q kill
+bindsym $mod+l exec swaylock -f -c 000000
 bindsym $mod+Shift+Return exec $menu
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+b exec killall -SIGUSR2 waybar
@@ -136,7 +129,6 @@ bindsym Shift+Print exec /usr/share/sway-contrib/grimshot savecopy area
 # Window rules
 for_window [app_id="btop"] floating enable, resize set 1200 800, move position center
 for_window [app_id=".*alculator"] floating enable
-#for_window [app_id="foot"] opacity 0.95
 
 # Start Yazi in scratchpad
 for_window [app_id="yazi"] move to scratchpad

@@ -16,7 +16,7 @@ window {
 window#waybar.solo #window{
     background-color: @background;
     color: @primary;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: normal;
     border-radius: 0px 15px 15px 0px;
     padding: 1px 15px 1px 10px;
@@ -30,7 +30,21 @@ window#waybar.solo #window{
 window#waybar.tiled #window{
     background-color: @background;
     color: @primary;
-    font-size: 17px;
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: 0px 15px 15px 0px;
+    padding: 1px 15px 1px 10px;
+    margin: 3px 3px 3px 0px;
+    opacity:0.9;
+    border-style: solid;
+    border-color: @primary;
+    border-width: 1px 1px 1px 0px;
+}
+
+window#waybar.floating #window{
+    background-color: @background;
+    color: @primary;
+    font-size: 16px;
     font-weight: normal;
     border-radius: 0px 15px 15px 0px;
     padding: 1px 15px 1px 10px;
@@ -44,7 +58,7 @@ window#waybar.tiled #window{
 window#waybar.empty #window{
     background-color: @background;
     color: @primary;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: normal;
     border-radius: 0px 15px 15px 0px;
     padding: 1px 15px 1px 1px;
@@ -83,7 +97,7 @@ tooltip label {
 #clock {
     background-color: @background;
     color: @primary;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: normal;
     border-radius: 15px;
     padding: 1px 15px 1px 15px;
@@ -98,7 +112,7 @@ tooltip label {
 #disk {
     background-color: @background;
     color: @primary;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: normal;
     border-radius: 15px 0px 0px 15px;
     padding: 1px 10px 1px 15px;
@@ -114,7 +128,7 @@ tooltip label {
 #cpu {
     background-color: @background;
     color: @primary;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: normal;
     border-radius: 0px;
     padding: 1px 10px 1px 10px;
@@ -130,7 +144,7 @@ tooltip label {
 #battery {
     background-color: @background;
     color: @primary;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: normal;
     border-radius: 0px 15px 15px 0px;
     padding: 1px 15px 1px 10px;
