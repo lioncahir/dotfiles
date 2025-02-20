@@ -16,13 +16,13 @@
     ],
 
     "modules-right": [
+        "custom/updates",
         "disk",
         "cpu",
         "battery",
         "pulseaudio",
         "sway/language",
-        "tray",
-        "custom/power"
+        "tray"
     ],
 
 // Modules configuration
@@ -46,7 +46,8 @@
     },
 
     "sway/window": {
-        "format": "{app_id}"
+        "format": "{app_id}",
+        "tooltip-format": "{name}"
     },
     
     "tray": {
@@ -73,7 +74,8 @@
     },
     
     "sway/language": {
-        "format": "  {}"
+        "format": "  {}",
+        "tooltip": false
     },
     
     "battery": {
@@ -114,7 +116,12 @@
     "custom/power": {
         "format" : "⏻",
 		"tooltip": false,
-		"on-click": "fuzzel-power",
-		}
+		"on-click": "fuzzel-power"
+    },
+    
+    "custom/updates": {
+        "format" : "󰇚 {}",
+        "interval": 3600,
+		"exec": "yay -Qu | wc -l"
     }
 }

@@ -2,7 +2,6 @@ ignore-empty-password
 font="JetBrainsMono Nerd Font"
 
 image=~/.wallpaper
-fade-in=0.1
 effect-blur=20x6
 
 show-keyboard-layout

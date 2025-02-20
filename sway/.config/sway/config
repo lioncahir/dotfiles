@@ -28,7 +28,7 @@ exec ~/.local/bin/check_backup.sh
 ### Idle configuration
 exec swayidle -w \
           timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+          timeout 420 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
           before-sleep 'swaylock -f -c 000000'
 
 # Sway options
@@ -41,7 +41,7 @@ floating_modifier $mod inverse
 # Basic key bindings
 bindsym $mod+Return exec $term
 bindsym $mod+q kill
-bindsym $mod+l exec swaylock -f -c 000000
+bindsym $mod+l exec swaylock -f -c 000000 && pkill -SIGUSR1 swayidle
 bindsym $mod+Shift+Return exec $menu
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+b exec killall -SIGUSR2 waybar

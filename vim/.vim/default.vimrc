@@ -74,6 +74,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'ap/vim-css-color'
+Plug 'jasonccox/vim-wayland-clipboard'
 call plug#end()
 
 "Plugin settings

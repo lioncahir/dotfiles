@@ -13,35 +13,9 @@ window {
     background-color: transparent;
 }
 
+window#waybar.floating #window,
+window#waybar.tiled #window,
 window#waybar.solo #window{
-    background-color: @background;
-    color: @primary;
-    font-size: 16px;
-    font-weight: normal;
-    border-radius: 0px 15px 15px 0px;
-    padding: 1px 15px 1px 10px;
-    margin: 3px 3px 3px 0px;
-    opacity:0.9;
-    border-style: solid;
-    border-color: @primary;
-    border-width: 1px 1px 1px 0px;
-}
-
-window#waybar.tiled #window{
-    background-color: @background;
-    color: @primary;
-    font-size: 16px;
-    font-weight: normal;
-    border-radius: 0px 15px 15px 0px;
-    padding: 1px 15px 1px 10px;
-    margin: 3px 3px 3px 0px;
-    opacity:0.9;
-    border-style: solid;
-    border-color: @primary;
-    border-width: 1px 1px 1px 0px;
-}
-
-window#waybar.floating #window{
     background-color: @background;
     color: @primary;
     font-size: 16px;
@@ -94,6 +68,7 @@ tooltip label {
 #tray,
 #diskdd,
 #custom-power,
+#custom-updates,
 #clock {
     background-color: @background;
     color: @primary;
