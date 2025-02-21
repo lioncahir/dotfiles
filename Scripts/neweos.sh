@@ -3,6 +3,7 @@
 options=(\
 "Add NAS to /etc/fstab" \
 "Install and configure i3wm" \
+"Install and configure SwayWM" \
 "Decrease swappiness" \
 "Install software for Cinnamon desktop" \
 "Configure Cinnamon apps (Nemo, xed)" \
@@ -32,6 +33,20 @@ i3wm () {
     ya pack -u
     bat cache --build
     feh --bg-scale ~/Pictures/endeavour-black-4k.png
+    sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
+    sudo cp Scripts/reflector.timer /etc/systemd/system/
+    sudo systemctl enable reflector.timer
+    sudo systemctl enable lightdm.service
+}
+
+swaywm () {
+    cd ~/.dotfiles
+    yay -S --needed - < ~/.dotfiles/swaypkg
+    rm ~/.bashrc ~/.bash_profile
+    stow -v eos bat borg btop foot mpv starship sway vim yazi zathura
+    ya pack -u
+    bat cache --build
+    ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
     sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
     sudo cp Scripts/reflector.timer /etc/systemd/system/
     sudo systemctl enable reflector.timer
@@ -128,14 +143,15 @@ echo
     case $REPLY in
         1) add_nas ;;
         2) i3wm ;;
-        3) decrease_swappiness ;;
-        4) software_changes ;;
-        5) cinnamon_apps ;;
-        6) cinnamon_theming ;;
-        7) scanner ;;
-        8) bluetooth ;;
-        9) timers ;;
-        10) break 2 ;;
+        3) swaywm ;;
+        4) decrease_swappiness ;;
+        5) software_changes ;;
+        6) cinnamon_apps ;;
+        7) cinnamon_theming ;;
+        8) scanner ;;
+        9) bluetooth ;;
+        10) timers ;;
+        11) break 2 ;;
         *) echo "Invalid option" >&2
     esac
     REPLY=
