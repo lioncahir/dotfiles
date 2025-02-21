@@ -122,6 +122,6 @@
     "custom/updates": {
         "format" : "󰇚 {}",
         "interval": 3600,
-		"exec": "yay -Qu | wc -l"
+		"exec": "checkupdates | wc -l"
     }
 }
