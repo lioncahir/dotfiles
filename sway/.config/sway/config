@@ -12,6 +12,13 @@ input "type:keyboard" {
     xkb_layout "us,sk"
     xkb_variant ",qwerty"
     xkb_options "grp:alt_shift_toggle"
+    xkb_numlock enabled
+}
+
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
 }
 
 # Startup
@@ -31,12 +38,15 @@ exec swayidle -w \
     timeout 300 'if ! pgrep swaylock ; then swaylock -f; fi; swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f'
 
+# Inhibit idle
+for_window [app_id="brave-browser"] inhibit_idle fullscreen
+
 # Sway options
 default_border pixel 3
 gaps inner 5
 hide_edge_borders smart
 focus_on_window_activation focus
-floating_modifier $mod inverse
+floating_modifier $mod normal
 
 # Basic key bindings
 bindsym $mod+Return exec $term
