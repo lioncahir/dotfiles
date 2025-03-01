@@ -129,6 +129,7 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 # Application keybindings
 bindsym $mod+Ctrl+b workspace 2; exec brave
 bindsym $mod+Ctrl+e workspace 3; exec pcmanfm
+bindsym $mod+o exec fuzzel-outputs
 bindsym $mod+period exec fuzzel-config
 bindsym $mod+Escape exec "foot --app-id btop btop"
 

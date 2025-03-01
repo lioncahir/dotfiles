@@ -1,0 +1,12 @@
+#!/bin/bash
+
+choice=$(swaymsg --raw -t get_outputs | jq -r '.[] | .name'| fuzzel --dmenu --lines 4 -p "Toggle video output" )
+
+swaymsg output $choice toggle
+
+active_outputs=$(swaymsg --raw -t get_outputs | jq -r ".[] | .active")
+
+if [[ ! $active_outputs == *true* ]]; then
+   swaymsg output eDP-1 enable
+   notify-send "All outputs disabled, reverting to eDP-1"
+fi
