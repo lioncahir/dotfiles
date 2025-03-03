@@ -55,7 +55,7 @@ bindsym $mod+l exec swaylock -f
 bindsym $mod+Shift+Return exec $menu
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+b exec killall -SIGUSR2 waybar
-bindsym $mod+Shift+q exec fuzzel-power
+bindsym $mod+Shift+q exec ~/.config/sway/scripts/fuzzel-power
 
 # Window manipulation
 bindsym $mod+Left focus left
@@ -129,8 +129,9 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 # Application keybindings
 bindsym $mod+Ctrl+b workspace 2; exec brave
 bindsym $mod+Ctrl+e workspace 3; exec pcmanfm
-bindsym $mod+o exec fuzzel-outputs
-bindsym $mod+period exec fuzzel-config
+bindsym $mod+Ctrl+o workspace 9; exec nwg-displays; exec pavucontrol
+bindsym $mod+o exec ~/.config/sway/scripts/fuzzel-outputs
+bindsym $mod+period exec ~/.config/sway/scripts/fuzzel-config
 bindsym $mod+Escape exec "foot --app-id btop btop"
 
 # Screenshots

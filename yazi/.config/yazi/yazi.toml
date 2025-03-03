@@ -17,7 +17,7 @@ open = [
 	{ run = 'xdg-open "$1"', desc = "Open in GUI application" },
 ]
 image = [
-	{ run = 'view_image.sh "$1"', desc = "View image" },
+	{ run = '~/.config/yazi/scripts/view_image.sh "$1"', desc = "View image" },
 ]
 reveal = [
 	{ run = 'xdg-open "$(dirname "$1")"', desc = "Show in File Manager" },
@@ -27,7 +27,7 @@ info = [
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info" },
 ]
 wallpaper = [
-	{ run = 'set_wallpaper.sh "$1"', desc = "Set as wallpaper" },
+	{ run = '~/.config/yazi/scripts/set_wallpaper.sh "$1"', desc = "Set as wallpaper" },
 ]
 ebook = [
 	{ run = '$TERM epy "$1"', desc = "Read e-book", orphan = true },
