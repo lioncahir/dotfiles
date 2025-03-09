@@ -1,13 +1,21 @@
 #!/bin/bash
 
 echo -e " \
- + Enter           \t Terminal \n \
+ + F1              \t Show this help \n \
  + Shift + Enter   \t Application menu \n \
  + q               \t Close window \n \
+ + Enter           \t Terminal \n \
+ + Ctrl + b        \t Internet browser \n \
+ + Ctrl + e        \t File manager \n \
+ + Ctrl + o        \t Select audio/video output \n \
+ + /               \t Yazi file manager \n \
  + l               \t Lock screen \n \
  + f               \t Toggle fullscreen \n \
- +             \t Move between windows \n \
+ + .               \t Edit config files \n \
+ + Esc             \t System monitor \n \
  + Shift + q       \t Power menu \n \
  + Shift + b       \t Restart waybar \n \
  + Shift + Space   \t Toggle floating \n \
-    " | fuzzel --dmenu --lines 15 -p "Sway keybindings"
+PrintScreen         \t Screenshot (full screen) \n \
+Shift + PrintScreen \t Screenshot (area) \n \
+" | fuzzel --dmenu --lines 15 --width 55 -p "Sway keybindings"

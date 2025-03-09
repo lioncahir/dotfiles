@@ -31,6 +31,7 @@ exec autotiling
 exec /usr/share/sway-contrib/inactive-windows-transparency.py
 exec fnott
 exec ~/.local/bin/check_backup.sh
+# exec ~/.config/sway/scripts/fuzzel-keys
 
 ### Idle configuration
 exec swayidle -w \
@@ -132,6 +133,7 @@ bindsym $mod+Ctrl+e workspace 3; exec pcmanfm
 bindsym $mod+Ctrl+o workspace 9; exec nwg-displays; exec pavucontrol
 bindsym $mod+o exec ~/.config/sway/scripts/fuzzel-outputs
 bindsym $mod+period exec ~/.config/sway/scripts/fuzzel-config
+bindsym $mod+F1 exec ~/.config/sway/scripts/fuzzel-keys
 bindsym $mod+Escape exec "foot --app-id btop btop"
 
 # Screenshots
