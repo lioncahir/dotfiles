@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo -e " \
+ + Enter           \t Terminal \n \
+ + Shift + Enter   \t Application menu \n \
+ + q               \t Close window \n \
+ + l               \t Lock screen \n \
+ + f               \t Toggle fullscreen \n \
+ +             \t Move between windows \n \
+ + Shift + q       \t Power menu \n \
+ + Shift + b       \t Restart waybar \n \
+ + Shift + Space   \t Toggle floating \n \
+    " | fuzzel --dmenu --lines 15 -p "Sway keybindings"
