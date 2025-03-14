@@ -17,6 +17,7 @@ gdu
 gvfs
 gvfs-afc
 gvfs-gphoto2
+gvfs-google
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
@@ -56,6 +57,7 @@ xorg-xwayland
 yazi
 zathura-pdf-mupdf
 zip
+brave-bin
 epy-ereader-git
 gnome-calculator-gtk3
 gnome-online-accounts-gtk
