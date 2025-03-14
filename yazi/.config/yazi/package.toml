@@ -9,9 +9,9 @@ rev = "beb586a"
 hash = "b03f3d80d26b6d7bb490b1380e9cb754"
 
 [[plugin.deps]]
-use = "yazi-rs/plugins:mount"
-rev = "beb586a"
-hash = "5c4d8080367dd2561a18c1cf5a1dd295"
+use = "KKV9/compress"
+rev = "60b24af"
+hash = "ee025be766240cc98e671754ac836da3"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"

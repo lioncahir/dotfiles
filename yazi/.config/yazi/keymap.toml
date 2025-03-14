@@ -5,7 +5,7 @@ prepend_keymap = [
 	{ on = "<Delete>",  run = "remove",                      desc = "Trash selected files" },
 	{ on = "/",         run = "plugin fzf",                  desc = "Jump to a directory or reveal a file using fzf" },
 	{ on = "i",         run = "shell --block 'bat \"$1\"'",       desc = "View content of file" },
-	{ on = "M",         run = "plugin mount",                desc = "Mount manager" },
+	{ on = [ "c", "a" ],       run = "plugin compress", desc = "Archive selected files" },
 
 	# Goto
 	{ on = [ "g", "m" ],       run = "cd /media/NAS/Media", desc = "Go to the NAS mount" },

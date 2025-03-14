@@ -34,7 +34,7 @@ i3wm () {
     bat cache --build
     feh --bg-scale ~/Pictures/endeavour-black-4k.png
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
-    vim -s -E +PlugInstall +qall
+    vim -s +PlugInstall +qall
     sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
     sudo cp Scripts/reflector.timer /etc/systemd/system/
     sudo systemctl enable reflector.timer
@@ -50,7 +50,7 @@ swaywm () {
     bat cache --build
     ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
-    vim -s -E +PlugInstall +qall
+    vim -s +PlugInstall +qall
     sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
     sudo cp Scripts/reflector.timer /etc/systemd/system/
     sudo systemctl enable reflector.timer
