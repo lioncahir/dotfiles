@@ -9,16 +9,16 @@ choice=$(echo -e "${options}" | fuzzel --dmenu --lines 3 -p "Mounter")
 
 case $choice in
     "Mount NAS/Media")    mount /media/NAS/Media &>> ~/mount.log
-                          notify-send "NAS/Media mounted" ;; 
+                          notify-send --app-name="Mounter" "NAS/Media mounted" ;; 
 
     "Unmount NAS/Media")  umount /media/NAS/Media &>> ~/mount.log
-                          notify-send "NAS/Media unmounted" ;; 
+                          notify-send --app-name="Mounter" "NAS/Media unmounted" ;; 
 
     "Mount GDrive")       [ rclone mount --daemon remote: ~/GDrive --exclude "/Fotky/**" --vfs-cache-mode writes &>> ~/mount.log ] \
-                          && notify-send "Google Drive mounted" \
-                          || notify-send "Could not mount Google Drive" ;; 
+                          && notify-send --app-name="Mounter" "Google Drive mounted" \
+                          || notify-send --app-name="Mounter" "Could not mount Google Drive" ;; 
 
     "Unmount GDrive")     [ fusermount -u ~/GDrive &>> ~/mount.log ] \
-                          && notify-send "Google Drive unmounted" \
-                          || notify-send "Could not unmount Google Drive" ;; 
+                          && notify-send --app-name="Mounter" "Google Drive unmounted" \
+                          || notify-send --app-name="Mounter" "Could not unmount Google Drive" ;; 
 esac 
