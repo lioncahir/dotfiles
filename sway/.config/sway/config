@@ -132,6 +132,7 @@ bindsym $mod+Ctrl+b workspace 2; exec brave
 bindsym $mod+Ctrl+e workspace 3; exec pcmanfm
 bindsym $mod+Ctrl+o workspace 9; exec nwg-displays; exec pavucontrol
 bindsym $mod+o exec ~/.config/sway/scripts/fuzzel-outputs
+bindsym $mod+m exec ~/.config/sway/scripts/fuzzel-mount
 bindsym $mod+period exec ~/.config/sway/scripts/fuzzel-config
 bindsym $mod+F1 exec ~/.config/sway/scripts/fuzzel-keys
 bindsym $mod+Escape exec "foot --app-id btop btop"
