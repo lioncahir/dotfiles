@@ -119,7 +119,7 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 # Application keybindings
 bindsym $mod+Ctrl+b workspace $ws2; exec brave
 bindsym $mod+Ctrl+e workspace $ws3; exec pcmanfm
-bindsym Ctrl+Shift+Escape exec "kitty --app-id btop btop"
+bindsym $mod+Ctrl+o workspace 9; exec arandr; exec pavucontrol
 bindsym $mod+Escape exec "kitty --app-id btop btop"
 bindsym $mod+period exec --no-startup-id ~/.config/i3/scripts/rofi-config
 bindsym $mod+m exec --no-startup-id ~/.config/i3/scripts/rofi-mount

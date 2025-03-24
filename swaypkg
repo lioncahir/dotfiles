@@ -14,6 +14,7 @@ foot
 fuzzel
 fzf
 gdu
+gthumb
 gvfs
 gvfs-afc
 gvfs-gphoto2
@@ -22,7 +23,6 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 libreoffice-fresh
-lightdm-slick-greeter
 mediainfo
 mpv
 network-manager-applet

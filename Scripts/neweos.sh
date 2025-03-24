@@ -10,7 +10,7 @@ options=(\
 "Perform Cinnamon theming" \
 "Install printer & scanner (Samsung M2070)" \
 "Enable Bluetooth" \
-"Set systemd timers (reflector)" \
+"Customize Reflector and Paccache" \
 "Quit" \
 )
 
@@ -35,9 +35,6 @@ i3wm () {
     feh --bg-scale ~/Pictures/endeavour-black-4k.png
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
     vim -s +PlugInstall +qall
-    sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
-    sudo cp Scripts/reflector.timer /etc/systemd/system/
-    sudo systemctl enable reflector.timer
     sudo systemctl enable lightdm.service
 }
 
@@ -51,10 +48,7 @@ swaywm () {
     ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
     vim -s +PlugInstall +qall
-    sudo cp Scripts/paccache.hook /usr/share/libalpm/hooks/
-    sudo cp Scripts/reflector.timer /etc/systemd/system/
-    sudo systemctl enable reflector.timer
-    sudo systemctl enable lightdm.service
+    sudo cp Scripts/eos/sway /usr/local/bin/
 }
 
 decrease_swappiness () {
@@ -65,7 +59,7 @@ software_changes () {
     sudo pacman -Syu
     sudo pacman -S --needed borg python-llfuse eza starship mediainfo vim ttf-jetbrains-mono-nerd kitty bat gdu fzf yazi fastfetch btop unarchiver
     sudo pacman -S --needed libreoffice-fresh foliate gnome-disk-utility xarchiver
-    sudo pacman -S --needed gvfs-google gvfs-goa gnome-keyring gnome-calendar gnome-online-accounts
+    sudo pacman -S --needed gvfs-google gvfs-goa gnome-keyring gnome-calendar 
     sudo pacman -R gnome-calculator nemo-fileroller file-roller gnome-system-monitor
     yay -S nemo-mediainfo-tab gnome-calculator-gtk3 baobab-gtk3 hunspell-sk gnome-online-accounts-gtk
 }
@@ -127,8 +121,9 @@ bluetooth () {
 }
 
 timers () {
-    sudo sed -i "/^--sort/c\--sort rate" /etc/xdg/reflector/reflector.conf
-    sudo sed -i "/^# --country/c\--country Slovakia,Czechia,Austria,Germany" /etc/xdg/reflector/reflector.conf
+    sudo cp ~/.dotfiles/Scripts/eos/paccache.hook /usr/share/libalpm/hooks/
+    sudo cp ~/.dotfiles/Scripts/eos/reflector.timer /etc/systemd/system/
+    sudo cp ~/.dotfiles/Scripts/eos/reflector.conf /etc/xdg/reflector/reflector.conf
     sudo systemctl enable reflector.timer
 }
 
