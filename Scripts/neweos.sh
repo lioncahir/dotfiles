@@ -48,11 +48,11 @@ swaywm () {
     ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
     vim -s +PlugInstall +qall
-    sudo cp Scripts/eos/sway /usr/local/bin/
+    sudo cp ~/.dotfiles/Scripts/eos/sway /usr/local/bin/
 }
 
 greetd () {
-    sudo pacman -S greetd-regreet
+    sudo pacman -S --needed greetd-regreet
     sudo cp ~/.dotfiles/Scripts/regreet/* /etc/greetd/
     sudo systemctl disable lightdm.service
     sudo systemctl enable greetd.service
