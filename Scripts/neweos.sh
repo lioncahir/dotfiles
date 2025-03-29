@@ -4,7 +4,7 @@ options=(\
 "Add NAS to /etc/fstab" \
 "Install and configure i3wm" \
 "Install and configure SwayWM" \
-"Decrease swappiness" \
+"Install Greetd login manager (requires Sway)" \
 "Install software for Cinnamon desktop" \
 "Configure Cinnamon apps (Nemo, xed)" \
 "Perform Cinnamon theming" \
@@ -51,8 +51,11 @@ swaywm () {
     sudo cp Scripts/eos/sway /usr/local/bin/
 }
 
-decrease_swappiness () {
-    echo vm.swappiness=10 | sudo tee /etc/sysctl.d/99-swappiness.conf
+greetd () {
+    sudo pacman -S greetd-regreet
+    sudo cp ~/.dotfiles/Scripts/regreet/* /etc/greetd/
+    sudo systemctl disable lightdm.service
+    sudo systemctl enable greetd.service
 }
 
 software_changes () {
@@ -143,7 +146,7 @@ echo
         1) add_nas ;;
         2) i3wm ;;
         3) swaywm ;;
-        4) decrease_swappiness ;;
+        4) greetd ;;
         5) software_changes ;;
         6) cinnamon_apps ;;
         7) cinnamon_theming ;;

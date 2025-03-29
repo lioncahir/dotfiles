@@ -11,4 +11,4 @@ export OZONE_PLATFORM=wayland
 export GDK_BACKEND=wayland
 export QT_QPA_PLATFORM=wayland
 
-exec /usr/bin/sway "$@"
+exec /usr/bin/sway "$@" &> /tmp/sway-session-$USER.log
