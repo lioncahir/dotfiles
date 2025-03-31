@@ -39,9 +39,6 @@ exec swayidle -w \
     timeout 300 'if ! pgrep swaylock ; then swaylock -f; fi; swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep 'swaylock -f'
 
-# Inhibit idle
-for_window [app_id="brave-browser"] inhibit_idle fullscreen
-
 # Sway options
 default_border pixel 3
 gaps inner 5
@@ -138,12 +135,13 @@ bindsym $mod+F1 exec ~/.config/sway/scripts/fuzzel-keys
 bindsym $mod+Escape exec "foot --app-id btop btop"
 
 # Screenshots
-bindsym Print exec /usr/share/sway-contrib/grimshot savecopy output
-bindsym Shift+Print exec /usr/share/sway-contrib/grimshot savecopy area
+bindsym Print exec /usr/share/sway-contrib/grimshot --notify savecopy output
+bindsym Shift+Print exec /usr/share/sway-contrib/grimshot --notify savecopy area
 
 # Window rules
 for_window [app_id="btop"] floating enable, resize set 1200 800, move position center
 for_window [app_id=".*alculator"] floating enable
+for_window [app_id="brave-browser"] inhibit_idle fullscreen
 
 # Start Yazi in scratchpad
 for_window [app_id="yazi"] move to scratchpad
