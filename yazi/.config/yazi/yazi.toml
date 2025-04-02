@@ -45,5 +45,9 @@ prepend_rules = [
 [plugin]
 prepend_fetchers = [
 	# Mimetype
-	{ id = "mime", name = "*", run = "mime-ext", if = "!(mime|dummy)", prio = "high" },
+	#{ id = "mime", name = "*", run = "mime-ext", if = "!(mime|dummy)", prio = "high" },
+	{ id = "mime", name = "/home/mirko/GDrive/**", run = "mime-ext", if = "!(mime|dummy)", prio = "high" },
+]
+prepend_preloaders = [
+    { name = "/home/mirko/GDrive/**", run = "noop" },
 ]

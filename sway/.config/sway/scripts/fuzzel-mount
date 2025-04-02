@@ -8,21 +8,28 @@ options=""
 choice=$(echo -e "${options}" | fuzzel --dmenu --lines 3 -p "Mounter") 
 
 case $choice in
-    "Mount NAS/Media")    mount /media/NAS/Media &>> ~/mount.log
-                          notify-send --app-name="Mounter" "NAS/Media mounted" ;; 
+    "Mount NAS/Media")    mount /media/NAS/Media &>> ~/mount.log \
+                          && notify-send --app-name="Mounter" "NAS/Media mounted" \
+                          || notify-send --app-name="Mounter" "Could not mount NAS/Media" ;; 
 
-    "Unmount NAS/Media")  umount /media/NAS/Media &>> ~/mount.log
-                          notify-send --app-name="Mounter" "NAS/Media unmounted" ;; 
+    "Unmount NAS/Media")  umount /media/NAS/Media &>> ~/mount.log \
+                          && notify-send --app-name="Mounter" "NAS/Media unmounted" \
+                          || notify-send --app-name="Mounter" "Could not unmount NAS/Media" ;;
 
     "Mount GDrive")       rclone mount remote: ~/GDrive \
                            --daemon \
-                           --exclude "/Fotky/**" \
+                           #--exclude "/Fotky/**" \
                            --vfs-cache-mode full \
-                           --vfs-read-chunk-size=64k \
-                           --cache-dir /tmp/rclone \
-                           --no-checksum \
-                           --no-modtime \
-                           --no-seek \
+                           --vfs-refresh \
+                           #--vfs-read-chunk-size=64k \
+                           #--cache-dir /tmp/rclone \
+                           --dir-cache-time=5000h \
+                           #--poll-interval=10s \
+                           #--drive-pacer-min-sleep=10ms \
+                           #--drive-pacer-burst=200 \
+                           #--no-checksum \
+                           #--no-modtime \
+                           #--no-seek \
                            &>> ~/mount.log \
                           && notify-send --app-name="Mounter" "Google Drive mounted" \
                           || notify-send --app-name="Mounter" "Could not mount Google Drive" ;; 

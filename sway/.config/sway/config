@@ -71,6 +71,9 @@ bindsym $mod+Ctrl+Down resize grow height 20
 bindsym $mod+Ctrl+Up resize shrink height 20
 bindsym $mod+Ctrl+Right resize grow width 20
 
+bindsym $mod+Ctrl+equal opacity minus 0.1
+bindsym $mod+Ctrl+minus opacity plus 0.1
+
 bindsym $mod+h split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
