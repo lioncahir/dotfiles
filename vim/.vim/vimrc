@@ -7,6 +7,8 @@ let g:lightline = {'colorscheme' : 'catppuccin_mocha'}
 "Red undercurl color for spell check
 hi SpellBad cterm=undercurl ctermbg=NONE ctermul=red gui=undercurl guisp=red
 hi Comment cterm=italic
+
+"Respect terminal background color (e.g. for transparency)
 hi Normal guibg=NONE
 hi NormalFloat guibg=NONE
 hi NonText guibg=NONE

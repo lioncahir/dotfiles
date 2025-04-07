@@ -4,7 +4,7 @@ runtime default.vimrc
 colorscheme catppuccin_latte
 
 "Red undercurl color for spell check
-hi SpellBad cterm=undercurl ctermbg=NONE ctermul=red gui=undercurl guisp=red
+"hi SpellBad cterm=undercurl ctermbg=NONE ctermul=red gui=undercurl guisp=red
 hi Comment cterm=italic
 
 "Keybindings for writing

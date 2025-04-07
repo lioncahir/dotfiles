@@ -24,8 +24,6 @@ input "type:touchpad" {
 # Startup
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec xdg-user-dirs-gtk-update
-exec nm-applet
-exec blueman-applet
 exec udiskie --no-config --smart-tray --file-manager=pcmanfm
 exec autotiling
 exec /usr/share/sway-contrib/inactive-windows-transparency.py
@@ -144,6 +142,8 @@ bindsym Shift+Print exec /usr/share/sway-contrib/grimshot --notify savecopy area
 # Window rules
 for_window [app_id="btop"] floating enable, resize set 1200 800, move position center
 for_window [app_id=".*alculator"] floating enable
+for_window [app_id="nm-connection-editor"] floating enable
+for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="brave-browser"] inhibit_idle fullscreen
 
 # Start Yazi in scratchpad
