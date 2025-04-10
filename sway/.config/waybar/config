@@ -97,7 +97,7 @@
      "network": {
         "format-wifi": "",
         "format-ethernet": "󰈀",
-        "format-disconnected": "",
+        "format-disconnected": "󰖪",
         "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "󰈀 {ipaddr}",
         "tooltip-format-disconnected": "Disconnected",

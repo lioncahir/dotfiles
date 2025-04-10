@@ -12,10 +12,11 @@ set spellcapcheck=
 set display+=lastline
 
 "Use system clipboard
-""set clipboard=unnamedplus
+set clipboard=unnamedplus
+let g:wayland_clipboard_unnamedplus=1
 
 "Do not update buffer with replaced text
-vnoremap p "_dP
+"vnoremap p "_dP
 
 "Use Y to yank until end of line
 nnoremap Y y$
