@@ -76,7 +76,7 @@
     },
     
     "sway/language": {
-        "format": "  {}",
+        "format": " {}",
         "tooltip-format": "{long}"
     },
     
@@ -106,7 +106,7 @@
     },
 
     "bluetooth": {
-        "format": "  ",
+        "format": " ",
         // "format-disabled": "",
         "format-connected": " {num_connections}",
         "tooltip-format": "{controller_alias}\t{controller_address}",

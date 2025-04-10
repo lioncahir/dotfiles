@@ -12,7 +12,7 @@ set spellcapcheck=
 set display+=lastline
 
 "Use system clipboard
-set clipboard=unnamedplus
+""set clipboard=unnamedplus
 
 "Do not update buffer with replaced text
 vnoremap p "_dP
