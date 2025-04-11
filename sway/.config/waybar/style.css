@@ -44,6 +44,7 @@ window#waybar {
 #bluetooth,
 #tray,
 #custom-power,
+#power-profiles-daemon,
 #custom-updates {
     background-color: transparent;
     color: @primary;
