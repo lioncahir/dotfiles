@@ -55,9 +55,14 @@ window#waybar {
     padding: 0 3px;
 }
 
-#cpu {
+#power-profiles-daemon {
     color: @green;
     border-color: @green;
+}
+
+#cpu {
+    color: @maroon;
+    border-color: @maroon;
 }
 
 #disk {
