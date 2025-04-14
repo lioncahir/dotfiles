@@ -10,7 +10,7 @@ cache_dir       = "~/.cache/yazi/"
 
 [opener]
 edit = [
-	{ run = '$TERM vim "$1"', desc = "Edit", orphan = true },
+	{ run = '~/.config/yazi/scripts/term.sh vim "$1"', desc = "Edit", orphan = true },
 	{ run = 'bat "$1"', desc = "View", block = true },
 ]
 open = [
@@ -30,7 +30,7 @@ wallpaper = [
 	{ run = '~/.config/yazi/scripts/set_wallpaper.sh "$1"', desc = "Set as wallpaper" },
 ]
 ebook = [
-	{ run = '$TERM epy "$1"', desc = "Read e-book", orphan = true },
+	{ run = '~/.config/yazi/scripts/term.sh epy "$1"', desc = "Read e-book", orphan = true },
 ]
 
 [open]

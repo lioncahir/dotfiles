@@ -10,6 +10,7 @@
 window#waybar {
     background: @background;
     border-radius: 10px;
+    font-size: 16px;
     color: @primary;
 }
 
@@ -20,7 +21,7 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    font-size: 22px;
+    font-size: 18px;
     color: @peach;
 }
 
@@ -29,7 +30,6 @@ window#waybar {
     background-color: transparent;
     color: @primary;
     font-size: 16px;
-    font-weight: normal;
     margin: 3px 5px;
     padding: 0 10px;
 }
@@ -48,9 +48,8 @@ window#waybar {
 #custom-updates {
     background-color: transparent;
     color: @primary;
-    font-size: 16px;
-    font-weight: normal;
     /* border-bottom: 2px solid; */
+    font-size: 16px;
     margin: 3px 7px;
     padding: 0 3px;
 }

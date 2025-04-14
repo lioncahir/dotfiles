@@ -1,15 +1,16 @@
 #!/bin/bash
 
+terminal=footclient
 choice=$(echo -e "bashrc\nsway\nfnott\nfuzzel\nvimrc\nwaybar\nwaybar-styling\nyazi\nyazi-keys" | fuzzel --dmenu -p "Edit config") 
 
 case $choice in
-    bashrc)             foot vim ~/.bashrc ;;
-    sway)               foot vim ~/.config/sway/config ;;
-    vimrc)              foot vim ~/.vim/vimrc ;;
-    fuzzel)             foot vim ~/.config/fuzzel/fuzzel.ini ;;
-    fnott)              foot vim ~/.config/fnott/fnott.ini ;;
-    waybar)             foot vim ~/.config/waybar/config ;;
-    waybar-styling)     foot vim ~/.config/waybar/style.css;;
-    yazi)               foot vim ~/.config/yazi/yazi.toml ;;
-    yazi-keys)          foot vim ~/.config/yazi/keymap.toml ;;
+    bashrc)             $terminal vim ~/.bashrc ;;
+    sway)               $terminal vim ~/.config/sway/config ;;
+    vimrc)              $terminal vim ~/.vim/vimrc ;;
+    fuzzel)             $terminal vim ~/.config/fuzzel/fuzzel.ini ;;
+    fnott)              $terminal vim ~/.config/fnott/fnott.ini ;;
+    waybar)             $terminal vim ~/.config/waybar/config ;;
+    waybar-styling)     $terminal vim ~/.config/waybar/style.css;;
+    yazi)               $terminal vim ~/.config/yazi/yazi.toml ;;
+    yazi-keys)          $terminal vim ~/.config/yazi/keymap.toml ;;
 esac
