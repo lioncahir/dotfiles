@@ -8,6 +8,7 @@ btop
 duf
 eza
 fastfetch
+firewalld
 fnott
 foot
 fuzzel
@@ -17,7 +18,6 @@ gthumb
 gvfs
 gvfs-afc
 gvfs-gphoto2
-gvfs-google
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
@@ -29,6 +29,7 @@ noto-fonts-emoji
 nwg-displays
 nwg-look
 otf-font-awesome
+pacman-contrib
 papirus-icon-theme
 pcmanfm-gtk3
 polkit-gnome
@@ -59,7 +60,6 @@ zip
 brave-bin
 epy-ereader-git
 gnome-calculator-gtk3
-gnome-online-accounts-gtk
 hunspell-sk
 papirus-folders-catppuccin-git
 pavucontrol-gtk3

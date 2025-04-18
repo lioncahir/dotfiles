@@ -2,6 +2,8 @@ set $mod Mod4
 set $term footclient
 set $menu fuzzel
 
+xwayland disable
+
 # Input & Output configuration
 output * {
     resolution 1920x1080 
@@ -50,6 +52,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+q kill
 bindsym $mod+l exec swaylock -f
 bindsym $mod+Shift+Return exec $menu
+bindsym $mod+space exec $menu
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+b exec killall -SIGUSR2 waybar
 bindsym $mod+Shift+q exec ~/.config/sway/scripts/fuzzel-power
@@ -65,10 +68,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+Ctrl+Left resize shrink width 20
-bindsym $mod+Ctrl+Down resize grow height 20
-bindsym $mod+Ctrl+Up resize shrink height 20
-bindsym $mod+Ctrl+Right resize grow width 20
+bindsym $mod+Ctrl+Left resize shrink width 5
+bindsym $mod+Ctrl+Down resize grow height 5
+bindsym $mod+Ctrl+Up resize shrink height 5
+bindsym $mod+Ctrl+Right resize grow width 5
 
 bindsym $mod+Ctrl+equal opacity minus 0.1
 bindsym $mod+Ctrl+minus opacity plus 0.1
