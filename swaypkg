@@ -8,7 +8,6 @@ btop
 duf
 eza
 fastfetch
-firewalld
 fnott
 foot
 fuzzel
@@ -43,7 +42,7 @@ swayimg
 sway-contrib
 ttf-jetbrains-mono-nerd
 ttf-ubuntu-font-family
-udiskie
+ufw
 unarchiver
 unzip
 vim
