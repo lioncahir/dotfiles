@@ -5,7 +5,7 @@ options=""
 (mount | grep /media/NAS/Media &> /dev/null) && options="Unmount NAS/Media" || options="Mount NAS/Media"
 (mount | grep remote: &> /dev/null) && options="${options}\nUnmount GDrive" || options="${options}\nMount GDrive"
 
-choice=$(echo -e "${options}" | fuzzel --dmenu --lines 3 -p "Mounter") 
+choice=$(echo -e "${options}" | fuzzel --dmenu --lines 3 -p "Network Mounter") 
 
 case $choice in
     "Mount NAS/Media")    mount /media/NAS/Media &>> ~/mount.log \

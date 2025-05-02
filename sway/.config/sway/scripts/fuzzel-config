@@ -6,7 +6,7 @@ choice=$(echo -e "bashrc\nsway\nfnott\nfuzzel\nvimrc\nwaybar\nwaybar-styling\nya
 case $choice in
     bashrc)             $terminal vim ~/.bashrc ;;
     sway)               $terminal vim ~/.config/sway/config ;;
-    vimrc)              $terminal vim ~/.vim/vimrc ;;
+    vimrc)              $terminal vim ~/.vim/default.vimrc ;;
     fuzzel)             $terminal vim ~/.config/fuzzel/fuzzel.ini ;;
     fnott)              $terminal vim ~/.config/fnott/fnott.ini ;;
     waybar)             $terminal vim ~/.config/waybar/config ;;
