@@ -148,6 +148,7 @@ for_window [app_id="btop"] floating enable, resize set 1200 800, move position c
 for_window [app_id=".*alculator"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="blueman-manager"] floating enable
+for_window [app_id="xarchiver"] floating enable
 for_window [app_id="brave-browser"] inhibit_idle fullscreen
 
 # Start Yazi in scratchpad
