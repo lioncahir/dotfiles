@@ -152,8 +152,8 @@ for_window [app_id="xarchiver"] floating enable
 for_window [app_id="brave-browser"] inhibit_idle fullscreen
 
 # Start Yazi in scratchpad
-for_window [app_id="yazi"] move to scratchpad
-bindsym $mod+slash [app_id="yazi"] scratchpad show, resize set 1500 800, move position center
+for_window [app_id="yazi"] move to scratchpad 
+bindsym $mod+slash [app_id="yazi"] scratchpad show, resize set 1500 800, move position center, opacity set 1
 exec 'foot --app-id=yazi bash -ic "yazi"'
 
 # Status Bar:

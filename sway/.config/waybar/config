@@ -157,6 +157,12 @@
 		"on-click": "fuzzel-power"
     },
     
+    "custom/launcher": {
+        "format" : "",
+		"tooltip": false,
+		"on-click": "fuzzel"
+    },
+    
     "custom/updates": {
         "format" : "󰇚 {}",
         "interval": 3600,

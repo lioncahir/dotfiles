@@ -57,6 +57,7 @@ window#waybar {
 #power-profiles-daemon {
     color: @green;
     border-color: @green;
+    padding-right: 15px;
 }
 
 #cpu {
