@@ -30,7 +30,7 @@ i3wm () {
     yay -S --needed - < ~/.dotfiles/i3aur
     rm ~/.bashrc ~/.bash_profile
     stow -v eos i3 kitty vim yazi bat btop borg mpv starship yazi zathura
-    ya pack -u
+    ya pkg upgrade
     bat cache --build
     feh --bg-scale ~/Pictures/endeavour-black-4k.png
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
@@ -43,7 +43,7 @@ swaywm () {
     yay -S --needed - < ~/.dotfiles/swaypkg
     rm ~/.bashrc ~/.bash_profile
     stow -v eos bat borg btop foot mpv starship sway vim yazi zathura
-    ya pack -u
+    ya pkg upgrade
     bat cache --build
     ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
