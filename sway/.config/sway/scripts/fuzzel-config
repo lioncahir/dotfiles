@@ -9,7 +9,7 @@ case $choice in
     vimrc)              $terminal vim ~/.vim/default.vimrc ;;
     fuzzel)             $terminal vim ~/.config/fuzzel/fuzzel.ini ;;
     fnott)              $terminal vim ~/.config/fnott/fnott.ini ;;
-    waybar)             $terminal vim ~/.config/waybar/config ;;
+    waybar)             $terminal vim ~/.config/waybar/config.jsonc ;;
     waybar-styling)     $terminal vim ~/.config/waybar/style.css;;
     yazi)               $terminal vim ~/.config/yazi/yazi.toml ;;
     yazi-keys)          $terminal vim ~/.config/yazi/keymap.toml ;;

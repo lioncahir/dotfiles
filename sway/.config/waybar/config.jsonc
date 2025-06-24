@@ -81,6 +81,11 @@
         "tooltip-format": "{long}"
     },
     
+    "niri/language": {
+        "format": " {short}",
+        "tooltip-format": "{long}"
+    },
+    
     "battery": {
         "states": {
             // "good": 95,
