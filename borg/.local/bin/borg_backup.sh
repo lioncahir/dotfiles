@@ -21,6 +21,7 @@
 
 # Define variables
 mountpoint=/media/NAS/Media
+mountip=192.168.0.5
 rclone_sync=1
 rclone_dest='remote:Backup/dell-eos'
 export BORG_REPO=/media/NAS/Media/Backup/${USER^}/$HOSTNAME-borg
@@ -33,6 +34,12 @@ info () {
 
 
 echo "========================================================================================================================"
+
+# wait for network
+while ! ping -c 10 $mountip &> /dev/null; do
+  info "Waiting for network"
+  sleep 1
+done
 
 # mount NAS if not already mounted
 (mount | grep $mountpoint &> /dev/null) || mount $mountpoint
