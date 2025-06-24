@@ -46,6 +46,10 @@ nnoremap <C-right> <C-w><right>
 nnoremap <C-up> <C-w><up>
 nnoremap <C-down> <C-w><down>
 
+"Center screen after jump
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
 "Tab settings
 set expandtab
 set smarttab
