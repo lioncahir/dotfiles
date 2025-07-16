@@ -121,6 +121,7 @@
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "on-click": "blueman-manager",
+        "on-click-right": "blueman-adapters"
     },
 
     "power-profiles-daemon": {

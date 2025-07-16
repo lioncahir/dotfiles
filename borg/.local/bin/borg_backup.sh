@@ -71,10 +71,12 @@ borg create                                     \
     --exclude 'home/*/Games'                    \
     --exclude 'home/*/Videos'                   \
     --exclude 'home/*/.cache'                   \
+    --exclude 'home/*/.nuget'                   \
     --exclude 'home/*/.mozilla'                 \
     --exclude 'home/*/.cinnamon/spices.cache'   \
     --exclude 'home/*/.local/share/Trash'       \
     --exclude 'home/*/.local/share/lutris'      \
+    --exclude 'home/*/.local/share/umu'         \
     --exclude 'home/*/.local/share/Steam'       \
     --exclude 'home/*/.local/share/ice/firefox' \
     --exclude 'home/*/.local/share/webkitgtk'   \
