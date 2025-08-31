@@ -36,9 +36,18 @@ info () {
 echo "========================================================================================================================"
 
 # wait for network
-while ! ping -c 10 $mountip &> /dev/null; do
-  info "Waiting for network"
-  sleep 1
+# while ! ping -c 15 $mountip &> /dev/null; do
+#   info "Waiting for network"
+#   sleep 1
+# done
+
+for (( i=1; i<=15; i++ )) do
+    if ping -c 1 -W 1 $mountip &> /dev/null 
+    then
+        break
+    else
+        info "Waiting for network"
+    fi
 done
 
 # mount NAS if not already mounted

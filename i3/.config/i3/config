@@ -7,7 +7,8 @@ exec --no-startup-id xdg-user-dirs-gtk-update
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000 -i /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id udiskie --no-config --smart-tray --file-manager=pcmanfm
+# exec --no-startup-id udiskie --no-config --smart-tray --file-manager=pcmanfm
+exec --no-startup-id pcmanfm --daemon-mode
 exec --no-startup-id "setxkbmap -layout us,sk -variant ,qwerty -option 'grp:alt_shift_toggle'"
 # exec --no-startup-id i3-auto-layout autolayout
 exec --no-startup-id autotiling

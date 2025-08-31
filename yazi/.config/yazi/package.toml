@@ -1,19 +1,19 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "63f9650"
+rev = "d7588f6"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "63f9650"
-hash = "6094c7e7def6d131323e53d641f1bddd"
+rev = "d7588f6"
+hash = "4c49c446328c4553a4ccab7facc10b21"
 
 [[plugin.deps]]
 use = "KKV9/compress"
-rev = "2ab7a42"
-hash = "8dfe746e7ccb1481f87ded5252e16678"
+rev = "c264639"
+hash = "e17c11b605d989568a1d1741ca17c584"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "d04a298"
-hash = "288a0dedd5d13b28605cf82c05326dcd"
+rev = "9cd2ac4"
+hash = "f54b45bdd33f607ddde47f0afad96142"

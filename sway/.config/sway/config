@@ -29,6 +29,7 @@ exec xdg-user-dirs-gtk-update
 exec autotiling
 exec /usr/share/sway-contrib/inactive-windows-transparency.py
 exec foot --server
+exec pcmanfm --daemon-mode
 exec fnott
 exec ~/.local/bin/check_backup.sh
 # exec ~/.config/sway/scripts/fuzzel-keys
