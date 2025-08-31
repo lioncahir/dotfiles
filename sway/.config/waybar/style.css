@@ -31,7 +31,7 @@ window#waybar {
     color: @primary;
     font-size: 16px;
     margin: 3px 5px;
-    padding: 0 10px;
+    padding: 0 5px;
 }
 
 #language,
@@ -45,6 +45,7 @@ window#waybar {
 #tray,
 #custom-power,
 #custom-weather,
+#image,
 #power-profiles-daemon,
 #custom-updates {
     background-color: transparent;

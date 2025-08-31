@@ -7,6 +7,7 @@
 
 // Modules
     "modules-left": [
+        "image#eos",
         "sway/workspaces",
         "sway/window"
     ],
@@ -164,9 +165,9 @@
 		"on-click": "fuzzel-power"
     },
     
-    "custom/launcher": {
-        "format" : "",
-		"tooltip": false,
+    "image#eos": {
+        "path": "/usr/share/endeavouros/EndeavourOS-icon.png",
+		"size": 28,
 		"on-click": "fuzzel"
     },
     
