@@ -12,7 +12,8 @@
     ],
 
     "modules-center": [
-        "clock"
+        "clock",
+        "custom/weather"
     ],
 
     "modules-right": [
@@ -167,6 +168,12 @@
         "format" : "",
 		"tooltip": false,
 		"on-click": "fuzzel"
+    },
+    
+    "custom/weather": {
+        "format" : "{}",
+		"exec": "curl wttr.in/Bratislava?format=\"%c%t\"",
+		"interval": 600
     },
     
     "custom/updates": {
