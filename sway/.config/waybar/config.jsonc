@@ -14,7 +14,6 @@
 
     "modules-center": [
         "clock",
-        "custom/weather"
     ],
 
     "modules-right": [
@@ -173,7 +172,7 @@
     
     "custom/weather": {
         "format" : "{}",
-		"exec": "curl wttr.in/Bratislava?format=\"%c%t\"",
+		"exec": "curl wttr.in/Bratislava?format=\"%c%t+%m\"",
 		"interval": 600
     },
     
