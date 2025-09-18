@@ -22,7 +22,7 @@ statistics: true
 commands:
     - before: repository
       run:
-          - ping -q -c 1 www.borgbase.com > /dev/null || exit 75
+          - ping -q -c 1 www.borgbase.com > /dev/null
     - after: repository
       when: [create]
       states: [finish]

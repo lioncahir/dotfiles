@@ -22,7 +22,7 @@ statistics: true
 commands:
     - before: repository
       run:
-          - findmnt /media/NAS/Media > /dev/null || exit 75
+          - findmnt /media/NAS/Media > /dev/null
     - after: repository
       when: [create]
       states: [finish]
