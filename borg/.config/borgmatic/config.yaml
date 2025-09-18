@@ -1,0 +1,28 @@
+source_directories:
+    - ${HOME}
+
+repositories:
+    - path: ssh://d39ge7i1@d39ge7i1.repo.borgbase.com/./repo
+      label: borgbase
+
+exclude_from:
+    - ${XDG_CONFIG_HOME}/borgmatic/excludes
+
+exclude_caches: true
+encryption_passphrase: "{credential file .borg-passphrase}"
+compression: zstd,10
+archive_name_format: '{now}'
+keep_within: 3m
+
+commands:
+    - before: repository
+      run:
+          - ping -q -c 1 www.borgbase.com > /dev/null || exit 75
+    - after: repository
+      when: [create]
+      states: [finish]
+      run:
+          - notify-send --app-name="Borgmatic" "Backup to BorgBase completed"
+    - after: error
+      run:
+          - notify-send --app-name="Borgmatic" --urgency=critical "Backup to BorgBase failed"
