@@ -124,6 +124,10 @@ then
     alias ls='eza -lg --group-directories-first --sort=ext --icons'
 fi
 
+# aliases for Borg repos
+[ -f .config/borgmatic/config.yaml ] && alias borg-bb='borgmatic --config ~/.config/borgmatic/config.yaml'
+[ -f .config/borgmatic/NAS.yaml ] && alias borg-NAS='borgmatic --config ~/.config/borgmatic/NAS.yaml'
+
 # start starship prompt
 if command -v starship &> /dev/null
 then
