@@ -30,7 +30,7 @@ exec autotiling-rs
 exec /usr/share/sway-contrib/inactive-windows-transparency.py
 exec foot --server
 exec fnott
-exec ~/.local/bin/check_backup.sh
+exec 'sleep 10; ~/.local/bin/check_backup.sh'
 # exec ~/.config/sway/scripts/fuzzel-keys
 
 ### Idle configuration
