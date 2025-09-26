@@ -50,6 +50,10 @@ nnoremap <C-down> <C-w><down>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
+" Insert === <date> at cursor
+nnoremap <F5> i=== <C-R>=strftime("%d.%m.%Y")<CR><CR><CR>
+inoremap <F5> === <C-R>=strftime("%d.%m.%Y")<CR><CR><CR>
+
 "Tab settings
 set expandtab
 set smarttab
