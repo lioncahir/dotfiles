@@ -5,9 +5,7 @@ options=(\
 "Install and configure i3wm" \
 "Install and configure SwayWM" \
 "Install Greetd login manager (requires Sway)" \
-"Install software for Cinnamon desktop" \
-"Configure Cinnamon apps (Nemo, xed)" \
-"Perform Cinnamon theming" \
+"Configure Cinnamon DE" \
 "Install printer & scanner (Samsung M2070)" \
 "Enable Bluetooth" \
 "Customize Reflector and Paccache" \
@@ -58,58 +56,13 @@ greetd () {
     sudo systemctl enable greetd.service
 }
 
-software_changes () {
+cinnamon () {
     sudo pacman -Syu
-    sudo pacman -S --needed borg python-llfuse eza starship mediainfo vim ttf-jetbrains-mono-nerd kitty bat gdu fzf yazi fastfetch btop unarchiver
+    sudo pacman -S --needed borg python-llfuse eza starship mediainfo vim ttf-jetbrains-mono-nerd kitty bat gdu fzf yazi fastfetch btop unarchiver papirus-icon-theme
     sudo pacman -S --needed libreoffice-fresh foliate gnome-disk-utility xarchiver
     sudo pacman -S --needed gvfs-google gvfs-goa gnome-keyring gnome-calendar 
     sudo pacman -R gnome-calculator nemo-fileroller file-roller gnome-system-monitor
-    yay -S nemo-mediainfo-tab gnome-calculator-gtk3 baobab-gtk3 hunspell-sk gnome-online-accounts-gtk
-}
-
-cinnamon_apps () {
-    gsettings set org.cinnamon.sounds login-enabled false
-    gsettings set org.cinnamon.sounds logout-enabled false
-
-    gsettings set org.nemo.list-view default-zoom-level 'small'
-    gsettings set org.nemo.preferences date-format 'iso'
-    gsettings set org.nemo.preferences default-folder-viewer 'icon-view'
-    gsettings set org.nemo.preferences default-sort-order 'type'
-    gsettings set org.nemo.preferences ignore-view-metadata true
-    gsettings set org.nemo.preferences inherit-show-thumbnails false
-    gsettings set org.nemo.preferences show-hidden-files false
-    gsettings set org.nemo.preferences show-image-thumbnails 'local-only'
-    gsettings set org.nemo.preferences show-location-entry true
-    gsettings set org.nemo.preferences show-show-thumbnails-toolbar false
-    gsettings set org.nemo.preferences show-advanced-permissions true
-
-    gsettings set org.x.editor.preferences.editor bracket-matching false
-    gsettings set org.x.editor.preferences.editor display-line-numbers true
-    gsettings set org.x.editor.preferences.editor display-right-margin false
-    gsettings set org.x.editor.preferences.editor draw-whitespace false
-    gsettings set org.x.editor.preferences.editor draw-whitespace-inside false
-    gsettings set org.x.editor.preferences.editor draw-whitespace-leading false
-    gsettings set org.x.editor.preferences.editor draw-whitespace-newline false
-    gsettings set org.x.editor.preferences.editor draw-whitespace-trailing false
-    gsettings set org.x.editor.preferences.editor scheme 'oblivion'
-    gsettings set org.x.editor.preferences.editor highlight-current-line false
-    gsettings set org.x.editor.preferences.editor use-default-font false
-    gsettings set org.x.editor.preferences.ui minimap-visible false
-    gsettings set org.x.editor.preferences.ui statusbar-visible true
-}
-
-cinnamon_theming () {
-    sudo pacman -S --needed papirus-icon-theme
-    yay -S mint-themes papirus-folders
-    gsettings set org.cinnamon.theme name 'Mint-Y-Dark-Purple'
-    gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y-Dark-Purple'
-    gsettings set org.cinnamon.desktop.interface icon-theme 'Papirus-Dark'
-    gsettings set org.cinnamon.desktop.interface font-name 'Ubuntu 10'
-    gsettings set org.cinnamon.desktop.wm.preferences titlebar-font 'Ubuntu Semi-Bold 10'
-    gsettings set org.nemo.desktop font 'Ubuntu 10'
-    gsettings set org.gnome.desktop.interface document-font-name 'Sans 10'
-    gsettings set org.gnome.desktop.interface monospace-font-name 'Monospace 10'
-    gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.2
+    yay -S nemo-mediainfo-tab gnome-calculator-gtk3 baobab-gtk3 hunspell-sk gnome-online-accounts-gtk mint-themes papirus-folders
     papirus-folders -C violet --theme Papirus-Dark
 }
 
@@ -148,13 +101,11 @@ echo
         2) i3wm ;;
         3) swaywm ;;
         4) greetd ;;
-        5) software_changes ;;
-        6) cinnamon_apps ;;
-        7) cinnamon_theming ;;
-        8) scanner ;;
-        9) bluetooth ;;
-        10) timers ;;
-        11) break 2 ;;
+        5) cinnamon;;
+        6) scanner ;;
+        7) bluetooth ;;
+        8) timers ;;
+        9) break 2 ;;
         *) echo "Invalid option" >&2
     esac
     REPLY=
