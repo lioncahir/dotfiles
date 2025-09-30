@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 choice=$((cd ~/Documents/ && ls -1 *.adoc) | fuzzel --dmenu -p "Select document") 
 
-foot --font="JetBrainsMono Nerd Font:size=16" vim -u ~/.vim/write.vimrc "$HOME/Documents/$choice"
+footclient --override=font="JetBrainsMono Nerd Font:size=16" vim -u ~/.vim/write.vimrc "$HOME/Documents/$choice"
 
