@@ -39,7 +39,7 @@ prepend_rules = [
 	{ mime = "text/html",       use = [ "edit", "open", "reveal" ] },
 	{ mime = "image/*",         use = [ "image", "wallpaper", "info", "reveal" ] },
 	{ mime = "{audio,video}/*", use = [ "play", "info", "reveal" ] },
-	{ name = "*.epub",          use = [ "ebook", "open", "extract", "reveal" ] },
+	{ name = "*.epub",          use = [ "open", "ebook", "extract", "reveal" ] },
 ]
 
 [plugin]
