@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 choice=$(echo -e "WhatsApp\nChatGPT" | sort | fuzzel --dmenu -p "Select webapp") 
 
