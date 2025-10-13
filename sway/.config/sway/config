@@ -25,7 +25,7 @@ input "type:touchpad" {
 
 # Startup
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec xdg-user-dirs-gtk-update
+exec xdg-user-dirs-update
 exec autotiling-rs
 exec /usr/share/sway-contrib/inactive-windows-transparency.py
 exec foot --server

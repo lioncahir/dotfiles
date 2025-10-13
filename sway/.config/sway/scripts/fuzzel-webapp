@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-choice=$(echo -e " WhatsApp\n󱜸 ChatGPT" | sort | fuzzel --dmenu -p "Select webapp") 
+choice=$(echo -e " WhatsApp\n󱜸 ChatGPT\n󰧷 Google Sheets" | sort | fuzzel --dmenu -p "Select webapp") 
 
 case $choice in
     "󱜸 ChatGPT")            brave --app="https://chat.openai.com" ;;
     " WhatsApp")           brave --app="https://web.whatsapp.com" ;;
+    "󰧷 Google Sheets")      brave --app="https://docs.google.com/spreadsheets/u/0/?ec=wgc-sheets-globalnav-goto" ;;
 esac

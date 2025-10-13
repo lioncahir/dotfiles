@@ -3,7 +3,7 @@ arc-gtk-theme-eos
 autotiling-rs
 bat
 blueman
-borg
+borgmatic
 brightnessctl
 btop
 cups-pdf
@@ -26,6 +26,7 @@ libreoffice-fresh
 mediainfo
 mpv
 networkmanager
+nm-connection-editor
 noto-fonts-emoji
 nwg-displays
 nwg-look
