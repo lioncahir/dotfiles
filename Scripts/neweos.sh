@@ -32,7 +32,7 @@ i3wm () {
     bat cache --build
     feh --bg-scale ~/Pictures/endeavour-black-4k.png
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
-    vim -s +PlugInstall +qall
+    vim +PlugInstall +qall
     sudo systemctl enable lightdm.service
 }
 
@@ -45,7 +45,7 @@ swaywm () {
     bat cache --build
     ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
-    vim -s +PlugInstall +qall
+    vim +PlugInstall +qall
     sudo cp ~/.dotfiles/Scripts/eos/sway /usr/local/bin/
 }
 
