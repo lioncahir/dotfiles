@@ -25,21 +25,7 @@ case $choice in
                           && notify-send --app-name="Mounter" "mirko unmounted" \
                           || notify-send --app-name="Mounter" "Could not unmount mirko" ;; 
 
-    "Mount GDrive")       rclone mount remote: ~/GDrive \
-                           --daemon \
-                           #--exclude "/Fotky/**" \
-                           --vfs-cache-mode full \
-                           --vfs-refresh \
-                           #--vfs-read-chunk-size=64k \
-                           #--cache-dir /tmp/rclone \
-                           --dir-cache-time=5000h \
-                           #--poll-interval=10s \
-                           #--drive-pacer-min-sleep=10ms \
-                           #--drive-pacer-burst=200 \
-                           #--no-checksum \
-                           #--no-modtime \
-                           #--no-seek \
-                           &>> ~/mount.log \
+    "Mount GDrive")       rclone mount remote: ~/GDrive --daemon --vfs-cache-mode full --vfs-refresh --dir-cache-time=5000h &>> ~/mount.log \
                           && notify-send --app-name="Mounter" "Google Drive mounted" \
                           || notify-send --app-name="Mounter" "Could not mount Google Drive" ;; 
 
