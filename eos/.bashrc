@@ -99,6 +99,13 @@ then
     export MANROFFOPT="-c"
 fi
 
+# fastfetch alias
+if command -v fastfetch &> /dev/null
+then
+    alias ff='fastfetch -c examples/13'
+    alias neofetch='fastfetch -c examples/13'
+fi
+
 # set fzf options
 if command -v fzf &> /dev/null
 then
