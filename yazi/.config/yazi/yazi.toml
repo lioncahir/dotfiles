@@ -42,6 +42,9 @@ prepend_rules = [
 	{ name = "*.epub",          use = [ "open", "ebook", "extract", "reveal" ] },
 ]
 
+[tasks]
+image_bound = [ 6000, 6000 ]
+
 [plugin]
 prepend_fetchers = [
 	# Mimetype
