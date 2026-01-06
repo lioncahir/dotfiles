@@ -6,6 +6,7 @@
 /home/*/.cache
 /home/*/.nuget
 /home/*/.mozilla
+/home/*/.minecraft
 /home/*/.cinnamon/spices.cache
 /home/*/.local/share/Trash
 /home/*/.local/share/lutris
