@@ -8,8 +8,8 @@ vt = 1
 
 # `agreety` is the bundled agetty/login-lookalike. You can replace `/bin/sh`
 # with whatever you want started, such as `sway`.
-# command = "/usr/bin/sway -c /etc/greetd/sway.cfg &> /var/log/regreet/sway.log"
-command = "/usr/bin/sway -c /etc/greetd/sway.cfg &> /tmp/sway-greetd.log"
+# command = "/usr/bin/sway -c /etc/greetd/sway.cfg &> /tmp/greetd.log"
+command = "cage -s -- regreet &> /tmp/greetd.log"
 
 # The user to run the command as. The privileges this user must have depends
 # on the greeter. A graphical greeter may for example require the user to be

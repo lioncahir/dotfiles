@@ -21,7 +21,7 @@ image = [
 ]
 reveal = [
 	{ run = 'xdg-open "$(dirname "$1")"', desc = "Show in File Manager" },
-	{ run = '''clear; eza -lg "$1"; echo; stat $1; echo; echo "Press enter to exit"; read _''', block = true, desc = "Show file information" },
+	{ run = '''clear; eza -lg "$1"; echo; stat "$1"; echo; echo "Press enter to exit"; read _''', block = true, desc = "Show file information" },
 ]
 info = [
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info" },
