@@ -50,7 +50,7 @@ swaywm () {
 }
 
 greetd () {
-    sudo pacman -S --needed greetd-regreet
+    sudo pacman -S --needed greetd-regreet cage
     sudo cp ~/.dotfiles/Scripts/regreet/* /etc/greetd/
     sudo systemctl disable lightdm.service
     sudo systemctl enable greetd.service
