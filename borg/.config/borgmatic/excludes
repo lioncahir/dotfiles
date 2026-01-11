@@ -5,6 +5,7 @@
 /home/*/Videos
 /home/*/.cache
 /home/*/.nuget
+/home/*/.cargo
 /home/*/.mozilla
 /home/*/.minecraft
 /home/*/.cinnamon/spices.cache
