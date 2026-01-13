@@ -10,7 +10,6 @@ cups-pdf
 duf
 eza
 fastfetch
-fnott
 foot
 fuzzel
 fzf
@@ -23,6 +22,7 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 libreoffice-fresh
+mako
 mediainfo
 mpv
 networkmanager

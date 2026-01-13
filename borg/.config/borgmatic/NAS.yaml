@@ -27,7 +27,7 @@ commands:
       when: [create]
       states: [finish]
       run:
-          - notify-send --app-name="Borgmatic" "Backup to NAS completed"
+          - notify-send --icon="gtk-dialog-info" "Borgmatic" "Backup to NAS completed"
     - after: error
       run:
-          - notify-send --app-name="Borgmatic" --urgency=critical "Backup to NAS failed"
+          - notify-send --icon="gtk-dialog-warning" --urgency=critical "Borgmatic" "Backup to NAS failed"

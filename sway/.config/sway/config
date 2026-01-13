@@ -28,8 +28,9 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec xdg-user-dirs-update
 exec autotiling-rs
 exec /usr/share/sway-contrib/inactive-windows-transparency.py
+# exec udiskie --no-config --smart-tray --file-manager=pcmanfm
 exec foot --server
-exec fnott
+exec mako
 exec 'sleep 10; ~/.local/bin/check_backup.sh'
 # exec ~/.config/sway/scripts/fuzzel-keys
 

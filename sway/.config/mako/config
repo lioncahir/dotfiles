@@ -1,0 +1,16 @@
+layer=overlay
+width=400
+background-color=#1e1e2eff
+text-color=#cdd6f4ff
+border-size=3
+border-color=#89b4faff
+padding=10
+border-radius=5
+icon-path=/usr/share/icons/Papirus-Dark
+default-timeout=5000
+font=JetBrainsMono Nerd Font 13
+
+[urgency=high]
+border-color=#f38ba8ff
+default-timeout=0
+
