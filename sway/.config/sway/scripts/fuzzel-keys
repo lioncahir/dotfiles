@@ -2,15 +2,17 @@
 
 echo -e " \
  + F1              \t Show this help \n \
- + Shift + Enter   \t Application menu \n \
+ + Space           \t Application menu \n \
  + q               \t Close window \n \
  + Enter           \t Terminal \n \
  + Ctrl + b        \t Internet browser \n \
  + Ctrl + e        \t File manager \n \
  + Ctrl + o        \t Select audio/video output \n \
+ + Ctrl + w        \t Web Apps \n \
  + /               \t Yazi file manager \n \
  + l               \t Lock screen \n \
  + f               \t Toggle fullscreen \n \
+ + m               \t Mount/Unmount USB drive \n \
  + .               \t Edit config files \n \
  + Esc             \t System monitor \n \
  + Shift + q       \t Power menu \n \

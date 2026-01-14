@@ -15,12 +15,6 @@ fuzzel
 fzf
 gdu
 gthumb
-gvfs
-gvfs-afc
-gvfs-gphoto2
-gvfs-mtp
-gvfs-nfs
-gvfs-smb
 libreoffice-fresh
 mako
 mediainfo
@@ -45,6 +39,7 @@ swayimg
 sway-contrib
 ttf-jetbrains-mono-nerd
 ttf-ubuntu-font-family
+udisks2
 ufw
 unarchiver
 unzip
