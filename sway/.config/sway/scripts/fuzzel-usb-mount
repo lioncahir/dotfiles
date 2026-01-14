@@ -36,8 +36,9 @@ MENU=()
 
 for part in "${PARTS[@]}"; do
     IFS='|' read -r NAME LABEL SIZE MOUNT DISK <<<"${PART_INFO[$part]}"
+    [[ "$LABEL" == "—" ]] && LABEL="NO_LABEL"
     ACTION=$([[ "$MOUNT" == "—" ]] && echo "Mount" || echo "Unmount")
-    MENU+=("$ACTION $part ($LABEL | $SIZE)")
+    MENU+=("$ACTION $part ($SIZE $LABEL)")
 done
 
 for disk in "${!DISK_PARTS[@]}"; do
