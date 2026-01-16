@@ -1,9 +1,9 @@
-/home/*/.cache
 /home/*/Downloads
 /home/*/Applications
 /home/*/Games
 /home/*/Videos
 /home/*/.cache
+/home/*/.mnt
 /home/*/.nuget
 /home/*/.cargo
 /home/*/.mozilla

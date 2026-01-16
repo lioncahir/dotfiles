@@ -115,14 +115,15 @@ then
         --cycle 
         --info=inline 
         --walker=file,dir,follow,hidden 
-        --walker-skip=.git,.cache,.mozilla,Steam,.steam,Games,.local/share/umu,.config/heroic"
+        --walker-skip=.git,.mnt,.cache,.mozilla,Steam,.steam,Games,.local/share/umu,.config/heroic"
 
     export FZF_ALT_C_OPTS="
-        --walker=dir,follow,hidden"
+        --walker=dir,follow,hidden
+        --walker-skip=.mnt"
 
     export FZF_CTRL_T_OPTS="
         --walker=file,follow,hidden 
-        --walker-skip=.git,.cache,.mozilla,Steam,.steam,Games,.local/share/umu,.config/heroic
+        --walker-skip=.git,.mnt,.cache,.mozilla,Steam,.steam,Games,.local/share/umu,.config/heroic
         --height=~80%
         --preview 'bat -n --color=always {}'"
 fi
