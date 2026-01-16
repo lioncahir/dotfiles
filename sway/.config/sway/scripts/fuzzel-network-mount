@@ -3,7 +3,6 @@
 options=""
 
 (mount | grep /media/NAS/Media &> /dev/null) && options="Unmount NAS/Media" || options="Mount NAS/Media"
-[ -d /run/user/1000/gvfs/smb-share:server=192.168.0.6,share=mirko ] && options="${options}\nUnmount mirko" || options="${options}\nMount mirko"
 (mount | grep remote: &> /dev/null) && options="${options}\nUnmount GDrive" || options="${options}\nMount GDrive"
 
 choice=$(echo -e "${options}" | fuzzel --dmenu --lines 3 -p "Network Mounter") 
@@ -16,14 +15,6 @@ case $choice in
     "Unmount NAS/Media")  umount /media/NAS/Media 2>> ~/mount.log \
                           && notify-send --app-name="Mounter" "NAS/Media unmounted" \
                           || notify-send --app-name="Mounter" "Could not unmount NAS/Media" ;;
-
-    "Mount mirko")        gio mount smb://192.168.0.6/mirko < ~/.servercreds 2>> ~/mount.log \
-                          && notify-send --app-name="Mounter" "mirko mounted" \
-                          || notify-send --app-name="Mounter" "Could not mount mirko" ;; 
-
-    "Unmount mirko")      gio mount -u smb://192.168.0.6/mirko 2>> ~/mount.log \
-                          && notify-send --app-name="Mounter" "mirko unmounted" \
-                          || notify-send --app-name="Mounter" "Could not unmount mirko" ;; 
 
     "Mount GDrive")       rclone mount remote: ~/GDrive --daemon --vfs-cache-mode full --vfs-refresh --dir-cache-time=5000h &>> ~/mount.log \
                           && notify-send --app-name="Mounter" "Google Drive mounted" \

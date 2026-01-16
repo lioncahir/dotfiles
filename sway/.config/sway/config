@@ -136,6 +136,7 @@ bindsym $mod+Ctrl+d exec ~/.config/sway/scripts/fuzzel-adoc
 bindsym $mod+Ctrl+w exec ~/.config/sway/scripts/fuzzel-webapp
 bindsym $mod+o exec ~/.config/sway/scripts/fuzzel-outputs
 bindsym $mod+m exec ~/.config/sway/scripts/fuzzel-usb-mount
+bindsym $mod+n exec ~/.config/sway/scripts/fuzzel-network-mount
 bindsym $mod+period exec ~/.config/sway/scripts/fuzzel-config
 bindsym $mod+F1 exec ~/.config/sway/scripts/fuzzel-keys
 bindsym $mod+Escape exec "footclient --app-id btop btop"
