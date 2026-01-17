@@ -47,6 +47,7 @@ swaywm () {
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
     vim +PlugInstall +qall
     sudo cp ~/.dotfiles/Scripts/eos/sway /usr/local/bin/
+    sudo cp ~/.dotfiles/Scripts/eos/waitwinch /usr/local/bin/
 }
 
 greetd () {

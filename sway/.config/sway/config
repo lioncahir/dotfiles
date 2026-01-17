@@ -142,8 +142,8 @@ bindsym $mod+F1 exec ~/.config/sway/scripts/fuzzel-keys
 bindsym $mod+Escape exec "footclient --app-id btop btop"
 
 # Screenshots
-bindsym Print exec /usr/share/sway-contrib/grimshot --notify savecopy output
-bindsym Shift+Print exec /usr/share/sway-contrib/grimshot --notify savecopy area
+bindsym Print exec grimshot --notify savecopy output
+bindsym Shift+Print exec grimshot --notify savecopy area
 
 # Window rules
 for_window [app_id="btop"] floating enable, resize set 1200 800, move position center

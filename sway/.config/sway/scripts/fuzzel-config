@@ -1,6 +1,6 @@
 #!/bin/bash
 
-terminal=footclient
+terminal="footclient waitwinch"
 choice=$(echo -e "bashrc\nsway\nmako\nfuzzel\nvimrc\nwaybar\nwaybar-styling\nyazi\nyazi-keys" | fuzzel --dmenu -p "Edit config") 
 
 case $choice in
@@ -10,7 +10,8 @@ case $choice in
     fuzzel)             $terminal vim ~/.config/fuzzel/fuzzel.ini ;;
     mako)               $terminal vim ~/.config/mako/config ;;
     waybar)             $terminal vim ~/.config/waybar/config.jsonc ;;
-    waybar-styling)     $terminal vim ~/.config/waybar/style.css;;
+    waybar-styling)     $terminal vim ~/.config/waybar/style.css ;;
     yazi)               $terminal vim ~/.config/yazi/yazi.toml ;;
     yazi-keys)          $terminal vim ~/.config/yazi/keymap.toml ;;
 esac
+
