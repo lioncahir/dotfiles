@@ -1,6 +1,7 @@
 #!/bin/bash
 
-terminal="footclient waitwinch"
+(command -v waitwinch &> /dev/null) && terminal="footclient waitwinch" || terminal="footclient"
+
 choice=$(echo -e "bashrc\nsway\nmako\nfuzzel\nvimrc\nwaybar\nwaybar-styling\nyazi\nyazi-keys" | fuzzel --dmenu -p "Edit config") 
 
 case $choice in

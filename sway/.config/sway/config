@@ -154,7 +154,7 @@ for_window [app_id="brave-browser"] inhibit_idle fullscreen
 # Start Yazi in scratchpad
 for_window [app_id="yazi"] move to scratchpad 
 bindsym $mod+slash [app_id="yazi"] scratchpad show, resize set 1500 800, move position center, opacity set 1
-exec 'foot --app-id=yazi bash -ic "yazi"'
+exec 'sleep 1; footclient --app-id=yazi bash -ic "yazi"'
 
 # Status Bar:
 bar {
