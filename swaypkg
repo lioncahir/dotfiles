@@ -20,6 +20,7 @@ mako
 mediainfo
 mpv
 networkmanager
+networkmanager-dmenu
 nm-connection-editor
 noto-fonts-emoji
 nwg-displays
@@ -55,11 +56,8 @@ yazi
 zathura-pdf-mupdf
 zip
 brave-bin
-epy-ereader-git
 gnome-calculator-gtk3
 hunspell-sk
-networkmanager-dmenu-git
 papirus-folders-catppuccin-git
 pavucontrol-gtk3
-simple-scan-linuxmint
 swaylock-effects

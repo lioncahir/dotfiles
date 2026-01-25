@@ -138,6 +138,9 @@ fi
 [ -f .config/borgmatic/config.yaml ] && alias borg-bb='borgmatic --config ~/.config/borgmatic/config.yaml'
 [ -f .config/borgmatic/NAS.yaml ] && alias borg-NAS='borgmatic --config ~/.config/borgmatic/NAS.yaml'
 
+# Ignore .mnt if it exists (serves for automounts)
+[ -d ~/.mnt ] && alias gdu='gdu -i ~/.mnt'
+
 # start starship prompt
 if command -v starship &> /dev/null
 then

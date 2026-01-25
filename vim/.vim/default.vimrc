@@ -15,9 +15,6 @@ set display+=lastline
 set clipboard=unnamedplus
 let g:wayland_clipboard_unnamedplus=1
 
-"Do not update buffer with replaced text
-"vnoremap p "_dP
-
 "Use Y to yank until end of line
 nnoremap Y y$
 
@@ -25,11 +22,15 @@ nnoremap Y y$
 set wrap linebreak
 set textwidth=0
 
+"Leader key
+let mapleader=" "
+nnoremap <leader>/ :noh<CR>
+
 "Use arrows to move between wrapped lines
-nmap <up> gk
-nmap <down> gj
-nmap <silent> <home> g0
-nmap <silent> <end> g$
+nnoremap <up> gk
+nnoremap <down> gj
+nnoremap <silent> <home> g0
+nnoremap <silent> <end> g$
 
 "Autoclose brackets
 inoremap " ""<left>

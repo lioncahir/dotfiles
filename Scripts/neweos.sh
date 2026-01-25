@@ -68,8 +68,7 @@ cinnamon () {
 }
 
 scanner () {
-    sudo pacman -S --needed simple-scan
-    yay -S samsung-unified-driver-scanner samsung-unified-driver-printer
+    yay -S simple-scan-linuxmint samsung-unified-driver-scanner samsung-unified-driver-printer
     sudo ufw allow 22161/udp
 }
 

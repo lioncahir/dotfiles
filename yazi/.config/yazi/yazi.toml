@@ -29,9 +29,6 @@ info = [
 wallpaper = [
 	{ run = '~/.config/yazi/scripts/set_wallpaper.sh "$1"', desc = "Set as wallpaper" },
 ]
-ebook = [
-	{ run = '~/.config/yazi/scripts/term.sh epy "$1"', desc = "Read e-book", orphan = true },
-]
 
 [open]
 prepend_rules = [
@@ -39,7 +36,7 @@ prepend_rules = [
 	{ mime = "text/html",       use = [ "edit", "open", "reveal" ] },
 	{ mime = "image/*",         use = [ "image", "wallpaper", "info", "reveal" ] },
 	{ mime = "{audio,video}/*", use = [ "play", "info", "reveal" ] },
-	{ name = "*.epub",          use = [ "open", "ebook", "extract", "reveal" ] },
+	{ name = "*.epub",          use = [ "open", "extract", "reveal" ] },
 ]
 
 [tasks]
@@ -47,10 +44,12 @@ image_bound = [ 6000, 6000 ]
 
 [plugin]
 prepend_fetchers = [
-	# Mimetype
-	#{ id = "mime", name = "*", run = "mime-ext", if = "!(mime|dummy)", prio = "high" },
-	{ id = "mime", name = "/home/mirko/GDrive/**", run = "mime-ext", if = "!(mime|dummy)", prio = "high" },
+	#{ id = "mime", name = "/home/mirko/GDrive/**", run = "mime-ext", if = "!(mime|dummy)", prio = "high" },
+    { id = "mime", url = "local://*", run = "mime-ext.local", prio = "high" },
+    { id = "mime", url = "remote://*", run = "mime-ext.remote", prio = "high" },
 ]
+
 prepend_preloaders = [
     { name = "/home/mirko/GDrive/**", run = "noop" },
 ]
+
