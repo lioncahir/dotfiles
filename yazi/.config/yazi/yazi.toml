@@ -44,7 +44,6 @@ image_bound = [ 6000, 6000 ]
 
 [plugin]
 prepend_fetchers = [
-	#{ id = "mime", name = "/home/mirko/GDrive/**", run = "mime-ext", if = "!(mime|dummy)", prio = "high" },
     { id = "mime", url = "local://*", run = "mime-ext.local", prio = "high" },
     { id = "mime", url = "remote://*", run = "mime-ext.remote", prio = "high" },
 ]

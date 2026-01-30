@@ -25,6 +25,7 @@ set textwidth=0
 "Leader key
 let mapleader=" "
 nnoremap <leader>/ :noh<CR>
+nnoremap <leader>a :w \| !asciidoctor %<CR>
 
 "Use arrows to move between wrapped lines
 nnoremap <up> gk
