@@ -7,7 +7,7 @@
 
 // Modules
     "modules-left": [
-        "image#eos",
+        // "image#eos",
         "sway/workspaces",
         "sway/window"
     ],

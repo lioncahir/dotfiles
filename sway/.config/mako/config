@@ -1,5 +1,6 @@
 layer=overlay
-width=400
+width=500
+height=200
 background-color=#1e1e2eff
 text-color=#cdd6f4ff
 border-size=3

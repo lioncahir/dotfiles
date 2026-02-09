@@ -13,6 +13,7 @@ echo -e " \
  + l               \t Lock screen \n \
  + f               \t Toggle fullscreen \n \
  + m               \t Mount/Unmount USB drive \n \
+ + n               \t Mount/Unmount network drive \n \
  + .               \t Edit config files \n \
  + Esc             \t System monitor \n \
  + Shift + q       \t Power menu \n \

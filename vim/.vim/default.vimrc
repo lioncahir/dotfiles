@@ -34,8 +34,8 @@ nnoremap <silent> <home> g0
 nnoremap <silent> <end> g$
 
 "Autoclose brackets
-inoremap " ""<left>
-inoremap ' ''<left>
+"inoremap " ""<left>
+"inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
@@ -52,9 +52,13 @@ nnoremap <C-down> <C-w><down>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
-" Insert === <date> at cursor
+"Insert === <date> at cursor
 nnoremap <F5> i=== <C-R>=strftime("%d.%m.%Y")<CR><CR><CR>
 inoremap <F5> === <C-R>=strftime("%d.%m.%Y")<CR><CR><CR>
+
+"Slovak quotation marks
+inoremap ,,, “
+inoremap ,, „
 
 "Tab settings
 set expandtab
@@ -62,7 +66,7 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Styled and colored underline support
+"Styled and colored underline support
 let &t_AU = "\e[58:5:%dm"
 let &t_8u = "\e[58:2:%lu:%lu:%lum"
 let &t_Us = "\e[4:2m"
@@ -70,10 +74,10 @@ let &t_Cs = "\e[4:3m"
 let &t_ds = "\e[4:4m"
 let &t_Ds = "\e[4:5m"
 let &t_Ce = "\e[4:0m"
-" Strikethrough
+"Strikethrough
 let &t_Ts = "\e[9m"
 let &t_Te = "\e[29m"
-" Truecolor support
+"Truecolor support
 let &t_8f = "\e[38:2:%lu:%lu:%lum"
 let &t_8b = "\e[48:2:%lu:%lu:%lum"
 let &t_RF = "\e]10;?\e\\"
