@@ -10,6 +10,7 @@ set mouse=a
 set termguicolors
 set spellcapcheck=
 set display+=lastline
+set timeoutlen=200
 
 "Use system clipboard
 set clipboard=unnamedplus
@@ -25,7 +26,7 @@ set textwidth=0
 "Leader key
 let mapleader=" "
 nnoremap <leader>/ :noh<CR>
-nnoremap <leader>a :w \| !asciidoctor %<CR>
+nnoremap <leader>ah :w \| !asciidoctor %<CR>
 
 "Use arrows to move between wrapped lines
 nnoremap <up> gk
@@ -34,11 +35,12 @@ nnoremap <silent> <home> g0
 nnoremap <silent> <end> g$
 
 "Autoclose brackets
-"inoremap " ""<left>
-"inoremap ' ''<left>
+inoremap " ""<left>
+inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
+inoremap ,, „“<left>
 
 "Split settigs
 set splitright
@@ -55,10 +57,6 @@ nnoremap <C-u> <C-u>zz
 "Insert === <date> at cursor
 nnoremap <F5> i=== <C-R>=strftime("%d.%m.%Y")<CR><CR><CR>
 inoremap <F5> === <C-R>=strftime("%d.%m.%Y")<CR><CR><CR>
-
-"Slovak quotation marks
-inoremap ,,, “
-inoremap ,, „
 
 "Tab settings
 set expandtab
