@@ -1,0 +1,18 @@
+#!/bin/bash
+
+(command -v waitwinch &> /dev/null) && terminal="footclient waitwinch" || terminal="footclient"
+
+choice=$(echo -e "bashrc\nniri\nmako\nfuzzel\nvimrc\nwaybar\nwaybar-styling\nyazi\nyazi-keys" | fuzzel --dmenu -p "Edit config") 
+
+case $choice in
+    bashrc)             $terminal vim ~/.bashrc ;;
+    niri)               $terminal vim ~/.config/niri/config.kdl ;;
+    vimrc)              $terminal vim ~/.vim/default.vimrc ;;
+    fuzzel)             $terminal vim ~/.config/fuzzel/fuzzel.ini ;;
+    mako)               $terminal vim ~/.config/mako/config ;;
+    waybar)             $terminal vim ~/.config/waybar/config.jsonc ;;
+    waybar-styling)     $terminal vim ~/.config/waybar/style.css ;;
+    yazi)               $terminal vim ~/.config/yazi/yazi.toml ;;
+    yazi-keys)          $terminal vim ~/.config/yazi/keymap.toml ;;
+esac
+

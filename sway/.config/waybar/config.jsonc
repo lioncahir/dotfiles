@@ -8,6 +8,8 @@
 // Modules
     "modules-left": [
         // "image#eos",
+        "niri/workspaces",
+        "niri/window",
         "sway/workspaces",
         "sway/window"
     ],
@@ -23,6 +25,7 @@
         "battery",
         "pulseaudio",
         "sway/language",
+        "niri/language",
         "network",
         "bluetooth",
         "power-profiles-daemon",
@@ -49,7 +52,31 @@
         }
     },
 
+    "niri/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "󰎤",
+            "2": "󰎧",
+            "3": "󰎪",
+            "4": "󰎭",
+            "5": "󰎱",
+            "6": "󰎳",
+            "7": "󰎶",
+            "8": "󰎹",
+            "9": "󰎼",
+            "10": "󰽽"
+        }
+    },
+
     "sway/window": {
+        "format": "{app_id}",
+        "tooltip-format": "{name}"
+    },
+    
+    "niri/window": {
         "format": "{app_id}",
         "tooltip-format": "{name}"
     },
