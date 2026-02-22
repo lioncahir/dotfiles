@@ -3,7 +3,7 @@
 choice=$(echo -e "󰍃 Log out\n󰜉 Reboot\n󰐥 Shut down" | fuzzel --dmenu --lines 4 -p "Power menu" )
 
 case $choice in
-    "󰍃 Log out")    loginctl terminate-session ${XDG_SESSION_ID-} ;; 
+    "󰍃 Log out")    systemctl --user stop niri.service ;;
     "󰜉 Reboot")     systemctl reboot ;; 
     "󰐥 Shut down")  systemctl poweroff ;;
 esac

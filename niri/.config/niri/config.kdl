@@ -38,15 +38,16 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 16
+    gaps 10
     center-focused-column "always"
     preset-column-widths {
         // proportion 0.33333
         proportion 0.5
-        proportion 0.66667
+        // proportion 0.66667
+        proportion 0.75
     }
 
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.75; }
 
     focus-ring {
         width 3
@@ -70,6 +71,8 @@ spawn-at-startup "xdg-user-dirs-update"
 spawn-sh-at-startup "foot --server"
 spawn-at-startup "mako"
 spawn-sh-at-startup "swaybg -m fill -i ~/.wallpaper"
+// spawn-at-startup "~/.config/niri/scripts/spawn_swayidle"
+spawn-sh-at-startup "swayidle -w timeout 30 'if pgrep swaylock ; then niri msg action power-off-monitors; fi' resume 'niri msg action power-on-monitors' timeout 300 'if ! pgrep swaylock ; then swaylock -f; fi; niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' before-sleep 'swaylock -f'"
 spawn-sh-at-startup "sleep 10; ~/.local/bin/check_backup.sh"
 spawn-at-startup "waybar"
 
@@ -83,12 +86,6 @@ animations {
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
-}
-
-window-rule {
-    match app-id="btop"
-    match app-id="yazi"
-    default-column-width { proportion 0.75; }
 }
 
 window-rule {
@@ -131,10 +128,11 @@ binds {
     Mod+Ctrl+W { spawn "~/.config/niri/scripts/fuzzel-webapp"; }
     Mod+Shift+B { spawn-sh "killall -SIGUSR2 waybar"; }
     Mod+Escape { spawn-sh "footclient --app-id btop btop"; }
-    Mod+Slash { spawn-sh "footclient --app-id yazi bash -ic 'yazi'"; }
+    Mod+Slash { spawn "~/.config/niri/scripts/spawn-or-focus-yazi"; }
     Mod+M hotkey-overlay-title="Mount USB Disk" { spawn "~/.config/niri/scripts/fuzzel-usb-mount"; }
     Mod+N hotkey-overlay-title="Mount network drive" { spawn "~/.config/niri/scripts/fuzzel-network-mount"; }
     Mod+period hotkey-overlay-title="Edit config files" { spawn "~/.config/niri/scripts/fuzzel-config"; }
+    Mod+L hotkey-overlay-title="Lock screen" { spawn "swaylock"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }

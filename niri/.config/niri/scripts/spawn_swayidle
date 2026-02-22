@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+swayidle -w \
+    timeout 30 'if pgrep swaylock ; then niri msg action power-off-monitors; fi' resume 'niri msg action power-on-monitors' \
+    timeout 300 'if ! pgrep swaylock ; then swaylock -f; fi; niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' \
+    before-sleep 'swaylock -f'
