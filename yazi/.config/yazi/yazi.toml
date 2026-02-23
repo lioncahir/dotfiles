@@ -10,24 +10,23 @@ cache_dir       = "~/.cache/yazi/"
 
 [opener]
 edit = [
-	{ run = '~/.config/yazi/scripts/term.sh vim "$1"', desc = "Edit", orphan = true },
-	{ run = 'bat "$1"', desc = "View", block = true },
+	{ run = "~/.config/yazi/scripts/term.sh vim %s1", desc = "Edit", orphan = true },
+	{ run = "bat %s1", desc = "View", block = true },
 ]
 open = [
-	{ run = 'xdg-open "$1"', desc = "Open in GUI application" },
+	{ run = "xdg-open %s1", desc = "Open in GUI application" },
 ]
 image = [
-	{ run = '~/.config/yazi/scripts/view_image.sh "$1"', desc = "View image" },
+	{ run = "~/.config/yazi/scripts/view_image.sh %s1", desc = "View image" },
 ]
 reveal = [
-	{ run = 'xdg-open "$(dirname "$1")"', desc = "Show in File Manager" },
-	{ run = '''clear; eza -lg "$1"; echo; stat "$1"; echo; echo "Press enter to exit"; read _''', block = true, desc = "Show file information" },
+	{ run = "xdg-open %d1", desc = "Show in File Manager" },
 ]
 info = [
-	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info" },
+	{ run = '''mediainfo %s1; echo "Press enter to exit"; read _''', block = true, desc = "Show media info" },
 ]
 wallpaper = [
-	{ run = '~/.config/yazi/scripts/set_wallpaper.sh "$1"', desc = "Set as wallpaper" },
+	{ run = "~/.config/yazi/scripts/set_wallpaper.sh %s1", desc = "Set as wallpaper" },
 ]
 
 [open]

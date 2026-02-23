@@ -35,6 +35,7 @@ output "eDP-1" {
     mode "1920x1080"
     scale 1
     transform "normal"
+    backdrop-color "#1e1e2e"
 }
 
 layout {
@@ -45,6 +46,7 @@ layout {
         proportion 0.5
         // proportion 0.66667
         proportion 0.75
+        proportion 1.0
     }
 
     default-column-width { proportion 0.75; }
@@ -71,7 +73,7 @@ spawn-at-startup "xdg-user-dirs-update"
 spawn-sh-at-startup "foot --server"
 spawn-at-startup "mako"
 spawn-sh-at-startup "swaybg -m fill -i ~/.wallpaper"
-// spawn-at-startup "~/.config/niri/scripts/spawn_swayidle"
+// spawn-at-startup "~/.config/niri/scripts/spawn-swayidle"
 spawn-sh-at-startup "swayidle -w timeout 30 'if pgrep swaylock ; then niri msg action power-off-monitors; fi' resume 'niri msg action power-on-monitors' timeout 300 'if ! pgrep swaylock ; then swaylock -f; fi; niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' before-sleep 'swaylock -f'"
 spawn-sh-at-startup "sleep 10; ~/.local/bin/check_backup.sh"
 spawn-at-startup "waybar"
@@ -94,6 +96,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id="footclient"
+    exclude is-focused=true
+    opacity 0.8
+}
+
+window-rule {
     match app-id=r#".*alculator"#
     match app-id="nm-connection-editor"
     match app-id="blueman-manager"
@@ -107,6 +115,7 @@ hotkey-overlay {
 }
 
 environment {
+    XDG_SESSION_DESKTOP "niri"
     MOZ_ENABLE_WAYLAND "1"
     OZONE_PLATFORM "wayland"
     ELECTRON_OZONE_PLATFORM_HINT "wayland"
@@ -181,10 +190,11 @@ binds {
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
 
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Shift+Comma  { consume-or-expel-window-left; }
+    Mod+Shift+Period { consume-or-expel-window-right; }
 
     Mod+R { switch-preset-column-width; }
+    Mod+Apostrophe { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
