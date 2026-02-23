@@ -5,7 +5,7 @@ options=(\
 "Install and configure i3wm" \
 "Install and configure SwayWM" \
 "Install and configure Niri" \
-"Install Greetd login manager (requires Sway)" \
+"Install Greetd login manager" \
 "Configure Cinnamon DE" \
 "Install printer & scanner (Samsung M2070)" \
 "Enable Bluetooth" \

@@ -11,4 +11,4 @@ After=graphical-session-pre.target
 [Service]
 Slice=session.slice
 Type=notify
-ExecStart=/usr/bin/niri --session
+ExecStart=/usr/bin/niri --session 
