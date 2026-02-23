@@ -4,6 +4,7 @@ options=(\
 "Add NAS to /etc/fstab" \
 "Install and configure i3wm" \
 "Install and configure SwayWM" \
+"Install and configure Niri" \
 "Install Greetd login manager (requires Sway)" \
 "Configure Cinnamon DE" \
 "Install printer & scanner (Samsung M2070)" \
@@ -40,7 +41,7 @@ swaywm () {
     cd ~/.dotfiles
     yay -S --needed - < ~/.dotfiles/swaypkg
     rm ~/.bashrc ~/.bash_profile
-    stow -v eos bat borg btop foot mpv starship sway vim yazi zathura
+    stow -v eos bat borg btop foot fuzzel mako mpv networkmanager-dmenu starship sway swayimg swaylock vim waybar yazi zathura
     ya pkg upgrade
     bat cache --build
     ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
@@ -48,6 +49,18 @@ swaywm () {
     vim +PlugInstall +qall
     sudo cp ~/.dotfiles/Scripts/eos/sway /usr/local/bin/
     sudo cp ~/.dotfiles/Scripts/eos/waitwinch /usr/local/bin/
+}
+
+niri () {
+    cd ~/.dotfiles
+    yay -S --needed - < ~/.dotfiles/niripkg
+    rm ~/.bashrc ~/.bash_profile
+    stow -v eos bat borg btop foot fuzzel mako mpv networkmanager-dmenu niri starship swayimg swaylock vim waybar yazi zathura
+    ya pkg upgrade
+    bat cache --build
+    ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
+    papirus-folders -t Papirus-Dark -C cat-mocha-lavender
+    vim +PlugInstall +qall
 }
 
 greetd () {
@@ -100,12 +113,13 @@ echo
         1) add_nas ;;
         2) i3wm ;;
         3) swaywm ;;
-        4) greetd ;;
-        5) cinnamon;;
-        6) scanner ;;
-        7) bluetooth ;;
-        8) timers ;;
-        9) break 2 ;;
+        4) niri ;;
+        5) greetd ;;
+        6) cinnamon;;
+        7) scanner ;;
+        8) bluetooth ;;
+        9) timers ;;
+        10) break 2 ;;
         *) echo "Invalid option" >&2
     esac
     REPLY=
