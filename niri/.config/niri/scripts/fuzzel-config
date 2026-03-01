@@ -1,6 +1,7 @@
 #!/bin/bash
 
-(command -v waitwinch &> /dev/null) && terminal="footclient waitwinch" || terminal="footclient"
+#(command -v waitwinch &> /dev/null) && terminal="footclient waitwinch" || terminal="footclient"
+terminal="footclient"
 
 choice=$(echo -e "bashrc\nniri\nmako\nfuzzel\nvimrc\nwaybar\nwaybar-styling\nyazi\nyazi-keys" | fuzzel --dmenu -p "Edit config") 
 

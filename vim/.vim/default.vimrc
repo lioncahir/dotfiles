@@ -27,6 +27,7 @@ set textwidth=0
 let mapleader=" "
 nnoremap <leader>/ :noh<CR>
 nnoremap <leader>ah :w \| !asciidoctor %<CR>
+nnoremap <leader>f :FZF ~<CR>
 
 "Use arrows to move between wrapped lines
 nnoremap <up> gk
@@ -84,6 +85,7 @@ let &t_RB = "\e]11;?\e\\"
 "Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/fzf'
 Plug 'itchyny/lightline.vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'ap/vim-css-color'

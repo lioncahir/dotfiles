@@ -61,6 +61,7 @@ niri () {
     ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
     vim +PlugInstall +qall
+    sudo cp ~/.dotfiles/Scripts/eos/waitwinch /usr/local/bin/
 }
 
 greetd () {

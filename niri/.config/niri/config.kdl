@@ -3,9 +3,6 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
 
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 input {
     keyboard {
         xkb {
@@ -38,9 +35,15 @@ output "eDP-1" {
     backdrop-color "#1e1e2e"
 }
 
+cursor {
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
 layout {
     gaps 10
     center-focused-column "always"
+    always-center-single-column
     preset-column-widths {
         // proportion 0.33333
         proportion 0.5
@@ -62,6 +65,7 @@ layout {
     }
 
     shadow {
+        off
     }
 
     struts {
@@ -73,7 +77,6 @@ spawn-at-startup "xdg-user-dirs-update"
 spawn-sh-at-startup "foot --server"
 spawn-at-startup "mako"
 spawn-sh-at-startup "swaybg -m fill -i ~/.wallpaper"
-// spawn-at-startup "~/.config/niri/scripts/spawn-swayidle"
 spawn-sh-at-startup "swayidle -w timeout 30 'if pgrep swaylock ; then niri msg action power-off-monitors; fi' resume 'niri msg action power-on-monitors' timeout 300 'if ! pgrep swaylock ; then swaylock -f; fi; niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' before-sleep 'swaylock -f'"
 spawn-sh-at-startup "sleep 10; ~/.local/bin/check_backup.sh"
 spawn-at-startup "waybar"
@@ -105,9 +108,17 @@ window-rule {
     match app-id=r#".*alculator"#
     match app-id="nm-connection-editor"
     match app-id="blueman-manager"
-    match app-id="xarchiver"
     match app-id="pinentry-gtk"
     open-floating true
+}
+
+window-rule {
+    match app-id="wdisplays"
+    match app-id="pavucontrol"
+    match app-id="xarchiver"
+    open-floating true
+    default-column-width { proportion 0.6; }
+    default-window-height { proportion 0.6; }
 }
 
 hotkey-overlay {
@@ -132,7 +143,7 @@ binds {
     Mod+B hotkey-overlay-title="Run web browser: Brave" { spawn "brave"; }
     Mod+E hotkey-overlay-title="Run file explorer" { spawn "pcmanfm"; }
 
-    Mod+Ctrl+O hotkey-overlay-title="Display configuration" { spawn-sh "wdisplays & pavucontrol"; }
+    Mod+Ctrl+O hotkey-overlay-title="Display configuration" { spawn-sh "wdisplays"; }
     Mod+Ctrl+D { spawn "~/.config/niri/scripts/fuzzel-adoc"; }
     Mod+Ctrl+W { spawn "~/.config/niri/scripts/fuzzel-webapp"; }
     Mod+Shift+B { spawn-sh "killall -SIGUSR2 waybar"; }
@@ -196,19 +207,17 @@ binds {
     Mod+R { switch-preset-column-width; }
     Mod+Apostrophe { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
+    Mod+Shift+Apostrophe { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
+
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-
-    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+Ctrl+F { maximize-window-to-edges; }
 
     Mod+C { center-column; }
 
-    Mod+Ctrl+C { center-visible-columns; }
-
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
-
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 
@@ -221,7 +230,6 @@ binds {
 
     Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
     Mod+Shift+P { power-off-monitors; }
