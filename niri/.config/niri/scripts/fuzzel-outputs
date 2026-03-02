@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+outputs_json=$(niri msg --json outputs)
+
+menu_entries=$(echo "$outputs_json" | jq -r 'to_entries[] | "\(.key) (\(.value.make))"')
+
+choice=$(echo "$menu_entries" | fuzzel --dmenu --lines 4 -p "Toggle video output" | cut -d " " -f 1) 
+
+[ -z "$choice" ] && exit 0
+
+# Determine current state: on if current_mode is non-null, off otherwise
+is_on=$(echo "$outputs_json" | jq --arg name "$choice" '.[$name].current_mode != null')
+
+# Toggle
+if [ "$is_on" = "true" ]; then
+    niri msg output "$choice" off
+else
+    niri msg output "$choice" on
+fi
+
+# Sanity check: if no outputs are active after the toggle, re-enable eDP-1
+sleep 0.3
+active_count=$(niri msg --json outputs | jq '[to_entries[] | select(.value.current_mode != null)] | length')
+
+if [ "$active_count" -eq 0 ]; then
+    notify-send "Display toggle" "All outputs off; re-enabling eDP-1" 2>/dev/null || true
+    niri msg output eDP-1 on
+fi

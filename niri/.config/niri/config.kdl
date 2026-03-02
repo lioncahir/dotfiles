@@ -99,6 +99,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id="^brave-"
+    match title="Bitwarden"
+    open-floating true
+}
+
+window-rule {
     match app-id="footclient"
     exclude is-focused=true
     opacity 0.8
@@ -143,7 +149,7 @@ binds {
     Mod+B hotkey-overlay-title="Run web browser: Brave" { spawn "brave"; }
     Mod+E hotkey-overlay-title="Run file explorer" { spawn "pcmanfm"; }
 
-    Mod+Ctrl+O hotkey-overlay-title="Display configuration" { spawn-sh "wdisplays"; }
+    Mod+Ctrl+O hotkey-overlay-title="Toggle displays" { spawn "~/.config/niri/scripts/fuzzel-outputs"; }
     Mod+Ctrl+D { spawn "~/.config/niri/scripts/fuzzel-adoc"; }
     Mod+Ctrl+W { spawn "~/.config/niri/scripts/fuzzel-webapp"; }
     Mod+Shift+B { spawn-sh "killall -SIGUSR2 waybar"; }
@@ -151,7 +157,7 @@ binds {
     Mod+Slash { spawn "~/.config/niri/scripts/spawn-or-focus-yazi"; }
     Mod+M hotkey-overlay-title="Mount USB Disk" { spawn "~/.config/niri/scripts/fuzzel-usb-mount"; }
     Mod+N hotkey-overlay-title="Mount network drive" { spawn "~/.config/niri/scripts/fuzzel-network-mount"; }
-    Mod+period hotkey-overlay-title="Edit config files" { spawn "~/.config/niri/scripts/fuzzel-config"; }
+    Mod+Period hotkey-overlay-title="Edit config files" { spawn "~/.config/niri/scripts/fuzzel-config"; }
     Mod+L hotkey-overlay-title="Lock screen" { spawn "swaylock"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
@@ -206,7 +212,6 @@ binds {
 
     Mod+R { switch-preset-column-width; }
     Mod+Apostrophe { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
     Mod+Shift+Apostrophe { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
 
