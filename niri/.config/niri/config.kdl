@@ -37,12 +37,12 @@ output "eDP-1" {
 
 cursor {
     hide-when-typing
-    hide-after-inactive-ms 1000
+    hide-after-inactive-ms 5000
 }
 
 layout {
     gaps 10
-    center-focused-column "always"
+    center-focused-column "on-overflow"
     always-center-single-column
     preset-column-widths {
         // proportion 0.33333
@@ -98,11 +98,10 @@ window-rule {
     default-column-width { proportion 1.0; }
 }
 
-window-rule {
-    match app-id="^brave-"
-    match title="Bitwarden"
-    open-floating true
-}
+//window-rule {
+//    match app-id="^brave-" title="Bitwarden"
+//    open-floating true
+//}
 
 window-rule {
     match app-id="footclient"
