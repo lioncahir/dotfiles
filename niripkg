@@ -21,6 +21,7 @@ mediainfo
 mpv
 networkmanager
 networkmanager-dmenu
+niri
 nm-connection-editor
 noto-fonts-emoji
 nwg-look
@@ -44,6 +45,7 @@ unzip
 vim
 waybar
 wdisplays
+wl-clipboard
 xarchiver
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
