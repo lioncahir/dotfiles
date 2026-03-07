@@ -30,6 +30,8 @@ This has been tested on EndeavourOS.
 
 1. Install minimal (base) EndeavourOS, without any desktop environment
 
+1. Make sure `yay` is installed
+
 1. Install git: `sudo pacman -S git`
 
 1. Clone repository
