@@ -40,6 +40,12 @@ cursor {
     hide-after-inactive-ms 5000
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 layout {
     gaps 10
     center-focused-column "on-overflow"
