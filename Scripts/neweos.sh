@@ -28,7 +28,7 @@ i3wm () {
     sudo pacman -S --needed - < ~/.dotfiles/i3pkg
     yay -S --needed - < ~/.dotfiles/i3aur
     rm ~/.bashrc ~/.bash_profile
-    stow -v eos i3 kitty vim yazi bat btop borg mpv starship yazi zathura
+    stow -v eos i3 kitty vim yazi bat btop borg mpv starship wallpaper yazi zathura
     ya pkg upgrade
     bat cache --build
     feh --bg-scale ~/Pictures/endeavour-black-4k.png
@@ -41,7 +41,7 @@ swaywm () {
     cd ~/.dotfiles
     yay -S --needed - < ~/.dotfiles/swaypkg
     rm ~/.bashrc ~/.bash_profile
-    stow -v eos bat borg btop foot fuzzel mako mpv networkmanager-dmenu starship sway swayimg swaylock vim waybar yazi zathura
+    stow -v eos bat borg btop foot fuzzel mako mpv networkmanager-dmenu starship sway swayimg swaylock vim wallpaper waybar yazi zathura
     ya pkg upgrade
     bat cache --build
     ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
@@ -55,13 +55,12 @@ niri () {
     cd ~/.dotfiles
     yay -S --needed - < ~/.dotfiles/niripkg
     rm ~/.bashrc ~/.bash_profile
-    stow -v eos bat borg btop foot fuzzel mako mpv networkmanager-dmenu niri starship swayimg swaylock vim waybar yazi zathura
+    stow -v eos bat borg btop foot fuzzel mako mpv networkmanager-dmenu niri starship swayimg swaylock vim wallpaper waybar yazi zathura
     ya pkg upgrade
     bat cache --build
     ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
     vim +PlugInstall +qall
-    sudo cp ~/.dotfiles/Scripts/eos/waitwinch /usr/local/bin/
 }
 
 greetd () {
