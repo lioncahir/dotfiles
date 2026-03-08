@@ -45,6 +45,7 @@ window#waybar {
 #tray,
 #custom-power,
 #custom-weather,
+#custom-applauncher,
 #image,
 #power-profiles-daemon,
 #custom-updates {
@@ -75,6 +76,12 @@ window#waybar {
 #custom-updates {
     color: @red;
     border-color: @red;
+}
+
+#custom-applauncher {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px 3px 3px 7px;
 }
 
 #battery {

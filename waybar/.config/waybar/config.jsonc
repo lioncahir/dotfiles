@@ -7,7 +7,7 @@
 
 // Modules
     "modules-left": [
-        // "image#eos",
+        "custom/applauncher",
         "niri/workspaces",
         "niri/window",
         "sway/workspaces",
@@ -189,6 +189,12 @@
         "format" : "⏻",
 		"tooltip": false,
 		"on-click": "fuzzel-power"
+    },
+    
+    "custom/applauncher": {
+        "format" : "󱗼",
+		"tooltip": false,
+		"on-click": "fuzzel"
     },
     
     "image#eos": {
