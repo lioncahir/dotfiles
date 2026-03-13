@@ -1,6 +1,8 @@
 source_directories:
     - ${HOME}
 
+source_directories_must_exist: false
+
 repositories:
     - path: /media/NAS/Media/Backup/Mirko/dell-eos-borg
       label: NAS

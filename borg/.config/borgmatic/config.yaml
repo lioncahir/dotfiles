@@ -1,6 +1,8 @@
 source_directories:
     - ${HOME}
 
+source_directories_must_exist: false
+
 repositories:
     - path: ssh://d39ge7i1@d39ge7i1.repo.borgbase.com/./repo
       label: borgbase
