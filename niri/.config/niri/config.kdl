@@ -51,9 +51,7 @@ layout {
     center-focused-column "on-overflow"
     always-center-single-column
     preset-column-widths {
-        // proportion 0.33333
         proportion 0.5
-        // proportion 0.66667
         proportion 0.75
         proportion 1.0
     }
@@ -79,7 +77,6 @@ layout {
 }
 
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "xdg-user-dirs-update"
 spawn-sh-at-startup "foot --server"
 spawn-at-startup "mako"
 spawn-sh-at-startup "swaybg -m fill -i ~/.wallpaper"
@@ -103,11 +100,6 @@ window-rule {
     match app-id="brave-browser"
     default-column-width { proportion 1.0; }
 }
-
-//window-rule {
-//    match app-id="^brave-" title="Bitwarden"
-//    open-floating true
-//}
 
 window-rule {
     match app-id="footclient"
@@ -177,6 +169,7 @@ binds {
 
     Mod+Q { close-window; }
     Mod+Shift+Q hotkey-overlay-title="Power menu" { spawn "~/.config/niri/scripts/fuzzel-power"; }
+    Ctrl+Alt+Delete { spawn "~/.config/niri/scripts/fuzzel-power"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-or-workspace-down; }
@@ -228,6 +221,7 @@ binds {
     Mod+R { switch-preset-column-width; }
     Mod+Apostrophe { switch-preset-column-width; }
     Mod+Shift+Apostrophe { switch-preset-window-height; }
+    Mod+Ctrl+Apostrophe { reset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
 
     Mod+F { maximize-column; }
@@ -250,7 +244,4 @@ binds {
 
     Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    Ctrl+Alt+Delete { quit; }
-
-    Mod+Shift+P { power-off-monitors; }
 }
