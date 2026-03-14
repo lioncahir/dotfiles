@@ -129,6 +129,7 @@ hotkey-overlay {
 }
 
 environment {
+    BROWSER "brave"
     XDG_SESSION_DESKTOP "niri"
     MOZ_ENABLE_WAYLAND "1"
     OZONE_PLATFORM "wayland"

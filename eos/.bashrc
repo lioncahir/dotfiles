@@ -119,7 +119,7 @@ then
 
     export FZF_ALT_C_OPTS="
         --walker=dir,follow,hidden
-        --walker-skip=.mnt"
+        --walker-skip=.mnt,.cache"
 
     export FZF_CTRL_T_OPTS="
         --walker=file,follow,hidden 
