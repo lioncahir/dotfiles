@@ -76,7 +76,7 @@ layout {
     }
 }
 
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "/usr/bin/lxpolkit"
 spawn-sh-at-startup "foot --server"
 spawn-at-startup "mako"
 spawn-sh-at-startup "swaybg -m fill -i ~/.wallpaper"

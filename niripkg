@@ -16,6 +16,7 @@ gdu
 gthumb
 jq
 libreoffice-fresh
+lxsession
 mako
 mediainfo
 mpv
@@ -30,7 +31,6 @@ pacman-contrib
 papirus-icon-theme
 pcmanfm
 pipewire-pulse
-polkit-gnome
 python-llfuse
 reflector
 starship
