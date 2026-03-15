@@ -145,7 +145,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+B hotkey-overlay-title="Run web browser: Brave" { spawn "brave"; }
-    Mod+E hotkey-overlay-title="Run file explorer" { spawn "pcmanfm"; }
+    Mod+E hotkey-overlay-title="Run file explorer" { spawn-sh "pcmanfm; systemctl --user stop gvfs*"; }
 
     Mod+Ctrl+O hotkey-overlay-title="Toggle displays" { spawn "~/.config/niri/scripts/fuzzel-outputs"; }
     Mod+Ctrl+D { spawn "~/.config/niri/scripts/fuzzel-adoc"; }
