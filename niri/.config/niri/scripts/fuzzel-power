@@ -1,9 +1,10 @@
 #!/bin/bash
 
-choice=$(echo -e "󰍃 Log out\n󰜉 Reboot\n󰐥 Shut down" | fuzzel --dmenu --lines 4 -p "Power menu" )
+choice=$(echo -e "󰍃 Log out\n󰤄 Suspend\n󰜉 Reboot\n󰐥 Shut down" | fuzzel --dmenu --lines 4 -p "Power menu" )
 
 case $choice in
     "󰍃 Log out")    systemctl --user stop niri.service ;;
+    "󰤄 Suspend")    systemctl suspend ;;
     "󰜉 Reboot")     systemctl reboot ;; 
     "󰐥 Shut down")  systemctl poweroff ;;
 esac
