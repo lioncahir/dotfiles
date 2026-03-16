@@ -1,0 +1,6 @@
+[Unit]
+Description=Notify user that backup was not initiated
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/notify-send "Borgmatic Backup" "No network, cannot check backups"

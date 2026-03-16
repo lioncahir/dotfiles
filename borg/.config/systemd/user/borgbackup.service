@@ -1,0 +1,11 @@
+[Unit]
+Description=Borgmatic Backup
+OnFailure=borgbackup-fail.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/usr/bin/nm-online --quiet --timeout=60
+ExecStart=%h/.local/bin/check_backup.sh
+
+[Install]
+WantedBy=graphical-session.target
