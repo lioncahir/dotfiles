@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
 outputs_json=$(niri msg --json outputs)
-
 menu_entries=$(echo "$outputs_json" | jq -r 'to_entries[] | "\(.key) (\(.value.make))"')
-
 output=$(echo "$menu_entries" | fuzzel --dmenu --lines 4 -p "Select output" | cut -d " " -f 1) 
-
 [ -z "$output" ] && exit 0
 
 action=$(echo -e "Toggle on/off\nChange scale\nChange resolution" | fuzzel --dmenu --lines 4 -p "Select action")
@@ -38,7 +35,7 @@ case $action in
             ;;
 
     "Change resolution")
-            resolutions=$(niri msg --json outputs | jq -r --arg output "$output" '[.[] | select(.name == $output) | .modes[] | "\(.width)x\(.height)"] | unique[]')
+            resolutions=$(niri msg --json outputs | jq -r --arg output "$output" '.[] | select(.name == $output) | [.modes[] | "\(.width)x\(.height)"] | unique[]')
             res=$(echo "$resolutions" | fuzzel --dmenu -p "Select resolution")
             [ -z "$res" ] && exit 0
             niri msg output "$output" mode "$res"
