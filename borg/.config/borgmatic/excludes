@@ -8,6 +8,7 @@
 /home/*/.cargo
 /home/*/.mozilla
 /home/*/.minecraft
+/home/*/.git
 /home/*/.cinnamon/spices.cache
 /home/*/.local/share/Trash
 /home/*/.local/share/lutris
