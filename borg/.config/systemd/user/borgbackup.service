@@ -6,7 +6,5 @@ After=graphical-session.target
 [Service]
 Type=oneshot
 ExecStartPre=/usr/bin/nm-online --quiet --timeout=60
-ExecStart=%h/.local/bin/check_backup.sh
-
-[Install]
-WantedBy=default.target
+ExecStart=%h/.local/bin/borgbackup.sh
+TimeoutStartSec=2h

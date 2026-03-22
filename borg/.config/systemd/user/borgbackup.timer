@@ -1,0 +1,10 @@
+[Unit]
+Description=Borg backup every 5 days
+
+[Timer]
+OnUnitActiveSec=5d
+Persistent=true
+AccuracySec=1h
+
+[Install]
+WantedBy=timers.target

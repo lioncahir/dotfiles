@@ -25,7 +25,7 @@ statistics: true
 commands:
     - before: repository
       run:
-          - findmnt /media/NAS/Media > /dev/null
+          - mountpoint -q /media/NAS/Media
     - after: repository
       when: [create]
       states: [finish]
