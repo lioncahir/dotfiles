@@ -2,9 +2,8 @@
 Description=Borg backup every 5 days
 
 [Timer]
-OnUnitActiveSec=5d
+OnCalendar=*-*-1/5
 Persistent=true
-AccuracySec=1h
 
 [Install]
 WantedBy=timers.target

@@ -3,4 +3,4 @@ Description=Notify user that backup was not initiated
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/notify-send "Borgmatic Backup" "No network, cannot check backups"
+ExecStart=/usr/bin/notify-send --icon="gtk-dialog-warning" --urgency=critical "Borgmatic Backup" "Backup service failed to start"
