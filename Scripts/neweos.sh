@@ -81,7 +81,7 @@ cinnamon () {
 }
 
 scanner () {
-    yay -S simple-scan-linuxmint samsung-unified-driver-scanner samsung-unified-driver-printer
+    yay -S simple-scan-linuxmint samsung-unified-driver-scanner samsung-unified-driver-printer sane-airscan
     sudo ufw allow 22161/udp
 }
 

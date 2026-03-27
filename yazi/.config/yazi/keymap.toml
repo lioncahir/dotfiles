@@ -4,8 +4,9 @@ prepend_keymap = [
 	# Operation
 	{ on = "<Delete>",  run = "remove",                      desc = "Trash selected files" },
 	{ on = "/",         run = "plugin fzf",                  desc = "Jump to a directory or reveal a file using fzf" },
-	{ on = "i",         run = "shell --block 'bat %s1'",       desc = "View content of file" },
-	{ on = [ "c", "a" ],       run = "plugin compress", desc = "Archive selected files" },
+	{ on = "i",         run = "shell --block 'bat %s1'",     desc = "View content of file" },
+	{ on = "!",         run = 'shell "$SHELL" --block',      desc = "Shell command (block)" },
+	{ on = [ "c", "a" ],       run = "plugin compress",      desc = "Archive selected files" },
 
 	# Goto
 	{ on = [ "g", "m" ],       run = "cd /media/NAS/Media",     desc = "Go to the NAS mount" },
