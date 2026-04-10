@@ -8,6 +8,7 @@ notify() {
 # Collect USB partitions + superfloppy (partitionless) disks
 # --------------------------------------------------------------------
 
+# Search for removable partitions
 mapfile -t PARTS < <(
     lsblk -rpno NAME,TYPE,RM | grep "part 1" | grep "/dev/sd" | cut -d " " -f 1
 )
@@ -21,6 +22,7 @@ mapfile -t SUPERFLOPPIES < <(
         [[ -n "$fstype" ]] && echo "$disk"
     done
 )
+
 ALL_DEVS=("${PARTS[@]}" "${SUPERFLOPPIES[@]}")
 
 [[ ${#ALL_DEVS[@]} -eq 0 ]] && notify "No USB devices found" && exit 0
