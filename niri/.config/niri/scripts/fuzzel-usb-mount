@@ -16,10 +16,11 @@ mapfile -t PARTS < <(
 mapfile -t SUPERFLOPPIES < <(
     lsblk -rpno NAME,TYPE,RM | grep "disk 1" | grep "/dev/sd" | cut -d " " -f 1 | while read -r disk; do
         child_count=$(lsblk -no NAME "$disk" | wc -l)
-        [[ "$child_count" -eq 1 ]] && echo "$disk"
+        [[ "$child_count" -eq 1 ]] || continue
+        fstype=$(lsblk -no FSTYPE "$disk")
+        [[ -n "$fstype" ]] && echo "$disk"
     done
 )
-
 ALL_DEVS=("${PARTS[@]}" "${SUPERFLOPPIES[@]}")
 
 [[ ${#ALL_DEVS[@]} -eq 0 ]] && notify "No USB devices found" && exit 0
