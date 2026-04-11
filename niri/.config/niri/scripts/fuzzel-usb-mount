@@ -24,11 +24,7 @@ for part in "${ALL_DEVS[@]}"; do
     MOUNT=$MOUNTPOINT
 
     # Superfloppy: PKNAME is empty, the device is its own parent
-    if [[ -n "$PKNAME" ]]; then
-        DISK="/dev/$PKNAME"
-    else
-        DISK="$part"
-    fi
+    DISK=$([[ -n "$PKNAME" ]] && echo "/dev/$PKNAME" || echo "$part")
 
     PART_INFO["$part"]="$NAME|${LABEL:-—}|$SIZE|${MOUNT:-—}|$DISK"
     DISK_PARTS["$DISK"]+="$part "
