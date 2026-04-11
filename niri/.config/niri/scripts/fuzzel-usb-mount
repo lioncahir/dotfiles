@@ -5,25 +5,13 @@ notify() {
 }
 
 # --------------------------------------------------------------------
-# Collect USB partitions + superfloppy (partitionless) disks
+# Collect all removable devices that contain a filesystem
+# (covers normal partitions, superfloppies, SD cards, etc.)
 # --------------------------------------------------------------------
 
-# Search for removable partitions
-mapfile -t PARTS < <(
-    lsblk -rpno NAME,TYPE,RM | grep "part 1" | grep "/dev/sd" | cut -d " " -f 1
+mapfile -t ALL_DEVS < <(
+    lsblk -rpno NAME,RM,FSTYPE | awk '$2=="1" && $3!="" {print $1}'
 )
-
-# Add removable /dev/sdX disks that have no children (superfloppy layout)
-mapfile -t SUPERFLOPPIES < <(
-    lsblk -rpno NAME,TYPE,RM | grep "disk 1" | grep "/dev/sd" | cut -d " " -f 1 | while read -r disk; do
-        child_count=$(lsblk -no NAME "$disk" | wc -l)
-        [[ "$child_count" -eq 1 ]] || continue
-        fstype=$(lsblk -no FSTYPE "$disk")
-        [[ -n "$fstype" ]] && echo "$disk"
-    done
-)
-
-ALL_DEVS=("${PARTS[@]}" "${SUPERFLOPPIES[@]}")
 
 [[ ${#ALL_DEVS[@]} -eq 0 ]] && notify "No USB devices found" && exit 0
 
@@ -31,24 +19,20 @@ declare -A PART_INFO
 declare -A DISK_PARTS
 declare -A DISK_MOUNTED
 
-for part in "${PARTS[@]}"; do
+for part in "${ALL_DEVS[@]}"; do
     eval "$(lsblk -Pno NAME,LABEL,SIZE,PKNAME,MOUNTPOINT "$part")"
-    DISK="/dev/$PKNAME"
     MOUNT=$MOUNTPOINT
+
+    # Superfloppy: PKNAME is empty, the device is its own parent
+    if [[ -n "$PKNAME" ]]; then
+        DISK="/dev/$PKNAME"
+    else
+        DISK="$part"
+    fi
 
     PART_INFO["$part"]="$NAME|${LABEL:-—}|$SIZE|${MOUNT:-—}|$DISK"
     DISK_PARTS["$DISK"]+="$part "
     [[ -n "$MOUNT" ]] && DISK_MOUNTED["$DISK"]=1
-done
-
-# Superfloppies: the disk itself is the mountable device, PKNAME is empty
-for part in "${SUPERFLOPPIES[@]}"; do
-    eval "$(lsblk -Pno NAME,LABEL,SIZE,MOUNTPOINT "$part")"
-    MOUNT=$MOUNTPOINT
-
-    PART_INFO["$part"]="$NAME|${LABEL:-—}|$SIZE|${MOUNT:-—}|$part"
-    DISK_PARTS["$part"]+="$part "
-    [[ -n "$MOUNT" ]] && DISK_MOUNTED["$part"]=1
 done
 
 # --------------------------------------------------------------------
@@ -58,7 +42,7 @@ done
 MENU=()
 
 for part in "${ALL_DEVS[@]}"; do
-    IFS='|' read -r NAME LABEL SIZE MOUNT DISK <<<"${PART_INFO[$part]}"
+    IFS='|' read -r _NAME LABEL SIZE MOUNT DISK <<<"${PART_INFO[$part]}"
     [[ "$LABEL" == "—" ]] && LABEL="NO_LABEL"
     ACTION=$([[ "$MOUNT" == "—" ]] && echo "Mount" || echo "Unmount")
     MENU+=("$ACTION $part ($SIZE $LABEL)")
