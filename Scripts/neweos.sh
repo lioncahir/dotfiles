@@ -64,8 +64,10 @@ niri () {
 }
 
 greetd () {
-    sudo pacman -S --needed greetd-regreet cage
-    sudo cp ~/.dotfiles/Scripts/regreet/* /etc/greetd/
+    yay -S --needed greetd-tuigreet terminus-font
+    sudo cp ~/.dotfiles/Scripts/regreet/vconsole.conf /etc/
+    # sudo pacman -S --needed greetd-regreet cage
+    sudo cp ~/.dotfiles/Scripts/regreet/*.toml /etc/greetd/
     sudo systemctl disable lightdm.service
     sudo systemctl enable greetd.service
 }
