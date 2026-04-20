@@ -5,6 +5,7 @@ options=(\
 "Install and configure i3wm" \
 "Install and configure SwayWM" \
 "Install and configure Niri" \
+"Install and configure MagoWM" \
 "Install Greetd login manager" \
 "Configure Cinnamon DE" \
 "Install printer & scanner (Samsung M2070)" \
@@ -56,6 +57,18 @@ niri () {
     yay -S --needed - < ~/.dotfiles/niripkg
     rm ~/.bashrc ~/.bash_profile
     stow -v eos bat borg btop foot fuzzel mako mpv networkmanager-dmenu niri starship swayimg swaylock vim wallpaper waybar yazi zathura
+    ya pkg upgrade
+    bat cache --build
+    ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
+    papirus-folders -t Papirus-Dark -C cat-mocha-lavender
+    vim +PlugInstall +qall
+}
+
+mangowm () {
+    cd ~/.dotfiles
+    yay -S --needed - < ~/.dotfiles/mangopkg
+    rm ~/.bashrc ~/.bash_profile
+    stow -v eos bat borg btop foot fuzzel mako mango mpv networkmanager-dmenu starship swayimg swaylock vim wallpaper waybar yazi zathura
     ya pkg upgrade
     bat cache --build
     ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
@@ -116,12 +129,13 @@ echo
         2) i3wm ;;
         3) swaywm ;;
         4) niri ;;
-        5) greetd ;;
-        6) cinnamon;;
-        7) scanner ;;
-        8) bluetooth ;;
-        9) timers ;;
-        10) break 2 ;;
+        5) mangowm ;;
+        6) greetd ;;
+        7) cinnamon;;
+        8) scanner ;;
+        9) bluetooth ;;
+        10) timers ;;
+        11) break 2 ;;
         *) echo "Invalid option" >&2
     esac
     REPLY=
