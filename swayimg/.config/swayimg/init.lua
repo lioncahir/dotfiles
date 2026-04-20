@@ -30,6 +30,8 @@ swayimg.viewer.on_key("Next", function() swayimg.viewer.switch_image("next") end
 swayimg.viewer.on_key("f", function() swayimg.toggle_fullscreen() end)
 swayimg.viewer.on_key("0", function() swayimg.viewer.set_fix_scale("real") end)
 swayimg.viewer.on_key("w", function() swayimg.viewer.set_fix_scale("width") end)
+swayimg.viewer.on_key("i", function() swayimg.text.hide() end)
+swayimg.viewer.on_key("Shift+i", function() swayimg.text.show() end)
 swayimg.viewer.on_key("slash", function() swayimg.viewer.set_fix_scale("optimal") end)
 swayimg.viewer.on_key("period", function() swayimg.viewer.set_fix_scale("real") end)
 swayimg.viewer.on_key("1", function() swayimg.viewer.set_abs_scale(1.0) end)
