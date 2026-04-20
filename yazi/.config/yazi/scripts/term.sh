@@ -2,8 +2,8 @@
 
 if pgrep -f "foot --server" > /dev/null
 then
-#    (command -v waitwinch &> /dev/null) && terminal="footclient waitwinch" || terminal="footclient"
-    terminal="footclient"
+    (command -v waitwinch &> /dev/null) && terminal="footclient waitwinch" || terminal="footclient"
+#    terminal="footclient"
     exec $terminal $1 "$2"
 elif [ $TERM = "xterm-kitty" ] 
 then

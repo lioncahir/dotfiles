@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+swayidle -w \
+timeout 30 'if pgrep -x swaylock ; then mmsg -d disable_monitor; fi' resume 'mmsg -d enable_monitor' \
+timeout 300 'if pgrep -x swaylock ; then mmsg -d disable_monitor; else swaylock -f && mmsg -d disable_monitor; fi' resume 'mmsg -d enable_monitor' \
+timeout 1800 'systemctl suspend' resume 'mmsg -d enable_monitor' \
+before-sleep 'swaylock -f'

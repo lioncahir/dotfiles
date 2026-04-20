@@ -25,6 +25,11 @@ window#waybar {
     color: @peach;
 }
 
+#workspaces button.active {
+    font-size: 18px;
+    color: @peach;
+}
+
 #clock,
 #workspaces{
     background-color: transparent;
@@ -46,6 +51,7 @@ window#waybar {
 #custom-power,
 #custom-weather,
 #custom-applauncher,
+#custom-mangolanguage,
 #image,
 #power-profiles-daemon,
 #custom-updates {
@@ -94,6 +100,7 @@ window#waybar {
     border-color: @sky;
 }
 
+#custom-mangolanguage,
 #language {
     color: @mauve;
     border-color: @mauve;

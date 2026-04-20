@@ -53,6 +53,7 @@ vim
 waybar
 wdisplays
 wl-clipboard
+wlr-randr
 xarchiver
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+options=""
+
+(mount | grep /media/NAS/Media &> /dev/null) && options="Unmount NAS/Media" || options="Mount NAS/Media"
+(mount | grep remote: &> /dev/null) && options="${options}\nUnmount GDrive" || options="${options}\nMount GDrive"
+
+choice=$(echo -e "${options}" | fuzzel --dmenu --lines 3 -p "Network Mounter") 
+
+case $choice in
+    "Mount NAS/Media")    mount /media/NAS/Media 2>> ~/mount.log \
+                          && notify-send --app-name="Mounter" "NAS/Media mounted" \
+                          || notify-send --app-name="Mounter" "Could not mount NAS/Media" ;; 
+
+    "Unmount NAS/Media")  umount /media/NAS/Media 2>> ~/mount.log \
+                          && notify-send --app-name="Mounter" "NAS/Media unmounted" \
+                          || notify-send --app-name="Mounter" "Could not unmount NAS/Media" ;;
+
+    "Mount GDrive")       rclone mount remote: ~/GDrive --daemon --vfs-cache-mode full --vfs-refresh --dir-cache-time=5000h &>> ~/mount.log \
+                          && notify-send --app-name="Mounter" "Google Drive mounted" \
+                          || notify-send --app-name="Mounter" "Could not mount Google Drive" ;; 
+
+    "Unmount GDrive")     fusermount -u ~/GDrive &>> ~/mount.log \
+                          && notify-send --app-name="Mounter" "Google Drive unmounted" \
+                          || notify-send --app-name="Mounter" "Could not unmount Google Drive" ;; 
+esac 

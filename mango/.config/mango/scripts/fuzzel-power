@@ -1,0 +1,10 @@
+#!/bin/bash
+
+choice=$(echo -e "󰍃 Log out\n󰤄 Suspend\n󰜉 Reboot\n󰐥 Shut down" | fuzzel --dmenu --lines 4 -p "Power menu" )
+
+case $choice in
+    "󰍃 Log out")    mmsg -q ;;
+    "󰤄 Suspend")    systemctl suspend ;;
+    "󰜉 Reboot")     systemctl reboot ;; 
+    "󰐥 Shut down")  systemctl poweroff ;;
+esac

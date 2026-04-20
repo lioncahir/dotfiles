@@ -8,10 +8,8 @@
 // Modules
     "modules-left": [
         "custom/applauncher",
-        "niri/workspaces",
-        "niri/window",
-        "sway/workspaces",
-        "sway/window"
+        "ext/workspaces",
+        "dwl/window"
     ],
 
     "modules-center": [
@@ -24,8 +22,7 @@
         "cpu",
         "battery",
         "pulseaudio",
-        "sway/language",
-        "niri/language",
+        "custom/mangolanguage",
         "network",
         "bluetooth",
         "power-profiles-daemon",
@@ -33,11 +30,10 @@
     ],
 
 // Modules configuration
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
+  "ext/workspaces": {
         "format": "{icon}",
+        "ignore-hidden": true,
+        "sort-by-id": true,
         "format-icons": {
             "1": "󰎤",
             "2": "󰎧",
@@ -50,37 +46,12 @@
             "9": "󰎼",
             "10": "󰽽"
         }
-    },
+  },
 
-    "niri/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{icon}",
-        "format-icons": {
-            "1": "󰎤",
-            "2": "󰎧",
-            "3": "󰎪",
-            "4": "󰎭",
-            "5": "󰎱",
-            "6": "󰎳",
-            "7": "󰎶",
-            "8": "󰎹",
-            "9": "󰎼",
-            "10": "󰽽"
-        }
-    },
+  "dwl/window": {
+    "format": "[{layout}] {app_id}"
+  },
 
-    "sway/window": {
-        "format": "{app_id}",
-        "tooltip-format": "{name}"
-    },
-    
-    "niri/window": {
-        "format": "{app_id}",
-        "tooltip-format": "{name}"
-    },
-    
     "tray": {
         // "icon-size": 21,
         "spacing": 10
@@ -102,16 +73,6 @@
         "format": " {specific_free:0.0f} GB",
         "unit": "GiB",
         "path": "/"
-    },
-    
-    "sway/language": {
-        "format": " {}",
-        "tooltip-format": "{long}"
-    },
-    
-    "niri/language": {
-        "format": " {short}",
-        "tooltip-format": "{long}"
     },
     
     "battery": {
@@ -207,6 +168,12 @@
         "format" : "{}",
 		"exec": "curl wttr.in/Bratislava?format=\"%c%t+%m\"",
 		"interval": 600
+    },
+    
+    "custom/mangolanguage": {
+        "format": " {}",
+		"exec": "mmsg -k | cut -d ' ' -f3",
+		"interval": 1
     },
     
     "custom/updates": {

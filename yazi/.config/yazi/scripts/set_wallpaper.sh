@@ -10,6 +10,12 @@ case $XDG_SESSION_DESKTOP in
         niri msg action spawn-sh -- "swaybg -m fill -i ~/.wallpaper" 
         sleep 1
         kill "$PID" 2>/dev/null ;;
+    "mango")
+        ln -sf "$1" ~/.wallpaper
+        PID=$(pidof swaybg)
+        mmsg -d spawn,"swaybg -m fill -i ~/.wallpaper"
+        sleep 1
+        kill "$PID" 2>/dev/null ;;
     "i3")       
         feh --bg-scale $1 ;;
     *)  

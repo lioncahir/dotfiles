@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+output=$(mmsg -O | fuzzel --dmenu --lines 4 -p "Select output")
+[ -z "$output" ] && exit 0
+
+action=$(echo -e "Toggle on/off\nChange scale" | fuzzel --dmenu --lines 4 -p "Select action")
+
+case $action in
+    "Toggle on/off")
+            mmsg -d toggle_monitor,$output
+
+            # Sanity check: if no outputs are active after the toggle, re-enable eDP-1
+            sleep 0.3
+            (wlr-randr | grep "Enabled: yes") || mmsg -d enable_monitor,eDP-1
+            ;;
+
+    "Change scale")
+            scale=$(echo -e "1.0\n1.5\n2.0" | fuzzel --dmenu --lines 4 -p "Select scale")
+            [ -z "$scale" ] && exit 0
+            wlr-randr --output $output --scale $scale
+            ;;
+esac

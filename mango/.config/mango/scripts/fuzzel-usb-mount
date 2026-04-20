@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+
+notify() {
+    notify-send --icon "usb" "USB Mounter" "$1"
+}
+
+# --------------------------------------------------------------------
+# Collect all removable devices that contain a filesystem
+# (covers normal partitions, superfloppies, SD cards, etc.)
+# --------------------------------------------------------------------
+
+mapfile -t ALL_DEVS < <(
+    lsblk -rpno NAME,RM,FSTYPE | awk '$2=="1" && $3!="" {print $1}'
+)
+
+[[ ${#ALL_DEVS[@]} -eq 0 ]] && notify "No USB devices found" && exit 0
+
+declare -A PART_INFO
+declare -A DISK_PARTS
+declare -A DISK_MOUNTED
+
+for part in "${ALL_DEVS[@]}"; do
+    eval "$(lsblk -Pno NAME,LABEL,SIZE,PKNAME,MOUNTPOINT "$part")"
+    MOUNT=$MOUNTPOINT
+
+    # Superfloppy: PKNAME is empty, the device is its own parent
+    DISK=$([[ -n "$PKNAME" ]] && echo "/dev/$PKNAME" || echo "$part")
+
+    PART_INFO["$part"]="$NAME|${LABEL:-—}|$SIZE|${MOUNT:-—}|$DISK"
+    DISK_PARTS["$DISK"]+="$part "
+    [[ -n "$MOUNT" ]] && DISK_MOUNTED["$DISK"]=1
+done
+
+# --------------------------------------------------------------------
+# Build fuzzel menu
+# --------------------------------------------------------------------
+
+MENU=()
+
+for part in "${ALL_DEVS[@]}"; do
+    IFS='|' read -r _NAME LABEL SIZE MOUNT DISK <<<"${PART_INFO[$part]}"
+    [[ "$LABEL" == "—" ]] && LABEL="NO_LABEL"
+    ACTION=$([[ "$MOUNT" == "—" ]] && echo "Mount" || echo "Unmount")
+    MENU+=("$ACTION $part ($SIZE $LABEL)")
+done
+
+for disk in "${!DISK_PARTS[@]}"; do
+    [[ -z "${DISK_MOUNTED[$disk]:-}" ]] || continue
+    MENU+=("Eject $disk")
+done
+
+CHOICE="$(printf '%s\n' "${MENU[@]}" | fuzzel --dmenu --prompt='󰕓 USB Mounter')"
+
+[[ -z "$CHOICE" ]] && exit 0
+
+read -r ACTION TARGET DISPLAY <<<"$CHOICE"
+
+# --------------------------------------------------------------------
+# Execute action
+# --------------------------------------------------------------------
+
+case "$ACTION" in
+    Mount)
+        if udisksctl mount -b "$TARGET" >/dev/null; then
+            notify "Mounted $TARGET"
+        else
+            notify "Failed to mount $TARGET"
+        fi
+        ;;
+    Unmount)
+        if udisksctl unmount -b "$TARGET" >/dev/null; then
+            notify "Unmounted $TARGET"
+        else
+            notify "Failed to unmount $TARGET"
+        fi
+        ;;
+    Eject)
+        if udisksctl power-off -b "$TARGET" >/dev/null; then
+            notify "Safely ejected $TARGET"
+        else
+            notify "Failed to eject $TARGET"
+        fi
+        ;;
+esac
