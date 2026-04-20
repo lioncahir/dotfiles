@@ -173,6 +173,7 @@
     "custom/mangolanguage": {
         "format": " {}",
 		"exec": "mmsg -k | cut -d ' ' -f3",
+		"on-click": "mmsg -d switch_keyboard_layout",
 		"interval": 1
     },
     
