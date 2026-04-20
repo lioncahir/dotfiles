@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+FILENAME="$(xdg-user-dir PICTURES)/screenshot_$TIMESTAMP.png"
+
+case "${1:-full}" in
+    full)
+        grim "$FILENAME"
+        ;;
+    area)
+        grim -g "$(slurp)" "$FILENAME"
+        ;;
+esac
+
+# If the file was created, copy it to the clipboard and send a notification
+if [ -f "$FILENAME" ]; then
+    wl-copy < "$FILENAME"
+    notify-send "Screenshot" "Saved to $(basename $FILENAME)" -i "$FILENAME"
+fi   
