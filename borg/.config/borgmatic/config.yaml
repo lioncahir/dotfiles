@@ -8,7 +8,7 @@ repositories:
       label: borgbase
 
 exclude_from:
-    - ${XDG_CONFIG_HOME}/borgmatic/excludes
+    - ${HOME}/.config/borgmatic/excludes
 
 exclude_caches: true
 one_file_system: true
