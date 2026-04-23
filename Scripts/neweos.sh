@@ -5,7 +5,7 @@ options=(\
 "Install and configure i3wm" \
 "Install and configure SwayWM" \
 "Install and configure Niri" \
-"Install and configure MagoWM" \
+"Install and configure MangoWM" \
 "Install Greetd login manager" \
 "Configure Cinnamon DE" \
 "Install printer & scanner (Samsung M2070)" \
@@ -74,13 +74,14 @@ mangowm () {
     ln -s ~/Pictures/endeavour-black-4k.png ~/.wallpaper
     papirus-folders -t Papirus-Dark -C cat-mocha-lavender
     vim +PlugInstall +qall
+    sudo cp ~/.dotfiles/Scripts/eos/waitwinch /usr/local/bin/
 }
 
 greetd () {
     yay -S --needed greetd-tuigreet terminus-font
-    sudo cp ~/.dotfiles/Scripts/regreet/vconsole.conf /etc/
+    sudo cp ~/.dotfiles/Scripts/greetd/vconsole.conf /etc/
     # sudo pacman -S --needed greetd-regreet cage
-    sudo cp ~/.dotfiles/Scripts/regreet/*.toml /etc/greetd/
+    sudo cp ~/.dotfiles/Scripts/greetd/*.toml /etc/greetd/
     sudo systemctl disable lightdm.service
     sudo systemctl enable greetd.service
 }
@@ -106,6 +107,7 @@ bluetooth () {
 }
 
 timers () {
+    sudo pacman -S --needed reflector
     sudo cp ~/.dotfiles/Scripts/eos/paccache.hook /usr/share/libalpm/hooks/
     sudo cp ~/.dotfiles/Scripts/eos/reflector.timer /etc/systemd/system/
     sudo cp ~/.dotfiles/Scripts/eos/reflector.conf /etc/xdg/reflector/reflector.conf
