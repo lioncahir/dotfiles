@@ -26,7 +26,8 @@
         "network",
         "bluetooth",
         "power-profiles-daemon",
-        "tray"
+        "tray",
+        "custom/power"
     ],
 
 // Modules configuration
@@ -149,7 +150,7 @@
     "custom/power": {
         "format" : "⏻",
 		"tooltip": false,
-		"on-click": "fuzzel-power"
+		"on-click": "$HOME/.config/mango/scripts/fuzzel-power"
     },
     
     "custom/applauncher": {
