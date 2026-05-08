@@ -34,7 +34,7 @@ extract () {
            *.tar)       tar xvf $1     ;;
            *.tbz2)      tar xvjf $1    ;;
            *.tgz)       tar xvzf $1    ;;
-           *.zip)       unzip $1       ;;
+           *.zip)       command -v 7z &>/dev/null && 7z x $1 || unzip $1       ;;
            *.Z)         uncompress $1  ;;
            *.7z)        7z x $1        ;;
            *)           echo "don't know how to extract '$1'..." ;;
