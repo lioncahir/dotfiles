@@ -24,7 +24,7 @@ Welcome to my dotfiles. Follow the instructions below to clone the repo and stow
 
 
 
-# Installation of full Sway environment
+# Installation of full Mango environment
 
 This has been tested on EndeavourOS.
 
@@ -48,7 +48,7 @@ This has been tested on EndeavourOS.
    ./neweos.sh
    ``` 
 
-1. Select option *Install and configure SwayWM*
+1. Select option *Install and configure MangoWM*
 1. From `neweos.sh` you can also select other useful options, such as
     - Install GreetD login manager
     - Customize Reflector and Paccache - this will set Reflector to start 10 minutes after boot, every week. It will also add a pacman hook to clear cache after each pacman operation

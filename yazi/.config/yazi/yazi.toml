@@ -13,14 +13,8 @@ edit = [
 	{ run = "~/.config/yazi/scripts/term.sh vim %s1", desc = "Edit", orphan = true },
 	{ run = "bat %s1", desc = "View", block = true },
 ]
-open = [
-	{ run = "xdg-open %s1", desc = "Open in GUI application" },
-]
 image = [
 	{ run = "~/.config/yazi/scripts/view_image.sh %s1", desc = "View image" },
-]
-reveal = [
-	{ run = "xdg-open %d1", desc = "Show in File Manager" },
 ]
 info = [
 	{ run = '''mediainfo %s1; echo "Press enter to exit"; read _''', block = true, desc = "Show media info" },
@@ -31,12 +25,9 @@ wallpaper = [
 
 [open]
 prepend_rules = [
-	{ name = "*/", use = [ "open" ] },
 	{ mime = "text/html",                           use = [ "edit", "open", "reveal" ] },
-	{ mime = "application/wine-extension-ini",      use = [ "edit", "reveal" ] },
 	{ mime = "image/*",                             use = [ "image", "wallpaper", "info", "reveal" ] },
-	{ mime = "{audio,video}/*",                     use = [ "play", "info", "reveal" ] },
-	{ name = "*.epub",                              use = [ "open", "extract", "reveal" ] },
+	{ mime = "application/epub+zip",                use = [ "open", "extract", "reveal" ] },
 ]
 
 [tasks]
@@ -44,11 +35,11 @@ image_bound = [ 6000, 6000 ]
 
 [plugin]
 prepend_fetchers = [
-    # { id = "mime", url = "local://*", run = "mime-ext.local", prio = "high" },
-    { id = "mime", url = "remote://*", run = "mime-ext.remote", prio = "high" },
+    { url = "remote://*", run = "mime-ext.remote", prio = "high", group="mime" },
+    { url = "/media/*", run = "mime-ext.remote", prio = "high", group="mime" },
 ]
 
 prepend_preloaders = [
-    { name = "/home/mirko/GDrive/**", run = "noop" },
+    { url = "/home/mirko/GDrive/*", run = "noop" },
 ]
 
