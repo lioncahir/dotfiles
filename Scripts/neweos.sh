@@ -26,8 +26,8 @@ add_nas () {
 
 i3wm () {
     cd ~/.dotfiles
-    sudo pacman -S --needed - < ~/.dotfiles/i3pkg
-    yay -S --needed - < ~/.dotfiles/i3aur
+    sudo pacman -S --needed - < ~/.dotfiles/i3pkg || return
+    yay -S --needed - < ~/.dotfiles/i3aur || return
     rm ~/.bashrc ~/.bash_profile
     stow -v eos i3 kitty vim yazi bat btop borg mpv starship wallpaper yazi zathura
     ya pkg upgrade
@@ -40,7 +40,7 @@ i3wm () {
 
 swaywm () {
     cd ~/.dotfiles
-    yay -S --needed - < ~/.dotfiles/swaypkg
+    yay -S --needed - < ~/.dotfiles/swaypkg || return
     rm ~/.bashrc ~/.bash_profile
     stow -v eos bat borg btop foot fuzzel mako mpv networkmanager-dmenu starship sway swayimg swaylock vim wallpaper waybar yazi zathura
     ya pkg upgrade
@@ -54,7 +54,7 @@ swaywm () {
 
 niri () {
     cd ~/.dotfiles
-    yay -S --needed - < ~/.dotfiles/niripkg
+    yay -S --needed - < ~/.dotfiles/niripkg || return
     rm ~/.bashrc ~/.bash_profile
     stow -v eos bat borg btop foot fuzzel mako mpv networkmanager-dmenu niri starship swayimg swaylock vim wallpaper waybar yazi zathura
     ya pkg upgrade
@@ -66,7 +66,7 @@ niri () {
 
 mangowm () {
     cd ~/.dotfiles
-    yay -S --needed - < ~/.dotfiles/mangopkg
+    yay -S --needed - < ~/.dotfiles/mangopkg || return
     rm ~/.bashrc ~/.bash_profile
     stow -v eos bat borg btop foot fuzzel mako mango mpv networkmanager-dmenu starship swayimg swaylock vim wallpaper waybar yazi zathura
     ya pkg upgrade
