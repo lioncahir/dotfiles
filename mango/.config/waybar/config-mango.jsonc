@@ -173,8 +173,8 @@
     
     "custom/mangolanguage": {
         "format": " {}",
-		"exec": "mmsg -k | cut -d ' ' -f3",
-		"on-click": "mmsg -d switch_keyboard_layout",
+		"exec": "mmsg get keyboardlayout | jq -r '.layout[0:2] | ascii_downcase'",
+		"on-click": "mmsg dispatch switch_keyboard_layout",
 		"interval": 1
     },
     
