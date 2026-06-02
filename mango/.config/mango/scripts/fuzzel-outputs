@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Which monitor should be switched on if all are disabled:
+default="eDP-1"
+
 output=$(mmsg get all-monitors | jq -r '.monitors[].name' | fuzzel --dmenu --lines 4 -p "Select output")
 [ -z "$output" ] && exit 0
 
@@ -11,7 +14,7 @@ case $action in
 
             # Sanity check: if no outputs are active after the toggle, re-enable eDP-1
             sleep 0.3
-            (wlr-randr | grep "Enabled: yes") || mmsg dispatch enable_monitor,eDP-1
+            (wlr-randr | grep "Enabled: yes") || mmsg dispatch enable_monitor,$default
             ;;
 
     "Change scale")
