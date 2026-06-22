@@ -13,7 +13,7 @@ case $XDG_SESSION_DESKTOP in
     "mango")
         ln -sf "$1" ~/.wallpaper
         PID=$(pidof swaybg)
-        mmsg -d spawn,"swaybg -m fill -i ~/.wallpaper"
+        mmsg dispatch spawn,"swaybg -m fill -i ~/.wallpaper"
         sleep 1
         kill "$PID" 2>/dev/null ;;
     "i3")       
