@@ -168,7 +168,9 @@
     
     "custom/weather": {
         "format" : "{}",
-		"exec": "curl wttr.in/Bratislava?format=\"%c%t\"",
+		"exec": "$HOME/.config/waybar/weather.sh",
+        "return-type": "json",
+        "tooltip": true,
 		"interval": 600
     },
     
