@@ -37,6 +37,7 @@ nwg-look
 otf-font-awesome
 pacman-contrib
 papirus-icon-theme
+pavucontrol
 pcmanfm
 pipewire-pulse
 python-llfuse
@@ -70,5 +71,4 @@ brave-bin
 hunspell-sk
 mangowm
 papirus-folders-catppuccin-git
-pavucontrol-gtk3
 swaylock-effects
