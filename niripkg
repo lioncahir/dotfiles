@@ -25,6 +25,7 @@ jq
 libreoffice-fresh
 lxsession
 mako
+mate-calc
 mediainfo
 mpv
 networkmanager
@@ -65,7 +66,6 @@ yazi
 zathura-pdf-mupdf
 zip
 brave-bin
-gnome-calculator-gtk3
 hunspell-sk
 papirus-folders-catppuccin-git
 pavucontrol-gtk3
