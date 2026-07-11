@@ -8,8 +8,9 @@
 // Modules
     "modules-left": [
         "custom/applauncher",
-        "ext/workspaces",
-        "dwl/window"
+        "mango/workspaces",
+        "mango/layout",
+        "mango/window"
     ],
 
     "modules-center": [
@@ -23,7 +24,7 @@
         "cpu",
         "battery",
         "pulseaudio",
-        "custom/mangolanguage",
+        "mango/language",
         "network",
         "bluetooth",
         "power-profiles-daemon",
@@ -32,10 +33,9 @@
     ],
 
 // Modules configuration
-  "ext/workspaces": {
+    "mango/workspaces": {
         "format": "{icon}",
-        "ignore-hidden": true,
-        "sort-by-id": true,
+        "hide-empty": true,
         "format-icons": {
             "1": "󰎤",
             "2": "󰎧",
@@ -50,12 +50,16 @@
         }
   },
 
-  "dwl/window": {
-    "format": "[{layout}] {app_id}"
-  },
+    "mango/window": {
+        "format": "{app_id}",
+        "icon": true
+    },
+
+    "mango/layout": {
+        "format": "[{}] "
+    },
 
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     
@@ -160,12 +164,6 @@
 		"on-click": "fuzzel"
     },
     
-    "image#eos": {
-        "path": "/usr/share/endeavouros/EndeavourOS-icon.png",
-		"size": 28,
-		"on-click": "fuzzel"
-    },
-    
     "custom/weather": {
         "format" : "{}",
 		"exec": "$HOME/.config/waybar/weather.sh",
@@ -174,9 +172,8 @@
 		"interval": 600
     },
     
-    "custom/mangolanguage": {
-		"exec": "mmsg watch keyboardlayout | jq --unbuffered -r '.layout[0:2] | ascii_downcase'",
-        "format": " {}",
+    "mango/language": {
+        "format": " {short}",
 		"on-click": "mmsg dispatch switch_keyboard_layout"
     },
     
