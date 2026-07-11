@@ -30,6 +30,11 @@ window#waybar {
     color: @peach;
 }
 
+#layout {
+    font-size: 17px;
+    color: @primary;
+}
+
 #clock,
 #workspaces{
     background-color: transparent;
