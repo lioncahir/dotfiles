@@ -22,9 +22,13 @@ info = [
 wallpaper = [
 	{ run = "~/.config/yazi/scripts/set_wallpaper.sh %s1", desc = "Set as wallpaper" },
 ]
+bulk-rename = [
+	{ run = "vim %s", block = true },
+]
 
 [open]
 prepend_rules = [
+	{ url = "bulk-rename.txt",                      use = [ "bulk-rename" ] },
 	{ mime = "text/html",                           use = [ "edit", "open", "reveal" ] },
 	{ mime = "image/*",                             use = [ "image", "wallpaper", "info", "reveal" ] },
 	{ mime = "application/epub+zip",                use = [ "open", "extract", "reveal" ] },
