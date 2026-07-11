@@ -56,7 +56,9 @@
     },
 
     "mango/layout": {
-        "format": "[{}] "
+//        "format": "｢{}｣ "
+//        "format": "〔{}〕 "
+        "format": "【{}】 "
     },
 
     "tray": {
