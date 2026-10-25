@@ -20,7 +20,7 @@ keep_within: 3m
 log_file: NASBackup.log
 log_file_format: '[{asctime}] {message}'
 list_details: true
-statistics: true
+statistics: standard
 
 commands:
     - before: repository
