@@ -131,7 +131,7 @@ fi
 # replace ls with eza of installed
 if command -v eza &> /dev/null
 then
-    alias ls='eza -lg --group-directories-first --sort=ext --icons'
+    alias ls='eza -lg --group-directories-first --sort=ext --icons=auto' 
 fi
 
 # aliases for Borg repos
